@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bgup"
+    tools:context=".activity.NovaTelaInicialActivity">
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="wrap_content"
+        android:layout_height="28dp"
+        android:src="@drawable/rodape"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="28dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/rodape2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.654" />
+
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.5"
+        android:src="@drawable/logo1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btn_goto_site"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/fundo_botao_redondo_escuro_50"
+        android:fontFamily="@font/simplifica2"
+        android:padding="18dp"
+        android:text="Shop Online"
+        android:textColor="@color/browser_actions_bg_grey"
+        android:textSize="28sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+
+    <Button
+        android:id="@+id/btnWpp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/fundo_botao_redondo_escuro_50"
+        android:fontFamily="@font/simplifica2"
+        android:padding="18dp"
+        android:text="Whatsapp"
+        android:textColor="@color/browser_actions_bg_grey"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btn_goto_site" />
+
+    <Button
+        android:id="@+id/bntInsta"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/fundo_botao_redondo_escuro_50"
+        android:fontFamily="@font/simplifica2"
+        android:padding="18dp"
+        android:text="instagram"
+        android:textColor="@color/browser_actions_bg_grey"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="@+id/btn_goto_site"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btn_goto_site"
+        app:layout_constraintTop_toBottomOf="@+id/btn_goto_site" />
+
+    <Button
+        android:id="@+id/btnCupons"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/fundo_botao_redondo_escuro_50"
+        android:fontFamily="@font/simplifica2"
+        android:padding="18dp"
+        android:text="Cards &amp; Cupons"
+        android:textColor="@color/browser_actions_bg_grey"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="@+id/btnWpp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btnWpp"
+        app:layout_constraintTop_toBottomOf="@+id/btnWpp" />
+
+    <Button
+        android:id="@+id/btnMarcadordevida"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/fundo_botao_redondo_escuro_50"
+        android:fontFamily="@font/simplifica2"
+        android:padding="18dp"
+        android:text="Contador de Vida"
+        android:textColor="@color/browser_actions_bg_grey"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="@+id/bntInsta"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/bntInsta"
+        app:layout_constraintTop_toBottomOf="@+id/btnCupons" />
+
+    <Button
+        android:id="@+id/btnCofig"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/fundo_botao_redondo_escuro_50"
+        android:fontFamily="@font/simplifica2"
+        android:padding="18dp"
+        android:text="Config"
+        android:textColor="@color/browser_actions_bg_grey"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="@+id/btnCupons"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btnCupons"
+        app:layout_constraintTop_toBottomOf="@+id/btnCupons" />
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="12dp"
+        app:adSize="BANNER"
+        app:adUnitId="@string/banner_ad_unit_id"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnMarcadordevida" />
+
+    <TextView
+        android:id="@+id/txt_version_config"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/simplifica2"
+        android:text="TextView"
+        android:textColor="@color/textColorConfig"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

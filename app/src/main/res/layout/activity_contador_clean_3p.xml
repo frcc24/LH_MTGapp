@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/black"
+    android:layout_weight="0.02"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/lo_menu"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal"
+        android:gravity="center_vertical|center_horizontal"
+        android:background="@color/browser_actions_divider_color"
+        android:layout_weight=".005" >
+
+        <ImageButton
+            android:id="@+id/imageButton_restart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".1"
+            android:alpha="0.7"
+            android:background="@null"
+            android:gravity="center_vertical|center_horizontal"
+            app:srcCompat="@drawable/ic_action_reload" />
+
+        <ImageButton
+            android:id="@+id/imageButton_dados"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:alpha="0.9"
+            android:layout_weight=".1"
+            android:background="@null"
+            android:gravity="center_vertical|center_horizontal"
+            app:srcCompat="@drawable/ic_action_dice" />
+
+        <ImageButton
+            android:id="@+id/imageButton_config"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0.9"
+            android:layout_weight=".1"
+            android:background="@null"
+            android:gravity="center_vertical|center_horizontal"
+            app:srcCompat="@drawable/ic_action_settings" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="0.1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/lo_p1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="top"
+            android:layout_weight=".1"
+            android:background="@drawable/fundo_botao_redondo_p1"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:layout_weight=".1"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/bt_p1_mais1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="+1"
+                    android:textStyle="bold"
+                    android:textColor="@color/transpatente2"
+
+                    android:fontFamily="@font/simplifica"
+                    android:textSize="18dp"
+                    android:background="@drawable/fundo_botao_redondo_escuro_10"
+                    android:layout_weight=".1"
+                    android:elevation="1dp"
+                    android:gravity="center_vertical|center_horizontal"
+                    />
+
+                <Button
+                    android:id="@+id/bt_p1_menos1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="-1"
+                    android:textColor="@color/transpatente2"
+                    android:background="@drawable/fundo_botao_redondo_escuro_10"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/simplifica"
+                    android:layout_weight=".1"
+                    android:gravity="center_vertical|center_horizontal"
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lo_pontuacao_p1"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:layout_weight=".04"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:layout_weight=".2"
+                    android:gravity="center_vertical|center_horizontal"
+                    />
+
+                <TextView
+                    android:id="@+id/txt_valor_mod_p1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".2"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="-1"
+                    android:fontFamily="@font/simplifica"
+                    android:textColor="@color/branco100"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/pontuacao_p1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="20"
+                    android:textSize="100dp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/simplifica"
+                    android:textColor="@color/branco100"
+                    android:layout_weight=".02"
+                    android:gravity="center_vertical|center_horizontal"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Player 1"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/simplifica"
+                    android:textColor="@color/branco100"
+                    android:layout_weight=".2"
+                    android:gravity="center_vertical|center_horizontal"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:textSize="5dp"
+                    android:textStyle="bold"
+                    android:layout_weight=".2"
+                    android:gravity="center_vertical|center_horizontal"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:orientation="vertical"
+                android:layout_weight=".1" >
+
+                <Button
+                    android:id="@+id/bt_p1_mais5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="+5"
+                    android:textColor="@color/transpatente2"
+                    android:textSize="18dp"
+                    android:background="@drawable/fundo_botao_redondo_escuro_10"
+                    android:elevation="2dp"
+                    android:textStyle="bold"
+                    android:layout_weight=".1"
+                    android:fontFamily="@font/simplifica"
+                    android:gravity="center_vertical|center_horizontal"
+                    />
+
+                <Button
+                    android:id="@+id/bt_p1_menos5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="-5"
+                    android:textColor="@color/transpatente2"
+                    android:textSize="18dp"
+                    android:background="@drawable/fundo_botao_redondo_escuro_10"
+                    android:layout_weight=".1"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/simplifica"
+                    android:gravity="center_vertical|center_horizontal"
+                    />
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/lo_p2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="top"
+            android:layout_weight=".1"
+            android:background="@drawable/fundo_botao_redondo_p2"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:layout_weight=".1"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/bt_p2_mais1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="+1"
+                    android:textColor="@color/transpatente2"
+                    android:textSize="18dp"
+                    android:background="@drawable/fundo_botao_redondo_escuro_10"
+                    android:layout_weight=".1"
+                    android:textStyle="bold"
+                    android:elevation="1dp"
+                    android:fontFamily="@font/simplifica"
+                    android:gravity="center_vertical|center_horizontal"
+                    />
+
+                <Button
+                    android:id="@+id/bt_p2_menos1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="-1"
+                    android:textColor="@color/transpatente2"
+                    android:background="@drawable/fundo_botao_redondo_escuro_10"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/simplifica"
+                    android:layout_weight=".1"
+                    android:gravity="center_vertical|center_horizontal"
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lo_pontuacao_p2"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:layout_weight=".04"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:layout_weight=".2"
+                    android:gravity="center_vertical|center_horizontal"
+                    />
+
+                <TextView
+                    android:id="@+id/txt_valor_mod_p2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="-1"
+                    android:fontFamily="@font/simplifica"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/branco100"
+                    android:layout_weight=".2"
+                    android:gravity="center_vertical|center_horizontal"
+                    />
+
+                <TextView
+                    android:id="@+id/pontuacao_p2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="20"
+                    android:textSize="100sp"
+                    android:textStyle="bold"
+                    android:shadowRadius="50"
+                    android:fontFamily="@font/simplifica"
+                    android:textColor="@color/branco100"
+                    android:layout_weight=".02"
+                    android:gravity="center_vertical|center_horizontal"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Player 2"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/simplifica"
+                    android:textColor="@color/branco100"
+                    android:layout_weight=".2"
+                    android:gravity="center_vertical|center_horizontal"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:textSize="5dp"
+                    android:textStyle="bold"
+                    android:layout_weight=".2"
+                    android:gravity="center_vertical|center_horizontal"
+                    />
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:orientation="vertical"
+                android:layout_weight=".1" >
+
+                <Button
+                    android:id="@+id/bt_p2_mais5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="+5"
+                    android:fontFamily="@font/simplifica"
+                    android:textColor="@color/transpatente2"
+                    android:textSize="18dp"
+                    android:background="@drawable/fundo_botao_redondo_escuro_10"
+                    android:elevation="2dp"
+                    android:textStyle="bold"
+                    android:layout_weight=".1"
+                    android:gravity="center_vertical|center_horizontal"
+                    />
+
+                <Button
+                    android:id="@+id/bt_p2_menos5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="-5"
+                    android:textColor="@color/transpatente2"
+                    android:textSize="18dp"
+                    android:background="@drawable/fundo_botao_redondo_escuro_10"
+                    android:layout_weight=".1"
+                    android:textStyle="bold"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:fontFamily="@font/simplifica"
+                    />
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/lo_p3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="top"
+            android:layout_weight=".1"
+            android:background="@drawable/fundo_botao_redondo_p3"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:layout_weight=".1"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/bt_p3_mais1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="+1"
+                    android:textColor="@color/transpatente2"
+                    android:textSize="18dp"
+                    android:background="@drawable/fundo_botao_redondo_escuro_10"
+                    android:layout_weight=".1"
+                    android:textStyle="bold"
+                    android:elevation="1dp"
+                    android:fontFamily="@font/simplifica"
+                    android:gravity="center_vertical|center_horizontal"
+                    />
+
+                <Button
+                    android:id="@+id/bt_p3_menos1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="-1"
+                    android:textColor="@color/transpatente2"
+                    android:background="@drawable/fundo_botao_redondo_escuro_10"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/simplifica"
+                    android:layout_weight=".1"
+                    android:gravity="center_vertical|center_horizontal"
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lo_pontuacao_p3"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:layout_weight=".04"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:layout_weight=".2"
+                    android:gravity="center_vertical|center_horizontal"
+                    />
+
+                <TextView
+                    android:id="@+id/txt_valor_mod_p3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="-1"
+                    android:fontFamily="@font/simplifica"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/branco100"
+                    android:layout_weight=".2"
+                    android:gravity="center_vertical|center_horizontal"
+                    />
+
+                <TextView
+                    android:id="@+id/pontuacao_p3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="20"
+                    android:textSize="100sp"
+                    android:textStyle="bold"
+                    android:shadowRadius="50"
+                    android:fontFamily="@font/simplifica"
+                    android:textColor="@color/branco100"
+                    android:layout_weight=".02"
+                    android:gravity="center_vertical|center_horizontal"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Player 3"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/simplifica"
+                    android:textColor="@color/branco100"
+                    android:layout_weight=".2"
+                    android:gravity="center_vertical|center_horizontal"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:textSize="5dp"
+                    android:textStyle="bold"
+                    android:layout_weight=".2"
+                    android:gravity="center_vertical|center_horizontal"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:orientation="vertical"
+                android:layout_weight=".1" >
+
+                <Button
+                    android:id="@+id/bt_p3_mais5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="+5"
+                    android:fontFamily="@font/simplifica"
+                    android:textColor="@color/transpatente2"
+                    android:textSize="18dp"
+                    android:background="@drawable/fundo_botao_redondo_escuro_10"
+                    android:elevation="2dp"
+                    android:textStyle="bold"
+                    android:layout_weight=".1"
+                    android:gravity="center_vertical|center_horizontal"
+                    />
+
+                <Button
+                    android:id="@+id/bt_p3_menos5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="-5"
+                    android:textColor="@color/transpatente2"
+                    android:textSize="18dp"
+                    android:background="@drawable/fundo_botao_redondo_escuro_10"
+                    android:layout_weight=".1"
+                    android:textStyle="bold"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:fontFamily="@font/simplifica"
+                    />
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

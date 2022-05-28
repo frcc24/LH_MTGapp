@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="titulo_rolagem_dados">Dice Rolling</string>
+    <string name="voltar">Back</string>
+    <string name="resultado_dados">Result of the dice of</string>
+    <string name="lados">sides</string>
+    <string name="_2_jogadores">2 Players</string>
+    <string name="_3_jogadores">3 Players</string>
+    <string name="configuraces">Settings</string>
+    <string name="consulta_cards">Check Cards</string>
+    <string name="exibir_contador_de_energia">Show Counters</string>
+    <string name="exibir_contador_de_veneno">Show Poison Counter</string>
+    <string name="exibir_dado">Show Dice</string>
+    <string name="hp_inicial">Starting HP</string>
+    <string name="idioma">Language</string>
+    <string name="mana_base_calculator">Mana Base Calculator</string>
+    <string name="versao">Version</string>
+    <string name="buscando_preco">Searching Prices...</string>
+    <string name="ver_card_no_site">View card on Wizards</string>
+    <string name="artist">Artist:</string>
+    <string name="mana">Mana:</string>
+    <string name="erro_cca01">Error searching card. [CCA-01]</string>
+    <string name="erro_cca02">No cards found. [CCA-02]</string>
+    <string name="pesquisa">Search</string>
+    <string name="consulte_um_card">Type a card name</string>
+    <string name="pesquisar">Search</string>
+    <string name="erro_DDC05">Error downloading card image. [DDC-05]</string>
+    <string name="preco">Price on Lighthouse: from: R$</string>
+    <string name="erro_ddc01">Price on Lighthouse not found. [DDC-01]</string>
+    <string name="erro_ddc02">Price Lighthouse not found. [DDC-02]</string>
+    <string name="calcular">Calculate</string>
+    <string name="limpar">Clear</string>
+    <string name="conte_todos_os_simbolos_de_mana_do_seu_deck">Count every mana symbol on your deck</string>
+    <string name="n_de_mana_verdes">Nº of green mana</string>
+    <string name="n_de_mana_vermelhas">Nº of red mana </string>
+    <string name="n_de_mana_pretas">Nº of black mana</string>
+    <string name="n_de_mana_azuis">Nº of blue mana</string>
+    <string name="n_de_mana_brancas">Nº of white mana</string>
+    <string name="total_de_terrenos_no_deck">Total number of lands in the deck</string>
+    <string name="total_de_terrenos_desejados_no_deck">Total lands in the deck</string>
+    <string name="ate">to: R$</string>
+    <string name="adMob_id">ca-app-pub-7357171440518292~8329648137</string>
+    <string name="creditos">Credits</string>
+    <string name="txt_sugestoes">" This app is being developed by me (Franco), and I need everyone's help to improve and correct errors. Soon I will make available a page giving credit of images, sounds, and anyone else who has helped in the development of the application."</string>
+    <string name="txt_sugestoes1">Suggestions for improvement, complaints and contact, send e-mail to frcc24@gmail.com</string>
+    <string name="txt_sugestoes2">Donations:</string>
+    <string name="dos">Of</string>
+    <string name="terrenos">lands</string>
+    <string name="numTerrenos">Number of Lands</string>
+    <string name="terrenosAzuis">"Blue lands = "</string>
+    <string name="terrenosBrancos">"White lands = "</string>
+    <string name="terrenosPretos">"Black lands = "</string>
+    <string name="terrenosVerdes">"Green lands = "</string>
+    <string name="terrenosVermelhos">"Red Lands = "</string>
+    <string name="confirmacaoAlerta">Reset HP?</string>
+    <string name="restart">Reset</string>
+    <string name="sim">Yes</string>
+    <string name="nao">No</string>
+</resources>

@@ -1,0 +1,67 @@
+<resources>
+    <string name="app_name" translatable="false">Lighthouse MTG</string>
+    <string name="adMob_id">ca-app-pub-7357171440518292~8329648137</string>
+    <string name="titulo_rolagem_dados">Rolagem de dados</string>
+    <string name="voltar">Voltar</string>
+    <string name="resultado_dados">Resultado do dado de</string>
+    <string name="lados">lados</string>
+    <string name="versao">Versão</string>
+    <string name="configuraces">Ajustes</string>
+    <string name="hp_inicial">HP Inicial</string>
+    <string name="txt_sugestoes">Este aplicativo está sendo desenvolvido por mim (Franco), e preciso da ajuda de todos para melhorar e corrigir os erros.</string>
+    <string name="txt_sugestoes1">Sugestões de melhoria, reclamações e contato, enviar e-mail para frcc24@gmail.com</string>
+    <string name="txt_sugestoes2">Doações:</string>
+    <string name="mana_base_calculator">Mana Base Calculator</string>
+    <string name="consulta_cards">Consulta Cards</string>
+    <string name="creditos">Creditos</string>
+    <string name="_2_jogadores">2 Jogadores</string>
+    <string name="_3_jogadores">3 Jogadores</string>
+    <string name="exibir_contador_de_energia">Exibir Contadores</string>
+    <string name="exibir_contador_de_veneno">Exibir Contador de Veneno</string>
+    <string name="exibir_dado">Exibir Dado</string>
+    <string name="idioma">Idioma</string>
+    <string name="buscando_preco">Buscando Preço...</string>
+    <string name="ver_card_no_site">Ver card no site Wizards</string>
+    <string name="artist">Artista:</string>
+    <string name="mana">Mana:</string>
+    <string name="erro_cca01">Erro na busca do card. [CCA-01]</string>
+    <string name="erro_cca02">Nenhum card encontrado. [CCA-02]</string>
+    <string name="pesquisa">Pesquisa</string>
+    <string name="consulte_um_card">consulte um card</string>
+    <string name="pesquisar">Pesquisar</string>
+    <string name="erro_DDC05">Erro no download da imagem. [DDC-05]</string>
+    <string name="preco">Preço Lighthouse: R$</string>
+    <string name="erro_ddc01">Preço Lighthouse não encontrado. [DDC-01]</string>
+    <string name="erro_ddc02">Preço Lighthouse não encontrado. [DDC-02]</string>
+    <string name="calcular">Calcular</string>
+    <string name="limpar">Limpar</string>
+    <string name="conte_todos_os_simbolos_de_mana_do_seu_deck">Conte todos os simbolos de mana do seu deck</string>
+    <string name="n_de_mana_verdes">Nº de mana verdes</string>
+    <string name="n_de_mana_vermelhas">Nº de mana vermelhas</string>
+    <string name="n_de_mana_pretas">Nº de mana pretas</string>
+    <string name="n_de_mana_azuis">Nº de mana azuis</string>
+    <string name="n_de_mana_brancas">Nº de mana brancas</string>
+    <string name="total_de_terrenos_no_deck">Total de terrenos no deck</string>
+    <string name="total_de_terrenos_desejados_no_deck">Total de terrenos desejados no deck</string>
+    <string name="ate">ate: R$</string>
+
+    <string name="title_activity_contador_novo" translatable="false">ContadorNovoActivity</string>
+    <string name="dummy_button" translatable="false">Dummy Button</string>
+    <string name="dummy_content" translatable="false">DUMMY\nCONTENT</string>
+    <string name="dos">Dos</string>
+    <string name="terrenos">terrenos</string>
+    <string name="terrenosBrancos">Terrenos brancos =</string>
+    <string name="terrenosAzuis">Terrenos azuis =</string>
+    <string name="terrenosPretos">Terrenos pretos =</string>
+    <string name="terrenosVermelhos">Terrenos vermelhos =</string>
+    <string name="terrenosVerdes">Terrenos verdes =</string>
+    <string name="numTerrenos">Numero de terrenos!</string>
+    <string name="confirmacaoAlerta">Reiniciar HP?</string>
+    <string name="restart">Reiniciar</string>
+    <string name="nao">Não</string>
+    <string name="sim">Sim</string>
+    <string name="banner_ad_unit_id" translatable="false">ca-app-pub-7357171440518292/3835869359</string>
+    <string name="title_activity_contador_tablet2_p" translatable="false">ContadorTablet2PActivity</string>
+
+
+</resources>

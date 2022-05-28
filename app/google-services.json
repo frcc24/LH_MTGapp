@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "667183119653",
+    "firebase_url": "https://mtg-life-counter-580ea.firebaseio.com",
+    "project_id": "mtg-life-counter-580ea",
+    "storage_bucket": "mtg-life-counter-580ea.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:667183119653:android:5a6274f39b5ebe83",
+        "android_client_info": {
+          "package_name": "com.francocorrea.magiccounter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "667183119653-ehdsqk9f0sof5mn0e6r2tabqoaekn3c2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXKenEUASfqPn1mYEXVG2SNFPfeHOskWU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "667183119653-ehdsqk9f0sof5mn0e6r2tabqoaekn3c2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

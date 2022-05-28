@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="adMob_id">ca-app-pub-7357171440518292~8329648137</string>
+    <string name="titulo_rolagem_dados">Rollo de datos</string>
+    <string name="voltar">Regreso</string>
+    <string name="resultado_dados">Resultado del dato de</string>
+    <string name="lados">lados</string>
+    <string name="versao">Versión</string>
+    <string name="configuraces">Ajustes</string>
+    <string name="hp_inicial">HP Inicial</string>
+    <string name="mana_base_calculator">Calculadora de base de mana</string>
+    <string name="consulta_cards">Tarjetas de consulta</string>
+    <string name="_2_jogadores">2 jugadores</string>
+    <string name="_3_jogadores">3 jugadores</string>
+    <string name="exibir_contador_de_energia">Ver Contadores</string>
+    <string name="exibir_contador_de_veneno">Ver Contador de Veneno</string>
+    <string name="exibir_dado">Mostrar dato</string>
+    <string name="idioma">Idioma</string>
+    <string name="buscando_preco">Buscar precio ...</string>
+    <string name="ver_card_no_site">Ver la tarjeta en el sitio Wizards</string>
+    <string name="artist">Artista:</string>
+    <string name="mana">Mana:</string>
+    <string name="erro_cca01">Error en la búsqueda de la carta. [CCA-01]</string>
+    <string name="erro_cca02">Ninguna card encontrada. [CCA-02]</string>
+    <string name="pesquisa">Pesquisa</string>
+    <string name="consulte_um_card">consulte um card</string>
+    <string name="pesquisar">Pesquisar</string>
+    <string name="erro_DDC05">Error al descargar la imagen. [DDC-05]</string>
+    <string name="preco">Precio Lighthouse: R$</string>
+    <string name="erro_ddc01">Precio Lighthouse não encontrado. [DDC-01]</string>
+    <string name="erro_ddc02">Precio Lighthouse não encontrado. [DDC-02]</string>
+    <string name="calcular">Calcular</string>
+    <string name="limpar">Limpar</string>
+    <string name="conte_todos_os_simbolos_de_mana_do_seu_deck">Conte todos os simbolos de mana do seu deck</string>
+    <string name="n_de_mana_verdes">Nº de mana verdes</string>
+    <string name="n_de_mana_vermelhas">Nº de mana vermelhas</string>
+    <string name="n_de_mana_pretas">Nº de mana pretas</string>
+    <string name="n_de_mana_azuis">Nº de mana azuis</string>
+    <string name="n_de_mana_brancas">Nº de mana brancas</string>
+    <string name="total_de_terrenos_no_deck">Total de terrenos no deck</string>
+    <string name="total_de_terrenos_desejados_no_deck">Total de terrenos desejados no deck</string>
+    <string name="ate">ate: R$</string>
+    <string name="creditos">Creditos</string>
+    <string name="txt_sugestoes">Esta aplicación está siendo desarrollada por mí (Franco), y necesito la ayuda de todos para mejorar y corregir errores. Pronto pondré a disposición una página que acredite imágenes, sonidos y cualquier otra persona que haya ayudado en el desarrollo de la aplicación.</string>
+    <string name="txt_sugestoes1">Sugerencias de mejora, quejas y contacto, envíe un correo electrónico a frcc24@gmail.com</string>
+    <string name="txt_sugestoes2">Donaciones:</string>
+    <string name="dos">Dos</string>
+    <string name="terrenos">tierra</string>
+    <string name="terrenosAzuis">"Tierras azules = "</string>
+    <string name="numTerrenos">Número de tierra</string>
+    <string name="terrenosBrancos">Tierra blanca =</string>
+    <string name="terrenosPretos">Tierras negras =</string>
+    <string name="terrenosVerdes">" Tierras verdes ="</string>
+    <string name="terrenosVermelhos">Tierras Rojas =</string>
+    <string name="confirmacaoAlerta">" ¿Desea restablecer HP?"</string>
+    <string name="restart">Reiniciar</string>
+    <string name="sim">Si</string>
+    <string name="nao">No</string>
+</resources>

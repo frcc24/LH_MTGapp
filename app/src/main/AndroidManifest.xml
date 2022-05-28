@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.francocorrea.magiccounter">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:usesCleartextTraffic="true"
+        android:allowBackup="true"
+        android:fullBackupContent="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/logo"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".activity.NovaTelaInicialActivity"></activity>
+        <activity
+            android:name=".activity.ContadorClean3PActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize|locale"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.ContadorClean2PActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_contador_novo"
+            android:screenOrientation="landscape"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".activity.SugestoesActivity"
+            android:configChanges="locale|orientation"
+            android:screenOrientation="landscape" />
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-7357171440518292~8329648137" />
+
+        <activity
+            android:name=".activity.MainActivity"
+            android:configChanges="locale|orientation"
+            android:screenOrientation="landscape"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.ConfigActivity"
+            android:configChanges="locale|orientation"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.ConsultaCardsActivity"
+            android:configChanges="locale|orientation"/>
+        <activity
+            android:name=".activity.DetalheDoCardActivity"
+            android:configChanges="locale|orientation" />
+        <activity
+            android:name=".activity.ManaBaseCalculatorActivity"
+            android:configChanges="locale|orientation" />
+    </application>
+    <queries>
+        <package android:name="com.whatsapp" />
+        <package android:name="com.whatsapp" />
+    </queries>
+</manifest>

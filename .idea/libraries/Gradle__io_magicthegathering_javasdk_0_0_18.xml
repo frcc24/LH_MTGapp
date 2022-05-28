@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: io.magicthegathering:javasdk:0.0.18">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.magicthegathering/javasdk/0.0.18/2e9c2630a6da69d86835369d079759f83eecaa79/javasdk-0.0.18.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.magicthegathering/javasdk/0.0.18/8838ce382b1d2ba63771e95371f6a33b48f3c2cf/javasdk-0.0.18-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.magicthegathering/javasdk/0.0.18/2bf13b3db9b0a1e98f9e3b96df158ef987171011/javasdk-0.0.18-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

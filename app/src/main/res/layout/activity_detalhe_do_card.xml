@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.DetalheDoCardActivity"
+    android:background="@drawable/bgdark">
+
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:src="@drawable/rodape"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:src="@drawable/rodape2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+<ProgressBar
+        android:id="@+id/progress_bar_card_image"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:elevation="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_card_img"
+        app:layout_constraintEnd_toEndOf="@+id/iv_card_img"
+        app:layout_constraintStart_toStartOf="@+id/iv_card_img"
+        app:layout_constraintTop_toTopOf="@+id/iv_card_img" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar_price"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:elevation="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/txt_card_flavor_det"
+        app:layout_constraintStart_toEndOf="@+id/txt_maior_preco_det" />
+
+
+    <ImageView
+        android:id="@+id/iv_card_img"
+        android:layout_width="192dp"
+        android:layout_height="264dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/color_p1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_card_text_det"
+        app:srcCompat="@drawable/card_back" />
+
+    <TextView
+        android:id="@+id/txt_card_name_det"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/simplifica2"
+        android:gravity="center_horizontal"
+        android:paddingBottom="5dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@color/branco100"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_card_text_det"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="@font/simplifica2"
+        android:text="TextView"
+        android:textColor="@color/textColorConfig"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/txt_mana_cost_det"
+        app:layout_constraintTop_toBottomOf="@+id/txt_mana_cost_det" />
+
+    <TextView
+        android:id="@+id/txt_card_flavor_det"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/simplifica2"
+        android:text="TextView"
+        android:textColor="@color/textColorConfig"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toTopOf="@+id/txt_card_artist_det"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/txt_menor_preco_det" />
+
+    <TextView
+        android:id="@+id/txt_card_artist_det"
+        android:layout_width="0dp"
+        android:layout_height="13dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="30dp"
+        android:fontFamily="@font/simplifica2"
+        android:text="TextView"
+        android:textColor="@color/textColorConfig"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/txt_menor_preco_det" />
+
+    <TextView
+        android:id="@+id/txt_mana_cost_det"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/simplifica2"
+        android:text="TextView"
+        android:textColor="@color/textColorConfig"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_tipo_det" />
+
+    <LinearLayout
+        android:id="@+id/layout_mana_symbols"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_mana_cost_det"
+        app:layout_constraintStart_toEndOf="@+id/txt_mana_cost_det"
+        app:layout_constraintTop_toTopOf="@+id/txt_mana_cost_det">
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/txt_tipo_det"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/simplifica2"
+        android:text="TextView"
+        android:textColor="@color/textColorConfig"
+        app:layout_constraintStart_toStartOf="@+id/txt_mana_cost_det"
+        app:layout_constraintTop_toBottomOf="@+id/txt_card_name_det" />
+
+    <TextView
+        android:id="@+id/txt_poder_det"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/simplifica2"
+        android:text="TextView"
+        android:textColor="@color/textColorConfig"
+        app:layout_constraintStart_toEndOf="@+id/txt_tipo_det"
+        app:layout_constraintTop_toBottomOf="@+id/txt_card_name_det" />
+
+    <Button
+        android:fontFamily="@font/simplifica2"
+        android:textColor="@color/textColorConfig"
+        android:id="@+id/bt_busca_precos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="24dp"
+        android:text="Preço Ligamagic"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/txt_card_flavor_det"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:fontFamily="@font/simplifica2"
+        android:textColor="@color/textColorConfig"
+        android:id="@+id/txt_menor_preco_det"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:textSize="24sp"
+        android:layout_marginBottom="24dp"
+        android:text="@string/buscando_preco"
+        app:layout_constraintBottom_toTopOf="@+id/txt_card_flavor_det"
+        app:layout_constraintStart_toEndOf="@+id/bt_busca_precos"
+        android:layout_marginLeft="24dp" />
+
+    <TextView
+        android:fontFamily="@font/simplifica"
+        android:textColor="@color/textColorConfig"
+        android:id="@+id/txt_maior_preco_det"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/txt_menor_preco_det"
+        app:layout_constraintStart_toEndOf="@+id/txt_menor_preco_det" />
+
+    <Button
+        android:id="@+id/bt_ver_no_site"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/fundo_botao_redondo_escuro_10"
+        android:fontFamily="@font/simplifica"
+        android:text="@string/ver_card_no_site"
+        android:textColor="@color/textColorConfig"
+        app:layout_constraintEnd_toEndOf="@+id/iv_card_img"
+        app:layout_constraintStart_toStartOf="@+id/iv_card_img"
+        app:layout_constraintTop_toBottomOf="@+id/iv_card_img" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

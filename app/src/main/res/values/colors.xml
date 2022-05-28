@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#535151</color>
+    <color name="colorAccent">#CBFD000D</color>
+
+
+    <color name="transpatente">#17000000</color>
+    <color name="transpatenteRed">#51DD0000</color>
+    <color name="transpatente50">#2D000000</color>
+    <color name="transpatente2">#BEFFFFFF</color>
+
+    <color name="color_p1">#CBFD000D</color>
+    <color name="color_p2">#BE282B32</color>
+    <color name="color_p3">#00897B</color>
+
+
+    <color name="color_mais1">#8BC34A</color>
+    <color name="color_mais5">#2e7d32</color>
+
+    <color name="color_menos1">#FF9800</color>
+    <color name="color_menos5">#b71c1c</color>
+    <color name="branco100">#FFFFFF</color>
+    <color name="textColorConfig">#C4FFFFFF</color>
+
+    <color name="black_overlay">#66000000</color>
+
+
+</resources>
