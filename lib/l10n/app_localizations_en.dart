@@ -550,7 +550,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get creditsBody =>
-      'Card data and images: Scryfall. Fonts: Big Shoulders Display and Instrument Sans (SIL OFL). Icons: Font Awesome.';
+      'Card data, images and mana symbols: Scryfall. Fonts: Big Shoulders Display and Instrument Sans (SIL OFL). Icons: Font Awesome.';
 
   @override
   String get proName => 'Lighthouse Pro';

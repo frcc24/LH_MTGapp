@@ -13,7 +13,7 @@ import '../../l10n/app_localizations.dart';
 import '../../shared/widgets/mana_token.dart';
 import 'scryfall.dart';
 
-/// Símbolos de custo ({2}{G}{G}) como ManaTokens.
+/// Custo da carta ({2}{G}{G}) em símbolos de mana de verdade.
 class ManaCost extends StatelessWidget {
   const ManaCost(this.cost, {super.key, this.size = 20});
   final String cost;
@@ -22,17 +22,7 @@ class ManaCost extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final symbols = RegExp(r'\{([^}]+)\}').allMatches(cost).map((m) => m.group(1)!).toList();
-    return Wrap(
-      spacing: 3,
-      children: [
-        for (final s in symbols)
-          () {
-            final color = ManaColor.values.where((c) => c.symbol == s).firstOrNull;
-            if (color != null) return ManaToken(color, size: size);
-            return GenericManaToken(s, size: size);
-          }(),
-      ],
-    );
+    return Wrap(spacing: 3, children: [for (final s in symbols) ManaSymbol(s, size: size)]);
   }
 }
 

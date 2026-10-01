@@ -22,3 +22,10 @@ Em cada nome repetido entre densidades, ficou a versão de maior resolução.
 
 ## Removidos de propósito
 Logos de doação (PicPay, PayPal) e todo arquivo de arte ou símbolo da Wizards que não seja mana: `magic_symbol.png`, `phyrexia.png`, `war_manzali.png`, `pw_symbol.png`, `card_back.jpg`, `energy.png`. Os únicos ativos da Wizards que ficam são os símbolos de mana (`w`, `u`, `b`, `r`, `g`), para uso só como elementos funcionais da interface.
+
+## mana/ (novo)
+52 SVGs de símbolos de mana baixados da Scryfall (`svgs.scryfall.io/card-symbols`, via `GET /symbology`): as 6 cores, `X`, `S`, números 0 a 16,
+híbridos (`WU`, `BR`...), híbridos com incolor (`CW`...), híbridos de 2 (`2W`...) e phyrexianos (`WP`, `GUP`...).
+Nome do arquivo = código sem as barras (`{W/U}` vira `WU.svg`). Usados por `ManaSymbol` (`lib/shared/widgets/mana_token.dart`) no custo das
+cartas, nos filtros de cor e na calculadora de base de mana. Só como elemento funcional da interface; crédito "Scryfall" em Sobre.
+Para atualizar: `python` + `GET https://api.scryfall.com/symbology` e filtrar `appears_in_mana_costs`.

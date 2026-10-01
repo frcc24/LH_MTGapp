@@ -46,7 +46,7 @@ STRINGS = {
     'rateApp': ('Avaliar o app', 'Rate the app', 'Calificar la app'),
     'licenses': ('Licenças de código aberto', 'Open-source licenses', 'Licencias de código abierto'),
     'credits': ('Créditos', 'Credits', 'Créditos'),
-    'creditsBody': ('Dados e imagens de cartas: Scryfall. Fontes: Big Shoulders Display e Instrument Sans (SIL OFL). Ícones: Font Awesome.', 'Card data and images: Scryfall. Fonts: Big Shoulders Display and Instrument Sans (SIL OFL). Icons: Font Awesome.', 'Datos e imágenes de cartas: Scryfall. Fuentes: Big Shoulders Display e Instrument Sans (SIL OFL). Iconos: Font Awesome.'),
+    'creditsBody': ('Dados e imagens de cartas e símbolos de mana: Scryfall. Fontes: Big Shoulders Display e Instrument Sans (SIL OFL). Ícones: Font Awesome.', 'Card data, images and mana symbols: Scryfall. Fonts: Big Shoulders Display and Instrument Sans (SIL OFL). Icons: Font Awesome.', 'Datos, imágenes de cartas y símbolos de maná: Scryfall. Fuentes: Big Shoulders Display e Instrument Sans (SIL OFL). Iconos: Font Awesome.'),
 
     # ── pro ───────────────────────────────────────────────────────────────
     'proName': ('Lighthouse Pro', 'Lighthouse Pro', 'Lighthouse Pro'),

@@ -1092,7 +1092,7 @@ abstract class AppL10n {
   /// No description provided for @creditsBody.
   ///
   /// In pt, this message translates to:
-  /// **'Dados e imagens de cartas: Scryfall. Fontes: Big Shoulders Display e Instrument Sans (SIL OFL). Ícones: Font Awesome.'**
+  /// **'Dados e imagens de cartas e símbolos de mana: Scryfall. Fontes: Big Shoulders Display e Instrument Sans (SIL OFL). Ícones: Font Awesome.'**
   String get creditsBody;
 
   /// No description provided for @proName.
