@@ -454,6 +454,24 @@ class AppL10nPt extends AppL10n {
   String get resumeDiscard => 'Descartar';
 
   @override
+  String get manaWhite => 'Branco';
+
+  @override
+  String get manaBlue => 'Azul';
+
+  @override
+  String get manaBlack => 'Preto';
+
+  @override
+  String get manaRed => 'Vermelho';
+
+  @override
+  String get manaGreen => 'Verde';
+
+  @override
+  String get manaColorless => 'Incolor';
+
+  @override
   String get onb1Title => 'Contador de vida para a mesa';
 
   @override

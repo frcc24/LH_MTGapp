@@ -12,4 +12,10 @@ STRINGS = {
     'countersInMatch': ('Contadores nesta partida', 'Counters in this match', 'Contadores en esta partida'),
     'resumeTitle': ('Continuar de onde parou?', 'Pick up where you left off?', '¿Continuar donde lo dejaste?'),
     'resumeDiscard': ('Descartar', 'Discard', 'Descartar'),
+    'manaWhite': ('Branco', 'White', 'Blanco'),
+    'manaBlue': ('Azul', 'Blue', 'Azul'),
+    'manaBlack': ('Preto', 'Black', 'Negro'),
+    'manaRed': ('Vermelho', 'Red', 'Rojo'),
+    'manaGreen': ('Verde', 'Green', 'Verde'),
+    'manaColorless': ('Incolor', 'Colorless', 'Incoloro'),
 }

@@ -903,6 +903,42 @@ abstract class AppL10n {
   /// **'Descartar'**
   String get resumeDiscard;
 
+  /// No description provided for @manaWhite.
+  ///
+  /// In pt, this message translates to:
+  /// **'Branco'**
+  String get manaWhite;
+
+  /// No description provided for @manaBlue.
+  ///
+  /// In pt, this message translates to:
+  /// **'Azul'**
+  String get manaBlue;
+
+  /// No description provided for @manaBlack.
+  ///
+  /// In pt, this message translates to:
+  /// **'Preto'**
+  String get manaBlack;
+
+  /// No description provided for @manaRed.
+  ///
+  /// In pt, this message translates to:
+  /// **'Vermelho'**
+  String get manaRed;
+
+  /// No description provided for @manaGreen.
+  ///
+  /// In pt, this message translates to:
+  /// **'Verde'**
+  String get manaGreen;
+
+  /// No description provided for @manaColorless.
+  ///
+  /// In pt, this message translates to:
+  /// **'Incolor'**
+  String get manaColorless;
+
   /// No description provided for @onb1Title.
   ///
   /// In pt, this message translates to:

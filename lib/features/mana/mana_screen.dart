@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../core/theme/app_tokens.dart';
+import '../../core/theme/glyphs.dart';
 import '../../l10n/app_localizations.dart';
 import '../../shared/widgets/lh_stepper.dart';
 import '../../shared/widgets/mana_token.dart';
@@ -65,13 +66,13 @@ class _ManaScreenState extends State<ManaScreen> {
                       children: [
                         ManaToken(c, size: 32),
                         const SizedBox(width: 14),
-                        Expanded(child: Text(c.label, style: AppType.label)),
+                        Expanded(child: Text(c.localized(l), style: AppType.label)),
                         LhStepper(
                           compact: true,
                           value: _symbols[c] ?? 0,
                           max: 99,
                           onChanged: (v) => setState(() => _symbols[c] = v),
-                          semanticLabel: c.label,
+                          semanticLabel: c.localized(l),
                         ),
                       ],
                     ),
@@ -116,7 +117,7 @@ class _ManaScreenState extends State<ManaScreen> {
                           children: [
                             ManaToken(c, size: 26),
                             const SizedBox(width: 12),
-                            Expanded(child: Text(c.label, style: AppType.label)),
+                            Expanded(child: Text(c.localized(l), style: AppType.label)),
                             Text('${lands[c]}', style: AppType.counterLarge),
                             SizedBox(
                               width: 64,

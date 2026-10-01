@@ -52,3 +52,14 @@ extension CounterTypeLabel on CounterType {
     CounterType.dayNight => l.counterDayNight,
   };
 }
+
+extension ManaColorLabel on ManaColor {
+  String localized(AppL10n l) => switch (this) {
+    ManaColor.white => l.manaWhite,
+    ManaColor.blue => l.manaBlue,
+    ManaColor.black => l.manaBlack,
+    ManaColor.red => l.manaRed,
+    ManaColor.green => l.manaGreen,
+    ManaColor.colorless => l.manaColorless,
+  };
+}

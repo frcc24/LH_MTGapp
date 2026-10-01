@@ -454,6 +454,24 @@ class AppL10nEn extends AppL10n {
   String get resumeDiscard => 'Discard';
 
   @override
+  String get manaWhite => 'White';
+
+  @override
+  String get manaBlue => 'Blue';
+
+  @override
+  String get manaBlack => 'Black';
+
+  @override
+  String get manaRed => 'Red';
+
+  @override
+  String get manaGreen => 'Green';
+
+  @override
+  String get manaColorless => 'Colorless';
+
+  @override
   String get onb1Title => 'Life counter for the table';
 
   @override

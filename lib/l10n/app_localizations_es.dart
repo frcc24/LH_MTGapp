@@ -454,6 +454,24 @@ class AppL10nEs extends AppL10n {
   String get resumeDiscard => 'Descartar';
 
   @override
+  String get manaWhite => 'Blanco';
+
+  @override
+  String get manaBlue => 'Azul';
+
+  @override
+  String get manaBlack => 'Negro';
+
+  @override
+  String get manaRed => 'Rojo';
+
+  @override
+  String get manaGreen => 'Verde';
+
+  @override
+  String get manaColorless => 'Incoloro';
+
+  @override
   String get onb1Title => 'Contador de vida para la mesa';
 
   @override
