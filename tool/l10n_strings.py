@@ -61,7 +61,7 @@ STRINGS = {
     'counterInitiative': ('Iniciativa', 'Initiative', 'Iniciativa'),
     'counterDayNight': ('Dia/Noite', 'Day/Night', 'Día/Noche'),
     'counterRing': ('Anel', 'Ring', 'Anillo'),
-    'noCountersEnabled': ('Nenhum contador ligado. Ligue em Configurar partida.', 'No counters enabled. Turn them on in Match setup.', 'Ningún contador activado. Actívalos en Configurar partida.'),
+    'noCountersEnabled': ('Nenhum contador ligado. Ligue abaixo.', 'No counters enabled. Turn them on below.', 'Ningún contador activado. Actívalos abajo.'),
     'day': ('Dia', 'Day', 'Día'),
     'night': ('Noite', 'Night', 'Noche'),
     'cmdFrom': ('Dano de {name}', 'Damage from {name}', 'Daño de {name}', {'name': 'String'}),

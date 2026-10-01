@@ -1,12 +1,13 @@
 # Roadmap · o que falta para publicar o Lighthouse Life
 
-Estado em 30/09/2026. App Flutter pronto e testado no emulador Android (74 testes passando). Legenda: **[você]** só você consegue
+Estado em 01/10/2026. App Flutter pronto e testado no emulador Android (87 testes passando). Legenda: **[você]** só você consegue
 fazer (contas, consoles, lojas); **[eu]** dá para fazer no código; **[ambos]** precisa dos dois.
 
 ## 0. Bloqueadores do envio ao Google Play (fazer primeiro)
 
 - [ ] **[você]** Redefinição da chave de upload: no formulário do Play Console, enviar `upload_certificate_ks_lh.pem` (já gerado em
-      `Documents\magiccounter-upload-key\`). O AAB só é aceito depois da aprovação do Google.
+      `Documents\magiccounter-upload-key\`). O Play avisou que a nova chave só vale a partir de **02/10/2026 23:57 UTC**; até lá nenhum AAB novo é aceito.
+      O SHA-1 da notificação (`E1:99:05:A5...:FC:1D`) é o do `ks_lh.jks`, já conferido.
 - [ ] **[você]** Renomear o app na Play: o título atual é "Lighthouse Magic the Gathering". A regra do projeto (e a política da Wizards)
       proíbe "Magic" no nome. Novo título: **Lighthouse Life**.
 - [ ] **[você]** Declarações pendentes em Conteúdo do app: **recursos financeiros** (não tem) e **apps de saúde** (não tem).
@@ -15,7 +16,7 @@ fazer (contas, consoles, lojas); **[eu]** dá para fazer no código; **[ambos]**
 - [ ] **[você]** Classificação etária e público-alvo (não infantil) refeitos para a versão nova.
 - [ ] **[você]** Perfil de pagamentos ativo e produtos de compra criados: `lighthouse_pro` (única, não consumível). É o único produto.
 - [ ] **[você]** Textos da loja (pt-BR, en, es), ícone 512, gráfico de recursos 1024×500 e 5 capturas (ver `design/HANDOFF.md`, seção 17).
-- [ ] **[ambos]** Primeiro envio na faixa de **teste interno** com `build/app/outputs/bundle/release/app-release.aab`; conferir o
+- [ ] **[ambos]** Primeiro envio na faixa de **teste interno** com um AAB novo (o que está em `build/app/outputs/bundle/release/` é anterior à remoção das gorjetas e aos símbolos de mana: rebuildar antes); conferir o
       relatório de pré-lançamento; só então produção.
 
 ## 1. Anúncios e privacidade
@@ -27,8 +28,8 @@ fazer (contas, consoles, lojas); **[eu]** dá para fazer no código; **[ambos]**
 - [x] Intersticial no fim da partida (tela de resultado).
 - [ ] **[você]** Publicar a **política de privacidade** e os **termos** (a Play e a Apple exigem a URL). **[eu]** troco as URLs em
       `lib/core/links.dart`.
-- [ ] **[eu]** Consentimento para a **Europa/Reino Unido** (GDPR): hoje é um diálogo simples. Integrar uma plataforma de consentimento
-      (UMP) antes de publicar na UE.
+- [ ] **[você]** Consentimento na **Europa/Reino Unido**: decidido publicar **fora da UE e do Reino Unido por enquanto** (tirar esses países da
+      distribuição na Play e na App Store). Para entrar na UE depois: integrar o Google UMP (precisa de conta AdMob e mensagem de consentimento).
 - [ ] **[ambos]** Testar anúncio de teste e a regra de frequência do intersticial em aparelho real.
 
 ## 2. iOS (precisa de um Mac)
@@ -43,34 +44,32 @@ fazer (contas, consoles, lojas); **[eu]** dá para fazer no código; **[ambos]**
 
 ## 3. Qualidade do app (código)
 
-- [ ] **[eu]** **Layout de 1 jogador** ainda está simples (só o painel e a faixa). O mockup `A-Partida-1J` tem cabeçalho de turno,
-      chips e gráfico de vida por turno.
-- [ ] **[eu]** Diálogo "Continuar de onde parou?" na abertura (hoje só existe a linha "Continuar partida" na Home).
-- [ ] **[eu]** **Golden tests** de `PlayerPanel`, `CounterChip` e das partidas de 1 a 4 jogadores (exigidos pelo `CLAUDE.md`; os testes de
-      gesto e de layout já existem).
+- [x] Layout de 1 jogador (cabeçalho com turno, ±5 e Digitar, contadores, vida por turno e Próximo turno), retrato e paisagem.
+- [x] Diálogo "Continuar de onde parou?" na abertura.
+- [x] Golden tests dispensados por decisão (os testes de gesto, layout e regras já existem).
 - [ ] **[ambos]** Auditoria de acessibilidade com TalkBack/VoiceOver e fonte do sistema a 200%.
 - [ ] **[ambos]** Testar em **celular de verdade** (o Galaxy S24 aparece pelo adb sem fio) e tablet em retrato; medir desempenho.
-- [ ] **[eu]** Conferir o ícone adaptativo e a tela de abertura no aparelho; se quiser, refinar o ícone para ficar igual ao mockup.
+- [x] Ícone conferido no emulador (ícone adaptativo aparece no menu de apps). Falta só ver a tela de abertura em aparelho real.
 - [ ] **[ambos]** Compra e restauração em sandbox (testadores de licença na Play, conta sandbox na Apple).
-- [ ] **[eu]** Revisar os textos em en e es com falante nativo (hoje são traduções minhas).
+- [ ] **[você]** Revisar os textos em en e es com falante nativo (hoje são traduções minhas).
 
 ## 4. Contadores (melhorias já identificadas)
 
-- [ ] **[eu]** Ligar e desligar contadores **durante a partida** (hoje só na tela Configurar; no Standard a gaveta fica vazia).
-- [ ] **[eu]** Opção de **dano de comandante não tira vida** na tela Configurar (a regra existe no código, falta o interruptor).
+- [x] Ligar e desligar contadores durante a partida (gaveta, aba Contadores).
+- [x] Interruptor "dano de comandante também tira vida" na tela Configurar.
 - [ ] **[ambos]** Conferir no aparelho os estados de alerta do veneno (8 e 10) e do comandante (15 e 21) e a aba Comandante.
 - [ ] **[eu]** Contadores personalizados (nome, valor, limites) — v1.1.
 
 ## 5. Depois da v1 (v1.1 e v2)
 
 Tema claro e temas extras do Pro; jogadores salvos; relógio de xadrez por jogador; modo "mesa redonda" no tablet; agitar para desfazer;
-alternância PT/EN no texto de cartas; fonte Mana no lugar do círculo com letra; widgets de tela inicial; abrir a gaveta arrastando da borda.
+alternância PT/EN no texto de cartas; widgets de tela inicial; abrir a gaveta arrastando da borda.
 
 ## 6. Higiene
 
 - [ ] **[você]** Guardar o `ks_lh.jks` e as senhas em pelo menos dois lugares (gerenciador de senhas e nuvem).
 - [ ] **[você]** Apagar `Documents\magiccounter-upload-key\` (chave aleatória que não será usada), mantendo só o `.pem` certo.
-- [ ] **[eu]** Remover de `assets/images/` o que o app não usa (símbolos de mana em PNG e imagens antigas) quando o design não precisar mais.
+- [x] Removidas de `assets/` as imagens do app antigo que nada usava (continuam no histórico do git); os símbolos novos estão em `assets/mana/`.
 - [ ] **[você]** Decidir se o repositório continua público (contém o handoff de design completo).
 
 ## Ordem sugerida

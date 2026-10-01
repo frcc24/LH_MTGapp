@@ -101,3 +101,9 @@ class EndGame extends GameAction {
 class ResumeGame extends GameAction {
   const ResumeGame(super.at);
 }
+
+/// Liga ou desliga um contador durante a partida (o mesmo conjunto da tela Configurar).
+class ToggleCounter extends GameAction {
+  const ToggleCounter(super.at, this.type);
+  final CounterType type;
+}

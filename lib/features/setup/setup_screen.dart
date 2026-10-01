@@ -375,13 +375,20 @@ class _SetupScreenState extends ConsumerState<SetupScreen> {
                             size: 14,
                             color: _c.has(t) ? AppColors.accentSoftFg : AppColors.textMuted,
                           ),
-                          label: Text(_counterName(l, t)),
+                          label: Text(t.label(l)),
                           selectedColor: AppColors.accentSoftBg,
                           side: BorderSide(color: _c.has(t) ? AppColors.accent : AppColors.line),
                           onSelected: (_) => _toggleCounter(t),
                         ),
                     ],
                   ),
+                  if (_c.has(CounterType.commander))
+                    SwitchListTile(
+                      contentPadding: EdgeInsets.zero,
+                      title: Text(l.cmdAffectsLife, style: AppType.label.copyWith(fontSize: 16)),
+                      value: _c.cmdDamageAffectsLife,
+                      onChanged: (v) => setState(() => _c = _c.copyWith(cmdDamageAffectsLife: v)),
+                    ),
                   SectionHeader(l.turnTimer),
                   SegmentedButton<int>(
                     showSelectedIcon: false,
@@ -457,18 +464,6 @@ class _SetupScreenState extends ConsumerState<SetupScreen> {
     );
   }
 }
-
-String _counterName(AppL10n l, CounterType t) => switch (t) {
-  CounterType.poison => l.counterPoison,
-  CounterType.energy => l.counterEnergy,
-  CounterType.experience => l.counterExperience,
-  CounterType.radiation => l.counterRadiation,
-  CounterType.commander => l.tabCommander,
-  CounterType.monarch => l.counterMonarch,
-  CounterType.initiative => l.counterInitiative,
-  CounterType.ring => l.counterRing,
-  CounterType.dayNight => l.counterDayNight,
-};
 
 class _Tile extends StatelessWidget {
   const _Tile({

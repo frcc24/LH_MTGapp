@@ -119,7 +119,7 @@
   "counterInitiative": "Iniciativa",
   "counterDayNight": "Dia/Noite",
   "counterRing": "Anel",
-  "noCountersEnabled": "Nenhum contador ligado. Ligue em Configurar partida.",
+  "noCountersEnabled": "Nenhum contador ligado. Ligue abaixo.",
   "day": "Dia",
   "night": "Noite",
   "cmdFrom": "Dano de {name}",
@@ -247,6 +247,33 @@
   "reasonLife": "Vida em zero",
   "reasonPoison": "Veneno",
   "reasonCommander": "Dano de comandante",
+  "soloLabel": "Solo",
+  "turnTitle": "TURNO {n}",
+  "@turnTitle": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "lifePerTurn": "Vida por turno",
+  "lifeStartNow": "início {start} · atual {now}",
+  "@lifeStartNow": {
+    "placeholders": {
+      "start": {
+        "type": "int"
+      },
+      "now": {
+        "type": "int"
+      }
+    }
+  },
+  "nextTurn": "Próximo turno",
+  "typeValue": "Digitar",
+  "cmdAffectsLife": "Dano de comandante também tira vida",
+  "countersInMatch": "Contadores nesta partida",
+  "resumeTitle": "Continuar de onde parou?",
+  "resumeDiscard": "Descartar",
   "onb1Title": "Contador de vida para a mesa",
   "onb1Body": "Números enormes, toques grandes e nada no caminho. Feito para jogar em pé, com o celular no meio da mesa.",
   "onb2Title": "De 1 a 4 jogadores",

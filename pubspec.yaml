@@ -78,7 +78,6 @@ flutter:
   assets:
     - assets/sounds/
     - assets/mana/
-    - assets/images/logo1.png
 
   fonts:
     - family: BigShouldersDisplay

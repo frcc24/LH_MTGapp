@@ -186,7 +186,7 @@ class AppL10nPt extends AppL10n {
   String get counterRing => 'Anel';
 
   @override
-  String get noCountersEnabled => 'Nenhum contador ligado. Ligue em Configurar partida.';
+  String get noCountersEnabled => 'Nenhum contador ligado. Ligue abaixo.';
 
   @override
   String get day => 'Dia';
@@ -418,6 +418,40 @@ class AppL10nPt extends AppL10n {
 
   @override
   String get reasonCommander => 'Dano de comandante';
+
+  @override
+  String get soloLabel => 'Solo';
+
+  @override
+  String turnTitle(int n) {
+    return 'TURNO $n';
+  }
+
+  @override
+  String get lifePerTurn => 'Vida por turno';
+
+  @override
+  String lifeStartNow(int start, int now) {
+    return 'início $start · atual $now';
+  }
+
+  @override
+  String get nextTurn => 'Próximo turno';
+
+  @override
+  String get typeValue => 'Digitar';
+
+  @override
+  String get cmdAffectsLife => 'Dano de comandante também tira vida';
+
+  @override
+  String get countersInMatch => 'Contadores nesta partida';
+
+  @override
+  String get resumeTitle => 'Continuar de onde parou?';
+
+  @override
+  String get resumeDiscard => 'Descartar';
 
   @override
   String get onb1Title => 'Contador de vida para a mesa';

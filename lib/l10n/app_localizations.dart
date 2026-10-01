@@ -414,7 +414,7 @@ abstract class AppL10n {
   /// No description provided for @noCountersEnabled.
   ///
   /// In pt, this message translates to:
-  /// **'Nenhum contador ligado. Ligue em Configurar partida.'**
+  /// **'Nenhum contador ligado. Ligue abaixo.'**
   String get noCountersEnabled;
 
   /// No description provided for @day.
@@ -842,6 +842,66 @@ abstract class AppL10n {
   /// In pt, this message translates to:
   /// **'Dano de comandante'**
   String get reasonCommander;
+
+  /// No description provided for @soloLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Solo'**
+  String get soloLabel;
+
+  /// No description provided for @turnTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'TURNO {n}'**
+  String turnTitle(int n);
+
+  /// No description provided for @lifePerTurn.
+  ///
+  /// In pt, this message translates to:
+  /// **'Vida por turno'**
+  String get lifePerTurn;
+
+  /// No description provided for @lifeStartNow.
+  ///
+  /// In pt, this message translates to:
+  /// **'início {start} · atual {now}'**
+  String lifeStartNow(int start, int now);
+
+  /// No description provided for @nextTurn.
+  ///
+  /// In pt, this message translates to:
+  /// **'Próximo turno'**
+  String get nextTurn;
+
+  /// No description provided for @typeValue.
+  ///
+  /// In pt, this message translates to:
+  /// **'Digitar'**
+  String get typeValue;
+
+  /// No description provided for @cmdAffectsLife.
+  ///
+  /// In pt, this message translates to:
+  /// **'Dano de comandante também tira vida'**
+  String get cmdAffectsLife;
+
+  /// No description provided for @countersInMatch.
+  ///
+  /// In pt, this message translates to:
+  /// **'Contadores nesta partida'**
+  String get countersInMatch;
+
+  /// No description provided for @resumeTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Continuar de onde parou?'**
+  String get resumeTitle;
+
+  /// No description provided for @resumeDiscard.
+  ///
+  /// In pt, this message translates to:
+  /// **'Descartar'**
+  String get resumeDiscard;
 
   /// No description provided for @onb1Title.
   ///

@@ -191,6 +191,43 @@ void main() {
     });
   });
 
+  group('contadores durante a partida e gráfico solo', () {
+    test('ToggleCounter liga e desliga, e desfaz', () {
+      var s = start(cfg(2));
+      expect(s.config.has(CounterType.poison), isFalse);
+      s = reduce(s, ToggleCounter(at(0), CounterType.poison));
+      expect(s.config.has(CounterType.poison), isTrue);
+      s = reduce(s, ToggleCounter(at(1), CounterType.poison));
+      expect(s.config.has(CounterType.poison), isFalse);
+    });
+
+    test('lifeByRound: vida ao fim de cada rodada e a atual por último', () {
+      var s = start(cfg(1, life: 20));
+      s = reduce(s, ChangeLife(at(0), 'p0', -2)); // rodada 1: 18
+      s = reduce(s, PassTurn(at(5000))); // rodada 2
+      s = reduce(s, ChangeLife(at(10000), 'p0', -3)); // 15
+      s = reduce(s, PassTurn(at(15000))); // rodada 3, sem mudança
+      expect(lifeByRound(s, 'p0'), [18, 15, 15]);
+      s = reduce(s, ChangeLife(at(20000), 'p0', 5));
+      expect(lifeByRound(s, 'p0'), [18, 15, 20]);
+    });
+
+    test('mudanças de rodadas diferentes nunca se juntam no log (nem em menos de 2 s)', () {
+      var s = start(cfg(1, life: 20));
+      s = reduce(s, ChangeLife(at(0), 'p0', -5));
+      s = reduce(s, PassTurn(at(100)));
+      s = reduce(s, ChangeLife(at(200), 'p0', 5));
+      expect(s.log.length, 2);
+      expect(lifeByRound(s, 'p0'), [15, 20]);
+    });
+
+    test('solo: passar o turno conta a rodada', () {
+      var s = start(cfg(1));
+      s = reduce(s, PassTurn(at(0)));
+      expect(s.round, 2);
+    });
+  });
+
   group('persistência', () {
     test('JSON ida e volta preserva o estado', () {
       var s = start(cfg(4, counters: {CounterType.commander, CounterType.poison}, life: 40));

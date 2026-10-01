@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../features/match/domain/models.dart';
+import '../../l10n/app_localizations.dart';
 import 'app_tokens.dart';
 
 extension PlayerGlyphIcon on PlayerGlyph {
@@ -35,5 +36,19 @@ extension CounterTypeVisual on CounterType {
     CounterType.radiation => AppColors.radiation,
     CounterType.commander => AppColors.commander,
     _ => AppColors.accent,
+  };
+}
+
+extension CounterTypeLabel on CounterType {
+  String label(AppL10n l) => switch (this) {
+    CounterType.poison => l.counterPoison,
+    CounterType.energy => l.counterEnergy,
+    CounterType.experience => l.counterExperience,
+    CounterType.radiation => l.counterRadiation,
+    CounterType.commander => l.tabCommander,
+    CounterType.monarch => l.counterMonarch,
+    CounterType.initiative => l.counterInitiative,
+    CounterType.ring => l.counterRing,
+    CounterType.dayNight => l.counterDayNight,
   };
 }

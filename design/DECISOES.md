@@ -50,3 +50,14 @@ e `screenInsetsFor` só aplica nas bordas que realmente encostam na tela. Testad
 - Assinatura: `android/key.properties` + `android/app/ks_lh.jks` (fora do git), mesmo padrão dos outros apps. Sem o arquivo o release **falha**.
   O certificado público desta chave precisa ser aprovado como chave de upload no Play Console (redefinição de chave de upload) antes do primeiro envio.
 - `versionCode` vem do `pubspec.yaml` (`3.0.0+100`); o último na Play era 22.
+
+## Modo solo e contadores (01/10/2026)
+- **Solo (1 jogador)** tem tela própria (`features/match/solo_view.dart`), como o mockup A-Partida-1J: cabeçalho com "TURNO n", painel com −5 / Digitar / +5,
+  linha de contadores, "Vida por turno" (últimas 5 rodadas, `lifeByRound`) e "Próximo turno". O contador "storm" do mockup não foi feito.
+- **Contadores durante a partida:** a aba Contadores da gaveta liga e desliga qualquer contador (`ToggleCounter`, desfazível e salvo com a partida).
+- **Dano de comandante tira vida:** interruptor na tela Configurar quando o contador de comandante está ligado (padrão: liga).
+- **Log de vida:** mudanças de rodadas diferentes nunca se juntam no mesmo evento, mesmo dentro de 2 s (antes um −5 e um +5 em turnos seguidos sumiam).
+- **Continuar de onde parou:** diálogo na abertura do app quando há partida salva (uma vez por abertura); "Descartar" apaga a partida.
+- **Sem golden tests** (decisão do Franco).
+- **UE/Reino Unido:** publicar fora desses países por enquanto; sem UMP.
+- Assets antigos (PNGs de interface, bandeiras, arte, `btn1/btn2.mp3`, `app_icon/`) removidos; continuam no histórico do git.

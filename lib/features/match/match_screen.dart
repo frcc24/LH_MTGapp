@@ -21,6 +21,7 @@ import 'domain/reducer.dart';
 import 'drawer/player_drawer.dart';
 import 'layout/match_layout.dart';
 import 'menu/match_menu.dart';
+import 'solo_view.dart';
 import 'widgets/player_panel.dart';
 
 String fmtClock(int seconds) => '${seconds ~/ 60}:${(seconds % 60).toString().padLeft(2, '0')}';
@@ -258,9 +259,25 @@ class _MatchScreenState extends ConsumerState<MatchScreen> with WidgetsBindingOb
             final c = ref.read(matchControllerProvider);
             return Stack(
               children: [
-                for (var i = 0; i < cfg.players.length; i++) panel(i),
-                if (geo.strip != null) _strip(geo, game, c.canUndo),
-                if (_drawer == null) _hub(geo),
+                if (cfg.players.length == 1)
+                  SoloView(
+                    game: game,
+                    canUndo: c.canUndo,
+                    onLife: (d) => _life(cfg.players.first.id, d),
+                    onMenu: _openMenu,
+                    onUndo: _undo,
+                    onNextTurn: _pass,
+                    onOpenDrawer: (tab) => setState(() => _drawer = (id: cfg.players.first.id, tab: tab)),
+                    onExactLife: () => _exactLife(cfg.players.first.id),
+                    onRevive: () => ref
+                        .read(matchControllerProvider.notifier)
+                        .dispatch(Revive(DateTime.now(), cfg.players.first.id)),
+                  )
+                else ...[
+                  for (var i = 0; i < cfg.players.length; i++) panel(i),
+                  if (geo.strip != null) _strip(geo, game, c.canUndo),
+                  if (_drawer == null) _hub(geo),
+                ],
                 if (_drawer != null)
                   PlayerDrawerOverlay(
                     key: ValueKey(_drawer!.id),

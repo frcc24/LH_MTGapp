@@ -7,6 +7,7 @@ import '../../../core/theme/glyphs.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/widgets/lh_stepper.dart';
 import '../domain/actions.dart';
+import '../domain/formats.dart';
 import '../domain/game_controller.dart';
 import '../domain/models.dart';
 import '../layout/match_layout.dart';
@@ -323,6 +324,33 @@ class _PlayerDrawerOverlayState extends ConsumerState<PlayerDrawerOverlay> {
           ),
         ),
       );
+    out.add(
+      Padding(
+        padding: const EdgeInsets.only(top: 20, bottom: 8),
+        child: Text(
+          l.countersInMatch.toUpperCase(),
+          style: AppType.overline.copyWith(color: AppColors.textMuted, fontSize: 12),
+        ),
+      ),
+    );
+    out.add(
+      Wrap(
+        spacing: 8,
+        runSpacing: 4,
+        children: [
+          for (final t in toggleableCounters)
+            FilterChip(
+              selected: cfg.has(t),
+              showCheckmark: false,
+              avatar: FaIcon(t.icon, size: 14, color: cfg.has(t) ? AppColors.accentSoftFg : AppColors.textMuted),
+              label: Text(t.label(l)),
+              selectedColor: AppColors.accentSoftBg,
+              side: BorderSide(color: cfg.has(t) ? AppColors.accent : AppColors.line),
+              onSelected: (_) => _c.dispatch(ToggleCounter(_now, t)),
+            ),
+        ],
+      ),
+    );
     return out;
   }
 

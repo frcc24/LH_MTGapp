@@ -186,7 +186,7 @@ class AppL10nEn extends AppL10n {
   String get counterRing => 'Ring';
 
   @override
-  String get noCountersEnabled => 'No counters enabled. Turn them on in Match setup.';
+  String get noCountersEnabled => 'No counters enabled. Turn them on below.';
 
   @override
   String get day => 'Day';
@@ -418,6 +418,40 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get reasonCommander => 'Commander damage';
+
+  @override
+  String get soloLabel => 'Solo';
+
+  @override
+  String turnTitle(int n) {
+    return 'TURN $n';
+  }
+
+  @override
+  String get lifePerTurn => 'Life per turn';
+
+  @override
+  String lifeStartNow(int start, int now) {
+    return 'start $start · now $now';
+  }
+
+  @override
+  String get nextTurn => 'Next turn';
+
+  @override
+  String get typeValue => 'Type';
+
+  @override
+  String get cmdAffectsLife => 'Commander damage also removes life';
+
+  @override
+  String get countersInMatch => 'Counters in this match';
+
+  @override
+  String get resumeTitle => 'Pick up where you left off?';
+
+  @override
+  String get resumeDiscard => 'Discard';
 
   @override
   String get onb1Title => 'Life counter for the table';

@@ -322,7 +322,7 @@ class LifeEvent {
   final String? sourceId;
 
   bool sameStream(LifeEvent o) =>
-      playerId == o.playerId && kind == o.kind && counter == o.counter && sourceId == o.sourceId;
+      round == o.round && playerId == o.playerId && kind == o.kind && counter == o.counter && sourceId == o.sourceId;
 
   LifeEvent merged(LifeEvent next) => LifeEvent(
     at: next.at,
@@ -423,6 +423,7 @@ class GameState {
   }
 
   GameState copyWith({
+    GameConfig? config,
     List<PlayerState>? players,
     String? activePlayerId,
     int? round,
@@ -440,7 +441,7 @@ class GameState {
     bool clearEnded = false,
     List<String>? winnerIds,
   }) => GameState(
-    config: config,
+    config: config ?? this.config,
     players: players ?? this.players,
     activePlayerId: activePlayerId ?? this.activePlayerId,
     startedAt: startedAt,

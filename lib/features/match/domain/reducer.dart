@@ -49,6 +49,13 @@ GameState reduce(GameState s, GameAction a) {
     Revive() => _revive(s, a),
     EndGame() => s.copyWith(endedAt: a.at, winnerIds: a.winnerIds),
     ResumeGame() => s.copyWith(clearEnded: true, winnerIds: const []),
+    ToggleCounter() => s.copyWith(
+      config: s.config.copyWith(
+        enabledCounters: s.config.has(a.type)
+            ? ({...s.config.enabledCounters}..remove(a.type))
+            : {...s.config.enabledCounters, a.type},
+      ),
+    ),
   };
   return identical(next, s) ? s : _recompute(next);
 }
@@ -283,4 +290,19 @@ MatchRecord buildRecord(GameState s, {required String id, required DateTime now,
     endedAt: s.endedAt ?? now,
     finished: finished,
   );
+}
+
+/// Vida ao fim de cada rodada, para o gráfico do modo solo; a última é a vida de agora.
+/// ponytail: só conta eventos de vida, então dano de comandante entra no valor da rodada seguinte; não importa no solo.
+List<int> lifeByRound(GameState s, String playerId) {
+  var last = s.config.startingLife;
+  final out = <int>[];
+  for (var r = 1; r <= s.round; r++) {
+    for (final e in s.log) {
+      if (e.round == r && e.playerId == playerId && e.kind == LifeEventKind.life) last = e.after;
+    }
+    out.add(last);
+  }
+  out[out.length - 1] = s.player(playerId).life;
+  return out;
 }

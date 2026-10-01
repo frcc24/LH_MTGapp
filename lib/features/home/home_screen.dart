@@ -20,11 +20,40 @@ class HomeScreen extends ConsumerStatefulWidget {
 }
 
 class _HomeScreenState extends ConsumerState<HomeScreen> {
+  /// Uma vez por abertura do app: o diálogo de partida salva não volta toda vez que a Home reaparece.
+  static bool _askedResume = false;
+
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) => _startup());
+  }
+
+  Future<void> _startup() async {
+    final g = ref.read(matchControllerProvider).game;
+    if (mounted && !_askedResume && g != null && !g.finished) {
+      _askedResume = true;
+      final l = AppL10n.of(context);
+      final resume = await showDialog<bool>(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: Text(l.resumeTitle),
+          content: Text('${configSummary(l, g.config)} · ${l.roundN(g.round)}'),
+          actions: [
+            TextButton(onPressed: () => Navigator.pop(ctx, false), child: Text(l.resumeDiscard)),
+            FilledButton(onPressed: () => Navigator.pop(ctx, true), child: Text(l.continueLabel)),
+          ],
+        ),
+      );
+      if (!mounted) return;
+      if (resume == true) {
+        context.go('/match');
+        return;
+      }
+      if (resume == false) ref.read(matchControllerProvider.notifier).clear();
+    }
     // consentimento de anúncios: depois da 1ª partida ou na 2ª abertura, nunca no 1º segundo
-    WidgetsBinding.instance.addPostFrameCallback((_) => mounted ? maybeAskAdsConsent(context, ref) : null);
+    if (mounted) await maybeAskAdsConsent(context, ref);
   }
 
   @override

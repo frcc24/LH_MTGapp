@@ -39,6 +39,7 @@ class PlayerPanel extends StatefulWidget {
     this.onExactLife,
     this.safeInsets = EdgeInsets.zero,
     this.compact = false,
+    this.showChips = true,
   });
 
   final PlayerConfig player;
@@ -60,6 +61,9 @@ class PlayerPanel extends StatefulWidget {
   /// Áreas ocupadas por notch/ilha/home indicator, no referencial do painel.
   final EdgeInsets safeInsets;
   final bool compact;
+
+  /// false no modo solo: os contadores ficam numa linha própria fora do painel.
+  final bool showChips;
 
   @override
   State<PlayerPanel> createState() => _PlayerPanelState();
@@ -400,6 +404,8 @@ class _PlayerPanelState extends State<PlayerPanel> with SingleTickerProviderStat
         ),
       );
     }
+
+    if (!widget.showChips) return const SizedBox(height: 14);
 
     final chips = <Widget>[
       // nome + glifo: abre a gaveta
