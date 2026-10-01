@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Estados · Cartas · Sinal</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&amp;family=Instrument+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#000000}
+a{color:#FFB020;text-decoration:none}a:hover{color:#FFD27A}
+</style>
+</helmet>
+<div style="width: 1250px; height: 844px; display: flex; gap: 40px; background: #000000; color: #F3F5F7; font-family: 'Instrument Sans', system-ui, sans-serif">
+  <div style="width: 390px; height: 844px; box-sizing: border-box; border-radius: 40px; padding: 60px 20px 30px; background: #050608; display: flex; flex-direction: column; gap: 16px">
+    <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; color: #FFB020">VAZIO</div>
+    <div style="display: flex; align-items: center; gap: 10px; height: 56px; padding: 0 16px; border-radius: 28px; background: #0E1014; border: 1px solid #232832; color: #7C8593; font-size: 17px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg>Nome da carta</div>
+    <div style="flex-grow: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; text-align: center; padding: 0 20px">
+      <div style="width: 88px; height: 88px; border-radius: 50%; background: #0E1014; border: 1px solid #232832; display: flex; align-items: center; justify-content: center"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#FF4F8B" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="3" width="12" height="16" rx="2"></rect><path d="M5 7v12a2 2 0 0 0 2 2h9"></path></svg></div>
+      <div style="font-size: 20px; font-weight: 700">Busque qualquer carta</div>
+      <div style="font-size: 15px; color: #9AA3AF; line-height: 1.5">Digite pelo menos 2 letras. Você vê imagem, texto e em quais formatos ela é legal.</div>
+      <div style="display: flex; flex-direction: column; gap: 6px; width: 100%; padding-top: 10px">
+        <div style="font-size: 12px; color: #7C8593; text-align: left">Buscas recentes</div>
+        <div style="display: flex; gap: 6px; flex-wrap: wrap"><span style="height: 36px; padding: 0 12px; border-radius: 18px; background: #161A20; display: flex; align-items: center; font-size: 13px">Sol Ring</span><span style="height: 36px; padding: 0 12px; border-radius: 18px; background: #161A20; display: flex; align-items: center; font-size: 13px">Counterspell</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="width: 390px; height: 844px; box-sizing: border-box; border-radius: 40px; padding: 60px 20px 30px; background: #050608; display: flex; flex-direction: column; gap: 16px">
+    <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; color: #FFB020">CARREGANDO</div>
+    <div style="display: flex; align-items: center; gap: 10px; height: 56px; padding: 0 16px; border-radius: 28px; background: #0E1014; border: 2px solid #FFB020; font-size: 17px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9AA3AF" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg>sol r</div>
+    <div style="height: 4px; border-radius: 2px; background: #161A20; overflow: hidden"><div style="width: 40%; height: 4px; background: #FFB020"></div></div>
+    <div style="display: flex; flex-direction: column; gap: 8px" aria-label="Carregando resultados">
+      <div style="display: flex; align-items: center; gap: 12px; height: 76px; padding: 8px; box-sizing: border-box; border-radius: 18px; background: #0E1014"><div style="width: 44px; height: 60px; border-radius: 4px; background: #161A20"></div><div style="display: flex; flex-direction: column; gap: 8px; flex-grow: 1"><div style="width: 60%; height: 14px; border-radius: 7px; background: #161A20"></div><div style="width: 35%; height: 10px; border-radius: 5px; background: #161A20"></div></div></div>
+      <div style="display: flex; align-items: center; gap: 12px; height: 76px; padding: 8px; box-sizing: border-box; border-radius: 18px; background: #0E1014; opacity: 0.8"><div style="width: 44px; height: 60px; border-radius: 4px; background: #161A20"></div><div style="display: flex; flex-direction: column; gap: 8px; flex-grow: 1"><div style="width: 70%; height: 14px; border-radius: 7px; background: #161A20"></div><div style="width: 30%; height: 10px; border-radius: 5px; background: #161A20"></div></div></div>
+      <div style="display: flex; align-items: center; gap: 12px; height: 76px; padding: 8px; box-sizing: border-box; border-radius: 18px; background: #0E1014; opacity: 0.6"><div style="width: 44px; height: 60px; border-radius: 4px; background: #161A20"></div><div style="display: flex; flex-direction: column; gap: 8px; flex-grow: 1"><div style="width: 50%; height: 14px; border-radius: 7px; background: #161A20"></div><div style="width: 40%; height: 10px; border-radius: 5px; background: #161A20"></div></div></div>
+      <div style="display: flex; align-items: center; gap: 12px; height: 76px; padding: 8px; box-sizing: border-box; border-radius: 18px; background: #0E1014; opacity: 0.4"><div style="width: 44px; height: 60px; border-radius: 4px; background: #161A20"></div><div style="display: flex; flex-direction: column; gap: 8px; flex-grow: 1"><div style="width: 65%; height: 14px; border-radius: 7px; background: #161A20"></div><div style="width: 25%; height: 10px; border-radius: 5px; background: #161A20"></div></div></div>
+    </div>
+    <div style="font-size: 13px; color: #9AA3AF; text-align: center">Busca dispara 350 ms depois da última tecla</div>
+  </div>
+
+  <div style="width: 390px; height: 844px; box-sizing: border-box; border-radius: 40px; padding: 60px 20px 30px; background: #050608; display: flex; flex-direction: column; gap: 16px">
+    <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; color: #FFB020">ERRO DE REDE · SEM RESULTADO</div>
+    <div style="display: flex; align-items: center; gap: 10px; height: 56px; padding: 0 16px; border-radius: 28px; background: #0E1014; border: 1px solid #232832; font-size: 17px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9AA3AF" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg>sol ring</div>
+    <div style="flex-grow: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; text-align: center; padding: 0 20px">
+      <div style="width: 88px; height: 88px; border-radius: 50%; background: #2A1012; border: 1px solid #FF6B6B; display: flex; align-items: center; justify-content: center"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#FF8A8A" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 8.5a15 15 0 0 1 20 0M5 12a10 10 0 0 1 14 0M8.5 15.5a5 5 0 0 1 7 0M12 19h.01M3 3l18 18"></path></svg></div>
+      <div style="font-size: 20px; font-weight: 700">Sem conexão</div>
+      <div style="font-size: 15px; color: #9AA3AF; line-height: 1.5">A consulta de cartas precisa de internet. O contador e as ferramentas continuam funcionando normalmente.</div>
+      <button style="height: 56px; padding: 0 28px; border-radius: 28px; border: none; background: #FFB020; color: #1A1204; font-family: inherit; font-size: 16px; font-weight: 700">Tentar de novo</button>
+    </div>
+    <div style="padding: 14px 16px; border-radius: 18px; background: #0E1014; border: 1px solid #232832; display: flex; flex-direction: column; gap: 4px">
+      <span style="font-size: 14px; font-weight: 600">Variante: nenhuma carta encontrada</span>
+      <span style="font-size: 13px; color: #9AA3AF">"Nada para 'sol rnig'. Você quis dizer Sol Ring?" (usa /cards/autocomplete)</span>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1250,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

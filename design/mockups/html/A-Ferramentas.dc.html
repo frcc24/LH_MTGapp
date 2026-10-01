@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Ferramentas · Sinal</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&amp;family=Instrument+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#050608}
+a{color:#FFB020;text-decoration:none}a:hover{color:#FFD27A}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; padding: 60px 20px 30px; background: #050608; color: #F3F5F7; font-family: 'Instrument Sans', system-ui, sans-serif; display: flex; flex-direction: column; gap: 16px">
+  <div style="display: flex; align-items: center; gap: 12px; height: 56px">
+    <a href="A-Home.dc.html" aria-label="Voltar" style="width: 48px; height: 48px; box-sizing: border-box; border-radius: 50%; background: #0E1014; border: 1px solid #232832; display: flex; align-items: center; justify-content: center; color: #F3F5F7"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></a>
+    <h1 style="margin: 0; font-size: 22px; font-weight: 700">Ferramentas</h1>
+  </div>
+  <div role="tablist" style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 4px; padding: 4px; border-radius: 18px; background: #0E1014; border: 1px solid #232832">
+    <sc-for list="{{tabs}}" as="t" hint-placeholder-count="5">
+      <button role="tab" aria-selected="{{t.sel}}" onClick="{{t.pick}}" style="height: 44px; border-radius: 14px; border: none; background: {{t.bg}}; color: {{t.fg}}; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">{{t.label}}</button>
+    </sc-for>
+  </div>
+
+  <div style="position: relative; flex-grow: 1; box-sizing: border-box; border-radius: 28px; background: radial-gradient(circle at 50% 50%, #22C7F01A, #0B0D11 70%); border: 1px solid #232832; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 18px 16px">
+    <div style="transform: rotate(180deg); display: flex; flex-direction: column; align-items: center; gap: 2px; opacity: 0.9">
+      <span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 56px; line-height: 0.9; color: {{accent}}">{{result}}</span>
+      <span style="font-size: 12px; color: #9AA3AF">{{sub}}</span>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 6px">
+      <span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: {{bigSize}}px; line-height: 0.85; color: {{accent}}; text-shadow: 0 0 40px {{accent}}55">{{result}}</span>
+      <span style="font-size: 15px; color: #B7BFCA">{{sub}}</span>
+    </div>
+    <sc-if value="{{isDice}}" hint-placeholder-val="{{ true }}">
+      <div style="width: 100%; display: flex; flex-direction: column; gap: 10px">
+        <div style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px">
+          <sc-for list="{{dice}}" as="d" hint-placeholder-count="7">
+            <button onClick="{{d.pick}}" aria-pressed="{{d.sel}}" style="height: 44px; border-radius: 12px; border: {{d.border}}; background: {{d.bg}}; color: #F3F5F7; font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 16px; cursor: pointer">{{d.label}}</button>
+          </sc-for>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between">
+          <span style="font-size: 14px; color: #B7BFCA">Quantidade</span>
+          <div style="display: flex; align-items: center; height: 48px; border-radius: 24px; background: #161A20; border: 1px solid #232832">
+            <button aria-label="Menos dados" onClick="{{qDown}}" style="width: 48px; height: 48px; border: none; background: transparent; color: #F3F5F7; font-size: 22px; cursor: pointer">−</button>
+            <span style="width: 32px; text-align: center; font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 24px">{{qty}}</span>
+            <button aria-label="Mais dados" onClick="{{qUp}}" style="width: 48px; height: 48px; border: none; background: transparent; color: #F3F5F7; font-size: 22px; cursor: pointer">+</button>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{isPick}}" hint-placeholder-val="{{ false }}">
+      <div style="display: flex; gap: 6px">
+        <sc-for list="{{people}}" as="p" hint-placeholder-count="4"><div style="height: 36px; padding: 0 12px; border-radius: 18px; box-sizing: border-box; border: 2px solid {{p.color}}; background: {{p.bg}}; color: {{p.fg}}; font-size: 13px; font-weight: 700; display: flex; align-items: center">{{p.name}}</div></sc-for>
+      </div>
+    </sc-if>
+  </div>
+
+  <div style="display: flex; gap: 8px">
+    <button onClick="{{act}}" style="flex-grow: 1; height: 64px; border-radius: 32px; border: none; background: #FFB020; color: #1A1204; font-family: inherit; font-size: 18px; font-weight: 700; cursor: pointer">{{cta}}</button>
+  </div>
+  <div style="font-size: 13px; color: #9AA3AF; text-align: center">Últimos: {{history}}</div>
+
+  <sc-if value="{{showAd}}" hint-placeholder-val="{{ true }}">
+    <div style="height: 50px; flex-shrink: 0; border-radius: 10px; border: 1px dashed #343B46; display: flex; align-items: center; justify-content: center; color: #7C8593; font-size: 12px">Anúncio · banner Unity Ads 320×50 (só fora da partida)</div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"abertoNaPartida":{"editor":"boolean","default":false,"section":"Contexto"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { tab: 0, die: 20, qty: 1, rolls: [17], hist: ['17', '4', '12'], coin: 'CARA', planar: 'CAOS', pick: 2, sec: 90, run: false };
+  }
+  componentDidMount() {
+    var self = this;
+    this.tick = setInterval(function () { if (self.state.run && self.state.sec > 0) self.setState({ sec: self.state.sec - 1 }); }, 1000);
+  }
+  componentWillUnmount() { clearInterval(this.tick); }
+  renderVals() {
+    var self = this, st = this.state;
+    var names = ['Ana', 'Bruno', 'Carla', 'Davi'], cols = ['#FFB020', '#22C7F0', '#FF4F8B', '#9BE15D'];
+    var r = function (n) { return 1 + Math.floor(Math.random() * n); };
+    var push = function (v) { return [String(v)].concat(st.hist).slice(0, 5); };
+    var tabs = ['Dados', 'Moeda', 'Planar', 'Sorteio', 'Timer'];
+    var out = { result: '', sub: '', cta: '', act: null, bigSize: 200, accent: '#F3F5F7' };
+    if (st.tab === 0) {
+      var sum = st.rolls.reduce(function (a, b) { return a + b; }, 0);
+      out = { result: sum, sub: st.qty > 1 ? st.rolls.join(' + ') : 'd' + st.die, cta: 'Rolar ' + st.qty + 'd' + st.die, bigSize: 200, accent: '#22C7F0',
+        act: function () { var rs = []; for (var i = 0; i < st.qty; i++) rs.push(r(st.die)); self.setState({ rolls: rs, hist: push(rs.reduce(function (a, b) { return a + b; }, 0)) }); } };
+    } else if (st.tab === 1) {
+      out = { result: st.coin, sub: 'moeda', cta: 'Jogar moeda', bigSize: 120, accent: '#FFB020',
+        act: function () { var c = Math.random() < 0.5 ? 'CARA' : 'COROA'; self.setState({ coin: c, hist: push(c) }); } };
+    } else if (st.tab === 2) {
+      out = { result: st.planar, sub: 'dado planar · 1 face Viajar, 1 Caos, 4 em branco', cta: 'Rolar dado planar', bigSize: 110, accent: '#A78BFA',
+        act: function () { var n = r(6); var f = n === 1 ? 'VIAJAR' : (n === 2 ? 'CAOS' : '—'); self.setState({ planar: f, hist: push(f) }); } };
+    } else if (st.tab === 3) {
+      out = { result: names[st.pick].toUpperCase(), sub: 'começa a partida', cta: 'Sortear jogador', bigSize: 120, accent: cols[st.pick],
+        act: function () { var p = r(4) - 1; self.setState({ pick: p, hist: push(names[p]) }); } };
+    } else {
+      var s = st.sec;
+      out = { result: Math.floor(s / 60) + ':' + (s % 60 < 10 ? '0' : '') + (s % 60), sub: st.run ? 'contando · toque para pausar' : 'timer de turno · 90 s', cta: st.run ? 'Pausar' : (s === 0 ? 'Reiniciar' : 'Iniciar'), bigSize: 170, accent: s <= 10 ? '#FF8A8A' : '#9BE15D',
+        act: function () { if (s === 0) self.setState({ sec: 90, run: true }); else self.setState({ run: !st.run }); } };
+    }
+    return Object.assign(out, {
+      tabs: tabs.map(function (l, i) { var sel = st.tab === i; return { label: l, sel: sel, bg: sel ? '#232832' : 'transparent', fg: sel ? '#F3F5F7' : '#9AA3AF', pick: function () { self.setState({ tab: i }); } }; }),
+      isDice: st.tab === 0, isPick: st.tab === 3,
+      dice: [4, 6, 8, 10, 12, 20, 100].map(function (n) { var sel = st.die === n; return { label: 'd' + n, sel: sel, border: sel ? '2px solid #22C7F0' : '1px solid #232832', bg: sel ? '#0B2A33' : '#161A20', pick: function () { self.setState({ die: n }); } }; }),
+      qty: st.qty,
+      qDown: function () { self.setState({ qty: Math.max(1, st.qty - 1) }); },
+      qUp: function () { self.setState({ qty: Math.min(6, st.qty + 1) }); },
+      people: names.map(function (n, i) { var sel = st.pick === i; return { name: n, color: cols[i], bg: sel ? cols[i] : 'transparent', fg: sel ? '#0B0D11' : '#F3F5F7' }; }),
+      history: st.hist.join(' · '),
+      showAd: !(this.props.abertoNaPartida ?? false)
+    });
+  }
+}
+</script>
+</body>
+</html>

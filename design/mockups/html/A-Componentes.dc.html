@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Componentes · Sinal</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&amp;family=Instrument+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#050608}
+a{color:#FFB020;text-decoration:none}a:hover{color:#FFD27A}
+</style>
+</helmet>
+<div style="width: 1240px; height: 844px; box-sizing: border-box; padding: 44px 48px; background: #050608; color: #F3F5F7; font-family: 'Instrument Sans', system-ui, sans-serif; display: flex; flex-direction: column; gap: 30px">
+  <div style="display: flex; flex-direction: column; gap: 14px">
+    <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #9AA3AF">PlayerPanel · estados</div>
+    <div style="display: flex; gap: 16px">
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <div style="position: relative; width: 200px; height: 200px; box-sizing: border-box; border-radius: 24px; border: 2px solid #22C7F0; background: radial-gradient(circle at 50% 50%, #22C7F024, #0B0D11 72%); box-shadow: 0 0 16px #22C7F02E; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px">
+          <div style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 96px; line-height: 0.85; text-shadow: 0 0 28px #22C7F055">40</div>
+          <div style="height: 26px; padding: 0 10px; border-radius: 13px; background: #161A20; font-size: 13px; font-weight: 600; display: flex; align-items: center">Bruno</div>
+        </div>
+        <span style="font-size: 13px; color: #9AA3AF">normal</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <div style="position: relative; width: 200px; height: 200px; box-sizing: border-box; border-radius: 24px; border: 2px solid #FFB020; background: radial-gradient(circle at 50% 50%, #FFB02024, #0B0D11 72%); box-shadow: 0 0 0 3px #FFB02055, 0 0 34px #FFB02066; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px">
+          <div style="position: absolute; top: 0; left: 0; height: 4px; width: 64%; background: #FFB020"></div>
+          <div style="height: 22px; padding: 0 10px; border-radius: 11px; background: #FFB020; color: #0B0D11; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; display: flex; align-items: center">TURNO · 0:58</div>
+          <div style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 96px; line-height: 0.85; text-shadow: 0 0 28px #FFB02055">31</div>
+          <div style="height: 26px; padding: 0 10px; border-radius: 13px; background: #161A20; font-size: 13px; font-weight: 600; display: flex; align-items: center">Ana</div>
+        </div>
+        <span style="font-size: 13px; color: #9AA3AF">ativo + TurnTimerBar</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <div style="position: relative; width: 200px; height: 200px; box-sizing: border-box; border-radius: 24px; border: 2px solid #FF4F8B; background: radial-gradient(circle at 50% 50%, #FF4F8B24, #0B0D11 72%); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px">
+          <div style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 30px; line-height: 1; color: #FF8A8A">−7</div>
+          <div style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 80px; line-height: 0.85">11</div>
+          <div style="display: flex; align-items: center; gap: 5px; height: 26px; padding: 0 10px; border-radius: 13px; background: #2A0F18; border: 1px solid #FF4F8B; box-sizing: border-box; font-size: 12px; font-weight: 700; color: #FFB3CB">CMD 19/21</div>
+        </div>
+        <span style="font-size: 13px; color: #9AA3AF">delta + alerta</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <div style="position: relative; width: 200px; height: 200px; box-sizing: border-box; border-radius: 24px; border: 2px solid #9BE15D; background: #0B0D11; opacity: 0.45; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px">
+          <div style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 96px; line-height: 0.85">0</div>
+          <div style="height: 26px; padding: 0 10px; border-radius: 13px; background: #2A0F18; color: #FFB3CB; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; display: flex; align-items: center">ELIMINADO</div>
+        </div>
+        <span style="font-size: 13px; color: #9AA3AF">eliminado (toque longo: reviver)</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <div style="position: relative; width: 200px; height: 200px; box-sizing: border-box; border-radius: 24px; border: 2px dashed #FFB020; background: #0B0D11; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px">
+          <div style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 96px; line-height: 0.85">31</div>
+          <div style="height: 26px; padding: 0 10px; border-radius: 13px; background: #161A20; font-size: 13px; font-weight: 600; display: flex; align-items: center">Ana</div>
+        </div>
+        <span style="font-size: 13px; color: #9AA3AF">modo daltônico (traço)</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding-left: 8px">
+        <div style="font-size: 13px; font-weight: 600; color: #9AA3AF">LifeNumber · escala</div>
+        <div style="display: flex; align-items: flex-end; gap: 14px">
+          <div style="display: flex; flex-direction: column; align-items: center"><span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 120px; line-height: 0.85">20</span><span style="font-size: 12px; color: #9AA3AF">xl 210</span></div>
+          <div style="display: flex; flex-direction: column; align-items: center"><span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 72px; line-height: 0.85">20</span><span style="font-size: 12px; color: #9AA3AF">lg 112</span></div>
+          <div style="display: flex; flex-direction: column; align-items: center"><span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 48px; line-height: 0.85">20</span><span style="font-size: 12px; color: #9AA3AF">md 72</span></div>
+          <div style="display: flex; flex-direction: column; align-items: center"><span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 30px; line-height: 0.85">20</span><span style="font-size: 12px; color: #9AA3AF">sm 40</span></div>
+        </div>
+        <div style="font-size: 12px; color: #9AA3AF; line-height: 1.5; max-width: 220px">Valores reais em px lógicos (amostra reduzida). Escala ajusta pelo tamanho do painel, não pelo aparelho.</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px">
+    <div style="display: flex; flex-direction: column; gap: 14px">
+      <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #9AA3AF">CounterChip</div>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px">
+        <div style="display: flex; align-items: center; gap: 8px; height: 40px; padding: 0 14px; border-radius: 20px; background: #161A20; border: 1px solid #232832"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9BE15D" stroke-width="2" aria-hidden="true"><path d="M12 3a7 7 0 0 0-7 7c0 2.5 1.3 4 3 5v3h8v-3c1.7-1 3-2.5 3-5a7 7 0 0 0-7-7z"></path></svg><span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 22px">3</span><span style="font-size: 12px; color: #9AA3AF">normal</span></div>
+        <div style="display: flex; align-items: center; gap: 8px; height: 40px; padding: 0 14px; border-radius: 20px; background: #232832; border: 1px solid #3A414D; transform: scale(0.96)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22C7F0" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M13 3L5 14h6l-1 7 8-11h-6z"></path></svg><span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 22px">2</span><span style="font-size: 12px; color: #9AA3AF">pressionado</span></div>
+        <div style="display: flex; align-items: center; gap: 8px; height: 40px; padding: 0 14px; border-radius: 20px; background: #0E1014; border: 1px solid #1A1E25; color: #4B525C"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M12 8v8M8 12h8"></path></svg><span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 22px">0</span><span style="font-size: 12px">desabilitado</span></div>
+        <div style="display: flex; align-items: center; gap: 8px; height: 40px; padding: 0 14px; border-radius: 20px; background: #1E2A0F; border: 2px solid #9BE15D"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9BE15D" stroke-width="2" aria-hidden="true"><path d="M12 3a7 7 0 0 0-7 7c0 2.5 1.3 4 3 5v3h8v-3c1.7-1 3-2.5 3-5a7 7 0 0 0-7-7z"></path></svg><span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 22px">10</span><span style="font-size: 12px; color: #C9F2A4">letal</span></div>
+      </div>
+      <div style="font-size: 13px; color: #9AA3AF; line-height: 1.5">Alerta em: veneno ≥ 8 (aviso) e 10 (letal); comandante ≥ 15 (aviso) e 21 (letal). Altura 40, alvo de toque 56 (área invisível).</div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 14px">
+      <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #9AA3AF">Botões</div>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center">
+        <button style="height: 56px; padding: 0 24px; border-radius: 28px; border: none; background: #FFB020; color: #1A1204; font-family: inherit; font-size: 16px; font-weight: 700">Primário</button>
+        <button style="height: 56px; padding: 0 24px; border-radius: 28px; border: 1px solid #232832; background: #161A20; color: #F3F5F7; font-family: inherit; font-size: 16px; font-weight: 600">Secundário</button>
+        <button style="height: 56px; padding: 0 18px; border-radius: 28px; border: none; background: transparent; color: #FFB020; font-family: inherit; font-size: 16px; font-weight: 600">Texto</button>
+        <button style="position: relative; overflow: hidden; height: 56px; padding: 0 24px; border-radius: 28px; border: 2px solid #FF6B6B; background: #2A1012; color: #FFD0D0; font-family: inherit; font-size: 16px; font-weight: 700"><span style="position: absolute; left: 0; top: 0; bottom: 0; width: 45%; background: rgba(255,107,107,0.28)"></span><span style="position: relative">Segure para reiniciar</span></button>
+        <button aria-label="Desfazer" style="width: 56px; height: 56px; border-radius: 50%; border: 1px solid #232832; background: #0E1014; color: #F3F5F7; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 14L4 9l5-5"></path><path d="M4 9h10a6 6 0 0 1 0 12h-3"></path></svg></button>
+        <button disabled style="height: 56px; padding: 0 24px; border-radius: 28px; border: none; background: #161A20; color: #4B525C; font-family: inherit; font-size: 16px; font-weight: 700">Desabilitado</button>
+      </div>
+      <div style="font-size: 13px; color: #9AA3AF; line-height: 1.5">Destrutivo = segurar 800 ms com preenchimento visível, nunca toque simples.</div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 14px">
+      <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #9AA3AF">FormatPresetCard · Toggle · Stepper</div>
+      <div style="display: flex; gap: 10px">
+        <div style="flex-grow: 1; height: 88px; box-sizing: border-box; padding: 12px 14px; border-radius: 20px; background: #0E1014; border: 1px solid #232832; display: flex; flex-direction: column; justify-content: space-between"><span style="font-size: 14px; font-weight: 600">Standard</span><span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 32px; line-height: 1">20</span></div>
+        <div style="flex-grow: 1; height: 88px; box-sizing: border-box; padding: 12px 14px; border-radius: 20px; background: #1F1806; border: 2px solid #FFB020; display: flex; flex-direction: column; justify-content: space-between"><span style="font-size: 14px; font-weight: 600; color: #FFD27A">Commander</span><span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 32px; line-height: 1">40</span></div>
+      </div>
+      <div style="display: flex; gap: 14px; align-items: center">
+        <div style="width: 52px; height: 32px; border-radius: 16px; background: #FFB020; position: relative"><div style="position: absolute; right: 3px; top: 3px; width: 26px; height: 26px; border-radius: 50%; background: #1A1204"></div></div>
+        <div style="width: 52px; height: 32px; border-radius: 16px; background: #232832; position: relative"><div style="position: absolute; left: 3px; top: 3px; width: 26px; height: 26px; border-radius: 50%; background: #9AA3AF"></div></div>
+        <div style="display: flex; align-items: center; height: 56px; border-radius: 28px; background: #161A20; border: 1px solid #232832">
+          <button aria-label="Diminuir" style="width: 56px; height: 56px; border: none; background: transparent; color: #F3F5F7; font-size: 24px">−</button>
+          <span style="width: 56px; text-align: center; font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 28px">40</span>
+          <button aria-label="Aumentar" style="width: 56px; height: 56px; border: none; background: transparent; color: #F3F5F7; font-size: 24px">+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px">
+    <div style="display: flex; flex-direction: column; gap: 14px">
+      <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #9AA3AF">CardTile</div>
+      <div style="display: flex; align-items: center; gap: 12px; height: 76px; box-sizing: border-box; padding: 8px 14px 8px 8px; border-radius: 18px; background: #0E1014; border: 1px solid #232832">
+        <div style="width: 44px; height: 60px; border-radius: 4px; background: #232832"></div>
+        <div style="display: flex; flex-direction: column; gap: 2px; flex-grow: 1"><span style="font-size: 15px; font-weight: 600">[Nome da carta]</span><span style="font-size: 12px; color: #9AA3AF">Criatura — Tipo</span></div>
+        <div style="display: flex; gap: 3px"><div style="width: 20px; height: 20px; border-radius: 50%; background: #BEB6AE; color: #1E1A16; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center">2</div><div style="width: 20px; height: 20px; border-radius: 50%; background: #3FB273; color: #062014; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center">G</div></div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px">
+      <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #9AA3AF">StatusMarker</div>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap">
+        <div style="display: flex; align-items: center; gap: 8px; height: 40px; padding: 0 14px; border-radius: 20px; background: #FFB020; color: #1A1204; font-size: 13px; font-weight: 700"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true"><path d="M4 18h16M5 15l-1-8 5 4 3-6 3 6 5-4-1 8z"></path></svg>Monarca</div>
+        <div style="display: flex; align-items: center; gap: 8px; height: 40px; padding: 0 14px; border-radius: 20px; background: #161A20; border: 1px solid #232832; font-size: 13px; font-weight: 600">Iniciativa</div>
+        <div style="display: flex; align-items: center; gap: 8px; height: 40px; padding: 0 14px; border-radius: 20px; background: #161A20; border: 1px solid #232832; font-size: 13px; font-weight: 600">Anel <span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 20px">2</span>/4</div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px">
+      <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #9AA3AF">Hub central</div>
+      <div style="display: flex; align-items: center; gap: 16px">
+        <div style="width: 76px; height: 76px; box-sizing: border-box; border-radius: 50%; border: 2px solid #2C323C; background: #050608; box-shadow: 0 0 30px rgba(255,176,32,0.35); color: #FFB020; display: flex; align-items: center; justify-content: center">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M9.5 21l1-11h3l1 11M8 21h8M10.5 10V7.5L12 6l1.5 1.5V10"></path><path d="M16 7.5l4-1.5M16 9.5l4 1.5M8 7.5L4 6M8 9.5L4 11"></path></svg>
+        </div>
+        <div style="font-size: 13px; color: #9AA3AF; line-height: 1.5">Toque: menu da partida.<br>Segurar: rolar d20 direto.</div>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1240,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

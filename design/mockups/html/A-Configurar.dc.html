@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Configurar partida · Sinal</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&amp;family=Instrument+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#050608}
+a{color:#FFB020;text-decoration:none}a:hover{color:#FFD27A}
+</style>
+</helmet>
+<div style="position: relative; width: 390px; height: 1240px; box-sizing: border-box; padding: 60px 20px 120px; background: #050608; color: #F3F5F7; font-family: 'Instrument Sans', system-ui, sans-serif; display: flex; flex-direction: column; gap: 26px">
+  <div style="display: flex; align-items: center; gap: 12px; height: 56px">
+    <a href="A-Home.dc.html" aria-label="Voltar" style="width: 48px; height: 48px; box-sizing: border-box; border-radius: 50%; background: #0E1014; border: 1px solid #232832; display: flex; align-items: center; justify-content: center; color: #F3F5F7"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></a>
+    <h1 style="margin: 0; font-size: 22px; font-weight: 700">Nova partida</h1>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 10px">
+    <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #9AA3AF">Jogadores</div>
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px">
+      <sc-for list="{{counts}}" as="c" hint-placeholder-count="4">
+        <button onClick="{{c.pick}}" aria-pressed="{{c.sel}}" style="height: 64px; border-radius: 20px; border: {{c.border}}; background: {{c.bg}}; color: #F3F5F7; font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 32px; cursor: pointer">{{c.n}}</button>
+      </sc-for>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 10px">
+    <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #9AA3AF">Formato</div>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+      <sc-for list="{{formats}}" as="f" hint-placeholder-count="6">
+        <button onClick="{{f.pick}}" aria-pressed="{{f.sel}}" style="height: 84px; box-sizing: border-box; padding: 10px 12px; border-radius: 18px; border: {{f.border}}; background: {{f.bg}}; color: #F3F5F7; font-family: inherit; display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; text-align: left; cursor: pointer">
+          <span style="font-size: 13px; font-weight: 600; color: {{f.fg}}">{{f.name}}</span>
+          <span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 28px; line-height: 1">{{f.life}}</span>
+        </button>
+      </sc-for>
+    </div>
+  </div>
+
+  <div style="display: flex; align-items: center; justify-content: space-between">
+    <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 16px; font-weight: 600">Vida inicial</span><span style="font-size: 13px; color: #9AA3AF">Toque no número para digitar</span></div>
+    <div style="display: flex; align-items: center; height: 56px; border-radius: 28px; background: #161A20; border: 1px solid #232832">
+      <button aria-label="Diminuir vida inicial" onClick="{{lifeDown}}" style="width: 56px; height: 56px; border: none; background: transparent; color: #F3F5F7; font-size: 26px; cursor: pointer">−</button>
+      <span style="width: 60px; text-align: center; font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 30px">{{life}}</span>
+      <button aria-label="Aumentar vida inicial" onClick="{{lifeUp}}" style="width: 56px; height: 56px; border: none; background: transparent; color: #F3F5F7; font-size: 26px; cursor: pointer">+</button>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 10px">
+    <div style="display: flex; justify-content: space-between; align-items: center">
+      <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #9AA3AF">Quem joga</div>
+      <a href="#" style="font-size: 14px; font-weight: 600; height: 44px; display: flex; align-items: center">Jogadores salvos</a>
+    </div>
+    <sc-for list="{{players}}" as="p" hint-placeholder-count="4">
+      <div style="display: flex; align-items: center; gap: 12px; height: 64px; box-sizing: border-box; padding: 0 8px 0 10px; border-radius: 20px; background: #0E1014; border: 1px solid #232832">
+        <button aria-label="Trocar cor e ícone" style="width: 44px; height: 44px; box-sizing: border-box; border-radius: 50%; border: 2px solid {{p.color}}; background: {{p.color}}22; cursor: pointer"></button>
+        <div style="display: flex; flex-direction: column; flex-grow: 1">
+          <label style="font-size: 16px; font-weight: 600">{{p.name}}</label>
+          <span style="font-size: 12px; color: #9AA3AF">{{p.deck}}</span>
+        </div>
+        <span style="font-size: 12px; color: #9AA3AF; padding: 0 6px">{{p.seat}}</span>
+        <button aria-label="Reordenar" style="width: 44px; height: 44px; border: none; background: transparent; color: #6B7480; cursor: grab"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 9h14M5 15h14"></path></svg></button>
+      </div>
+    </sc-for>
+    <div style="display: flex; align-items: center; justify-content: space-between; height: 56px">
+      <span style="font-size: 16px; font-weight: 600">Jogar em times</span>
+      <div style="width: 52px; height: 32px; border-radius: 16px; background: #232832; position: relative"><div style="position: absolute; left: 3px; top: 3px; width: 26px; height: 26px; border-radius: 50%; background: #9AA3AF"></div></div>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 10px">
+    <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #9AA3AF">Contadores na partida</div>
+    <div style="display: flex; flex-wrap: wrap; gap: 8px">
+      <sc-for list="{{counters}}" as="k" hint-placeholder-count="8">
+        <button onClick="{{k.toggle}}" aria-pressed="{{k.on}}" style="height: 44px; padding: 0 14px; border-radius: 22px; border: {{k.border}}; background: {{k.bg}}; color: {{k.fg}}; font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer">{{k.label}}</button>
+      </sc-for>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 10px">
+    <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #9AA3AF">Quem começa · Timer de turno</div>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
+      <div style="height: 56px; border-radius: 18px; background: #1F1806; border: 2px solid #FFB020; display: flex; align-items: center; justify-content: center; font-weight: 600; color: #FFD27A">Sortear</div>
+      <div style="height: 56px; border-radius: 18px; background: #0E1014; border: 1px solid #232832; display: flex; align-items: center; justify-content: center; font-weight: 600">Escolher</div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px">
+      <div style="height: 48px; border-radius: 16px; background: #1F1806; border: 2px solid #FFB020; display: flex; align-items: center; justify-content: center; font-weight: 600; color: #FFD27A">Sem</div>
+      <div style="height: 48px; border-radius: 16px; background: #0E1014; border: 1px solid #232832; display: flex; align-items: center; justify-content: center; font-weight: 600">60 s</div>
+      <div style="height: 48px; border-radius: 16px; background: #0E1014; border: 1px solid #232832; display: flex; align-items: center; justify-content: center; font-weight: 600">90 s</div>
+      <div style="height: 48px; border-radius: 16px; background: #0E1014; border: 1px solid #232832; display: flex; align-items: center; justify-content: center; font-weight: 600">120 s</div>
+    </div>
+  </div>
+
+  <div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 16px 20px 34px; background: linear-gradient(to bottom, rgba(5,6,8,0), #050608 30%)">
+    <a href="{{startHref}}" style="height: 64px; border-radius: 32px; background: #FFB020; color: #1A1204; display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 18px; font-weight: 700">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4l13 8-13 8z"></path></svg>
+      Começar · {{summary}}
+    </a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1240}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { n: 4, fmt: 1, life: 40, on: { poison: true, cmd: true, energy: false, exp: false, rad: false, mon: true, ini: false, ring: false, storm: false } };
+  }
+  renderVals() {
+    var self = this, st = this.state;
+    var F = [['Standard', 20], ['Commander', 40], ['Brawl', 25], ['2-Headed Giant', 30], ['Pauper', 20], ['Oathbreaker', 20], ['Modern', 20], ['Legacy', 20], ['Livre', '—']];
+    var N = ['Ana', 'Bruno', 'Carla', 'Davi'], C = ['#FFB020', '#22C7F0', '#FF4F8B', '#9BE15D'];
+    var D = ['Deck: Atraxa', 'Deck: Krenko', 'Sem deck', 'Deck: Omnath'];
+    var seats = { 1: ['solo'], 2: ['frente', 'baixo'], 3: ['esq.', 'dir.', 'baixo'], 4: ['esq. 1', 'dir. 1', 'esq. 2', 'dir. 2'] };
+    var K = [['poison', 'Veneno'], ['cmd', 'Dano de comandante'], ['energy', 'Energia'], ['exp', 'Experiência'], ['rad', 'Radiação'], ['mon', 'Monarca'], ['ini', 'Iniciativa'], ['ring', 'Tentação do Anel'], ['storm', 'Tempestade']];
+    var href = { 1: 'A-Partida-1J.dc.html', 2: 'A-Partida-2J.dc.html', 3: 'A-Partida-3J.dc.html', 4: 'A-Partida-4J.dc.html' };
+    return {
+      counts: [1, 2, 3, 4].map(function (n) {
+        var sel = st.n === n;
+        return { n: n, sel: sel, border: sel ? '2px solid #FFB020' : '1px solid #232832', bg: sel ? '#1F1806' : '#0E1014', pick: function () { self.setState({ n: n }); } };
+      }),
+      formats: F.map(function (f, i) {
+        var sel = st.fmt === i;
+        var life = f[0] === 'Brawl' && st.n > 2 ? 30 : f[1];
+        return { name: f[0], life: life, sel: sel, border: sel ? '2px solid #FFB020' : '1px solid #232832', bg: sel ? '#1F1806' : '#0E1014', fg: sel ? '#FFD27A' : '#F3F5F7',
+          pick: function () { self.setState({ fmt: i, life: typeof life === 'number' ? life : st.life }); } };
+      }),
+      life: st.life,
+      lifeDown: function () { self.setState({ life: Math.max(1, st.life - 1) }); },
+      lifeUp: function () { self.setState({ life: st.life + 1 }); },
+      players: N.slice(0, st.n).map(function (name, i) { return { name: name, color: C[i], deck: D[i], seat: seats[st.n][i] }; }),
+      counters: K.map(function (k) {
+        var on = !!st.on[k[0]];
+        return { label: k[1], on: on, border: on ? '2px solid #FFB020' : '1px solid #232832', bg: on ? '#1F1806' : '#0E1014', fg: on ? '#FFD27A' : '#B7BFCA',
+          toggle: function () { var o = Object.assign({}, st.on); o[k[0]] = !on; self.setState({ on: o }); } };
+      }),
+      summary: F[st.fmt][0] + ' · ' + st.n + 'J · ' + st.life,
+      startHref: href[st.n]
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Cartas · busca · Sinal</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&amp;family=Instrument+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#050608}
+a{color:#FFB020;text-decoration:none}a:hover{color:#FFD27A}
+input::placeholder{color:#7C8593}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; padding: 60px 20px 24px; background: #050608; color: #F3F5F7; font-family: 'Instrument Sans', system-ui, sans-serif; display: flex; flex-direction: column; gap: 14px">
+  <div style="display: flex; align-items: center; gap: 12px; height: 56px">
+    <a href="A-Home.dc.html" aria-label="Voltar" style="width: 48px; height: 48px; box-sizing: border-box; border-radius: 50%; background: #0E1014; border: 1px solid #232832; display: flex; align-items: center; justify-content: center; color: #F3F5F7"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></a>
+    <h1 style="margin: 0; font-size: 22px; font-weight: 700">Cartas</h1>
+  </div>
+  <label style="display: flex; align-items: center; gap: 10px; height: 56px; padding: 0 16px; border-radius: 28px; background: #0E1014; border: 2px solid #FFB020">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9AA3AF" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg>
+    <input aria-label="Buscar carta pelo nome" value="bolt" placeholder="Nome da carta" style="flex-grow: 1; width: 0; min-width: 0; height: 40px; border: none; background: transparent; color: #F3F5F7; font-family: inherit; font-size: 17px; outline: none">
+    <button aria-label="Limpar busca" style="width: 36px; height: 36px; border-radius: 50%; border: none; background: #232832; color: #B7BFCA; display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+  </label>
+  <div style="display: flex; gap: 6px; align-items: center">
+    <div style="width: 40px; height: 40px; box-sizing: border-box; border-radius: 50%; background: #F6E7BE; color: #2A2416; display: flex; align-items: center; justify-content: center; font-weight: 700; opacity: 0.35">W</div>
+    <div style="width: 40px; height: 40px; box-sizing: border-box; border-radius: 50%; background: #5AA9E6; color: #08182A; display: flex; align-items: center; justify-content: center; font-weight: 700; opacity: 0.35">U</div>
+    <div style="width: 40px; height: 40px; box-sizing: border-box; border-radius: 50%; background: #4A4240; color: #F3EDEA; border: 1px solid #6B625F; display: flex; align-items: center; justify-content: center; font-weight: 700; opacity: 0.35">B</div>
+    <div style="width: 40px; height: 40px; box-sizing: border-box; border-radius: 50%; background: #EE6A4D; color: #2A0D06; border: 3px solid #F3F5F7; display: flex; align-items: center; justify-content: center; font-weight: 700">R</div>
+    <div style="width: 40px; height: 40px; box-sizing: border-box; border-radius: 50%; background: #3FB273; color: #062014; display: flex; align-items: center; justify-content: center; font-weight: 700; opacity: 0.35">G</div>
+    <div style="width: 40px; height: 40px; box-sizing: border-box; border-radius: 50%; background: #BEB6AE; color: #1E1A16; display: flex; align-items: center; justify-content: center; font-weight: 700; opacity: 0.35">C</div>
+    <div style="flex-grow: 1"></div>
+    <button aria-label="Mais filtros" style="height: 40px; padding: 0 12px; border-radius: 20px; border: 1px solid #232832; background: #161A20; color: #F3F5F7; font-family: inherit; font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 6px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"></path></svg>Filtros · 2</button>
+  </div>
+  <div style="display: flex; gap: 6px">
+    <div style="height: 32px; padding: 0 12px; border-radius: 16px; background: #1F1806; border: 1px solid #FFB020; color: #FFD27A; font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 6px">Tipo: Instantânea ×</div>
+    <div style="height: 32px; padding: 0 12px; border-radius: 16px; background: #1F1806; border: 1px solid #FFB020; color: #FFD27A; font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 6px">Custo ≤ 2 ×</div>
+  </div>
+  <div style="font-size: 13px; color: #9AA3AF">14 cartas · ordenado por nome</div>
+  <div style="display: flex; flex-direction: column; gap: 8px; overflow: hidden; flex-grow: 1">
+    <sc-for list="{{cards}}" as="c" hint-placeholder-count="6">
+      <a href="A-Cartas-Detalhe.dc.html" style="display: flex; align-items: center; gap: 12px; height: 76px; flex-shrink: 0; box-sizing: border-box; padding: 8px 14px 8px 8px; border-radius: 18px; background: #0E1014; border: 1px solid #232832; color: #F3F5F7">
+        <div style="width: 44px; height: 60px; flex-shrink: 0; border-radius: 4px; background: #232832" aria-hidden="true"></div>
+        <div style="display: flex; flex-direction: column; gap: 2px; flex-grow: 1; min-width: 0"><span style="font-size: 15px; font-weight: 600">{{c.name}}</span><span style="font-size: 12px; color: #9AA3AF">{{c.type}}</span></div>
+        <div style="display: flex; gap: 3px">
+          <sc-for list="{{c.cost}}" as="m" hint-placeholder-count="2"><div style="width: 20px; height: 20px; border-radius: 50%; background: {{m.bg}}; color: {{m.fg}}; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center">{{m.k}}</div></sc-for>
+        </div>
+      </a>
+    </sc-for>
+  </div>
+  <div style="font-size: 11px; color: #7C8593; text-align: center">Dados e imagens: Scryfall · Sem preços</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var S = { R: ['#EE6A4D', '#2A0D06'], N: ['#BEB6AE', '#1E1A16'] };
+    function cost(arr) { return arr.map(function (k) { var c = k === 'R' ? S.R : S.N; return { k: k, bg: c[0], fg: c[1] }; }); }
+    return {
+      cards: [
+        { name: 'Bolt Bend', type: 'Instantânea', cost: cost(['3', 'R']) },
+        { name: 'Burst Lightning', type: 'Instantânea', cost: cost(['R']) },
+        { name: 'Chain Lightning', type: 'Feitiço', cost: cost(['R']) },
+        { name: 'Firebolt', type: 'Feitiço', cost: cost(['R']) },
+        { name: 'Lightning Bolt', type: 'Instantânea', cost: cost(['R']) },
+        { name: 'Lightning Strike', type: 'Instantânea', cost: cost(['1', 'R']) },
+        { name: 'Searing Spear', type: 'Instantânea', cost: cost(['1', 'R']) }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

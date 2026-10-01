@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Partida · 2 jogadores · Sinal</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&amp;family=Instrument+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#050608}
+a{color:#FFB020}a:hover{color:#FFD27A}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; padding: 8px; background: #050608; color: #F3F5F7; font-family: 'Instrument Sans', system-ui, sans-serif; display: flex; flex-direction: column; gap: 8px">
+  <sc-for list="{{top}}" as="p" hint-placeholder-count="1">
+    <div style="position: relative; flex-grow: 1; overflow: hidden; box-sizing: border-box; border-radius: 28px; border: 2px solid {{p.color}}; background: radial-gradient(circle at 50% 50%, {{p.color}}22, #0B0D11 70%); box-shadow: {{p.glow}}; opacity: {{p.opacity}}">
+      <div style="position: absolute; inset: 0; transform: rotate({{p.rot}}deg)">
+        <div style="position: absolute; left: 0; top: 0; height: 4px; width: {{p.barW}}; background: {{p.color}}"></div>
+        <button aria-label="{{p.decLabel}}" onClick="{{p.dec}}" style="position: absolute; left: 0; top: 0; width: 50%; height: 100%; border: none; background: transparent; color: #6B7480; display: flex; align-items: center; justify-content: flex-start; padding: 0 0 0 22px; cursor: pointer">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"></path></svg>
+        </button>
+        <button aria-label="{{p.incLabel}}" onClick="{{p.inc}}" style="position: absolute; right: 0; top: 0; width: 50%; height: 100%; border: none; background: transparent; color: #6B7480; display: flex; align-items: center; justify-content: flex-end; padding: 0 22px 0 0; cursor: pointer">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5v14"></path></svg>
+        </button>
+        <div style="position: absolute; left: 0; right: 0; top: 22px; display: flex; justify-content: center; gap: 8px; pointer-events: none; height: 40px">
+          <sc-if value="{{p.active}}" hint-placeholder-val="{{ false }}">
+            <div style="height: 26px; margin-top: 6px; padding: 0 12px; border-radius: 13px; background: {{p.color}}; color: #0B0D11; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; display: flex; align-items: center">SEU TURNO · {{timerText}}</div>
+          </sc-if>
+          <sc-if value="{{p.hasDelta}}" hint-placeholder-val="{{ false }}">
+            <div style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 40px; line-height: 1; color: {{p.deltaColor}}">{{p.deltaText}}</div>
+          </sc-if>
+        </div>
+        <div style="position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-54%); display: flex; justify-content: center; pointer-events: none">
+          <div style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 210px; line-height: 0.85; font-variant-numeric: tabular-nums; text-shadow: 0 0 40px {{p.color}}55">{{p.life}}</div>
+        </div>
+        <div style="position: absolute; left: 0; right: 0; bottom: 18px; display: flex; justify-content: center; align-items: center; gap: 8px; pointer-events: none">
+          <div style="display: flex; align-items: center; gap: 8px; height: 34px; padding: 0 14px; border-radius: 17px; background: #161A20">
+            <sc-if value="{{p.isFlame}}" hint-placeholder-val="{{ true }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{p.color}}" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c1 3 5 5 5 10a5 5 0 0 1-10 0c0-2 1-3.5 2-4.5 0 2 1 3 2 3 0-3-1-5 1-8.5z"></path></svg></sc-if>
+            <sc-if value="{{p.isDrop}}" hint-placeholder-val="{{ false }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{p.color}}" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"></path></svg></sc-if>
+            <span style="font-size: 16px; font-weight: 600">{{p.name}}</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 6px; height: 34px; padding: 0 12px; border-radius: 17px; background: #161A20">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9BE15D" stroke-width="2.2" aria-hidden="true"><path d="M12 3a7 7 0 0 0-7 7c0 2.5 1.3 4 3 5v3h8v-3c1.7-1 3-2.5 3-5a7 7 0 0 0-7-7z"></path></svg>
+            <span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 20px">{{p.poison}}</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 6px; height: 34px; padding: 0 12px; border-radius: 17px; background: #161A20">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22C7F0" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true"><path d="M13 3L5 14h6l-1 7 8-11h-6z"></path></svg>
+            <span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 20px">{{p.energy}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </sc-for>
+
+  <div style="height: 72px; flex-shrink: 0; display: flex; align-items: center; justify-content: space-between; padding: 0 4px">
+    <button aria-label="{{pauseLabel}}" onClick="{{togglePause}}" style="width: 56px; height: 56px; border-radius: 50%; border: 1px solid #232832; background: #0E1014; color: #B7BFCA; display: flex; align-items: center; justify-content: center; cursor: pointer">
+      <sc-if value="{{paused}}" hint-placeholder-val="{{ false }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4l13 8-13 8z"></path></svg></sc-if>
+      <sc-if value="{{running}}" hint-placeholder-val="{{ true }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"></rect><rect x="14" y="4" width="4" height="16" rx="1"></rect></svg></sc-if>
+    </button>
+    <button aria-label="Passar o turno" onClick="{{passTurn}}" style="height: 56px; padding: 0 16px; border-radius: 28px; border: 1px solid #232832; background: #0E1014; color: #F3F5F7; display: flex; align-items: center; gap: 8px; font-family: inherit; cursor: pointer">
+      <span style="font-size: 12px; color: #9AA3AF; font-weight: 600">R{{round}}</span>
+      <span style="font-size: 14px; font-weight: 600">Passar</span>
+    </button>
+    <a href="A-Menu-Partida.dc.html" aria-label="Ferramentas e menu da partida" style="box-sizing: border-box; width: 72px; height: 72px; border-radius: 50%; border: 2px solid #2C323C; background: #050608; box-shadow: 0 0 28px rgba(255,176,32,0.35); color: #FFB020; display: flex; align-items: center; justify-content: center">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M9.5 21l1-11h3l1 11M8 21h8M10.5 10V7.5L12 6l1.5 1.5V10"></path><path d="M16 7.5l4-1.5M16 9.5l4 1.5M8 7.5L4 6M8 9.5L4 11"></path></svg>
+    </a>
+    <button aria-label="Rolar d20" style="width: 56px; height: 56px; border-radius: 50%; border: 1px solid #232832; background: #0E1014; color: #B7BFCA; display: flex; align-items: center; justify-content: center; cursor: pointer">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l9 5v10l-9 5-9-5V7z"></path><path d="M12 2l-5 13h10zM3 7l4 8M21 7l-4 8M7 15l5 7 5-7"></path></svg>
+    </button>
+    <button aria-label="Desfazer última mudança" onClick="{{undo}}" style="width: 56px; height: 56px; border-radius: 50%; border: 1px solid #232832; background: #0E1014; color: {{undoColor}}; display: flex; align-items: center; justify-content: center; cursor: pointer">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 14L4 9l5-5"></path><path d="M4 9h10a6 6 0 0 1 0 12h-3"></path></svg>
+    </button>
+  </div>
+
+  <sc-for list="{{bottom}}" as="p" hint-placeholder-count="1">
+    <div style="position: relative; flex-grow: 1; overflow: hidden; box-sizing: border-box; border-radius: 28px; border: 2px solid {{p.color}}; background: radial-gradient(circle at 50% 50%, {{p.color}}22, #0B0D11 70%); box-shadow: {{p.glow}}; opacity: {{p.opacity}}">
+      <div style="position: absolute; inset: 0; transform: rotate({{p.rot}}deg)">
+        <div style="position: absolute; left: 0; top: 0; height: 4px; width: {{p.barW}}; background: {{p.color}}"></div>
+        <button aria-label="{{p.decLabel}}" onClick="{{p.dec}}" style="position: absolute; left: 0; top: 0; width: 50%; height: 100%; border: none; background: transparent; color: #6B7480; display: flex; align-items: center; justify-content: flex-start; padding: 0 0 0 22px; cursor: pointer">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"></path></svg>
+        </button>
+        <button aria-label="{{p.incLabel}}" onClick="{{p.inc}}" style="position: absolute; right: 0; top: 0; width: 50%; height: 100%; border: none; background: transparent; color: #6B7480; display: flex; align-items: center; justify-content: flex-end; padding: 0 22px 0 0; cursor: pointer">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5v14"></path></svg>
+        </button>
+        <div style="position: absolute; left: 0; right: 0; top: 22px; display: flex; justify-content: center; gap: 8px; pointer-events: none; height: 40px">
+          <sc-if value="{{p.active}}" hint-placeholder-val="{{ false }}">
+            <div style="height: 26px; margin-top: 6px; padding: 0 12px; border-radius: 13px; background: {{p.color}}; color: #0B0D11; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; display: flex; align-items: center">SEU TURNO · {{timerText}}</div>
+          </sc-if>
+          <sc-if value="{{p.hasDelta}}" hint-placeholder-val="{{ false }}">
+            <div style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 40px; line-height: 1; color: {{p.deltaColor}}">{{p.deltaText}}</div>
+          </sc-if>
+        </div>
+        <div style="position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-54%); display: flex; justify-content: center; pointer-events: none">
+          <div style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 210px; line-height: 0.85; font-variant-numeric: tabular-nums; text-shadow: 0 0 40px {{p.color}}55">{{p.life}}</div>
+        </div>
+        <div style="position: absolute; left: 0; right: 0; bottom: 18px; display: flex; justify-content: center; align-items: center; gap: 8px; pointer-events: none">
+          <div style="display: flex; align-items: center; gap: 8px; height: 34px; padding: 0 14px; border-radius: 17px; background: #161A20">
+            <sc-if value="{{p.isFlame}}" hint-placeholder-val="{{ true }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{p.color}}" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c1 3 5 5 5 10a5 5 0 0 1-10 0c0-2 1-3.5 2-4.5 0 2 1 3 2 3 0-3-1-5 1-8.5z"></path></svg></sc-if>
+            <sc-if value="{{p.isDrop}}" hint-placeholder-val="{{ false }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{p.color}}" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"></path></svg></sc-if>
+            <span style="font-size: 16px; font-weight: 600">{{p.name}}</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 6px; height: 34px; padding: 0 12px; border-radius: 17px; background: #161A20">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9BE15D" stroke-width="2.2" aria-hidden="true"><path d="M12 3a7 7 0 0 0-7 7c0 2.5 1.3 4 3 5v3h8v-3c1.7-1 3-2.5 3-5a7 7 0 0 0-7-7z"></path></svg>
+            <span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 20px">{{p.poison}}</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 6px; height: 34px; padding: 0 12px; border-radius: 17px; background: #161A20">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22C7F0" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true"><path d="M13 3L5 14h6l-1 7 8-11h-6z"></path></svg>
+            <span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 20px">{{p.energy}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </sc-for>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"turnSeconds":{"editor":"enum","options":[60,90,120],"default":90,"section":"Timer"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { life: [17, 14], delta: [0, 0], active: 1, sec: 84, paused: false, round: 4, hist: [] };
+    this.timers = [];
+  }
+  componentDidMount() {
+    var self = this;
+    this.tick = setInterval(function () {
+      if (!self.state.paused && self.state.sec > 0) self.setState({ sec: self.state.sec - 1 });
+    }, 1000);
+  }
+  componentWillUnmount() { clearInterval(this.tick); this.timers.forEach(function (t) { clearTimeout(t); }); }
+  bump(i, n, record) {
+    var life = this.state.life.slice(); life[i] += n;
+    var delta = this.state.delta.slice(); delta[i] += n;
+    var upd = { life: life, delta: delta };
+    if (record !== false) upd.hist = this.state.hist.concat([{ i: i, n: n }]);
+    this.setState(upd);
+    clearTimeout(this.timers[i]);
+    var self = this;
+    this.timers[i] = setTimeout(function () {
+      var d = self.state.delta.slice(); d[i] = 0; self.setState({ delta: d });
+    }, 2000);
+  }
+  renderVals() {
+    var self = this;
+    var total = this.props.turnSeconds ?? 90;
+    var P = [
+      { name: 'Bruno', color: '#22C7F0', icon: 'drop', rot: 180, poison: 0, energy: 2 },
+      { name: 'Ana', color: '#FFB020', icon: 'flame', rot: 0, poison: 3, energy: 0 }
+    ];
+    var s = this.state.sec;
+    var timerText = Math.floor(s / 60) + ':' + (s % 60 < 10 ? '0' : '') + (s % 60);
+    var list = P.map(function (p, i) {
+      var life = self.state.life[i], d = self.state.delta[i];
+      var active = self.state.active === i, dead = life <= 0;
+      return {
+        name: p.name, color: p.color, rot: p.rot, life: life, poison: p.poison, energy: p.energy,
+        isFlame: p.icon === 'flame', isDrop: p.icon === 'drop', dead: dead, active: active,
+        barW: active ? Math.round(100 * Math.min(1, s / total)) + '%' : '0%',
+        hasDelta: d !== 0, deltaText: d > 0 ? '+' + d : '−' + Math.abs(d), deltaColor: d > 0 ? '#7CF0B0' : '#FF8A8A',
+        glow: active ? '0 0 0 3px ' + p.color + '55, 0 0 36px ' + p.color + '66' : '0 0 16px ' + p.color + '2E',
+        opacity: dead ? 0.45 : 1,
+        dec: function () { self.bump(i, -1); }, inc: function () { self.bump(i, 1); },
+        decLabel: p.name + ', perder 1 de vida', incLabel: p.name + ', ganhar 1 de vida'
+      };
+    });
+    return {
+      top: [list[0]], bottom: [list[1]], timerText: timerText, round: this.state.round,
+      paused: this.state.paused, running: !this.state.paused,
+      pauseLabel: this.state.paused ? 'Retomar partida' : 'Pausar partida',
+      undoColor: this.state.hist.length ? '#F3F5F7' : '#4B525C',
+      togglePause: function () { self.setState({ paused: !self.state.paused }); },
+      passTurn: function () {
+        var next = self.state.active === 1 ? 0 : 1;
+        self.setState({ active: next, sec: total, round: next === 1 ? self.state.round + 1 : self.state.round });
+      },
+      undo: function () {
+        var h = self.state.hist;
+        if (!h.length) return;
+        var last = h[h.length - 1];
+        self.setState({ hist: h.slice(0, -1) });
+        self.bump(last.i, -last.n, false);
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

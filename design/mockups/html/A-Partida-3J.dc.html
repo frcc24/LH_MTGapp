@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Partida · 3 jogadores · Sinal</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&amp;family=Instrument+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#050608}
+a{color:#FFB020;text-decoration:none}a:hover{color:#FFD27A}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; position: relative; box-sizing: border-box; padding: 8px; background: #050608; color: #F3F5F7; font-family: 'Instrument Sans', system-ui, sans-serif; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: 470px minmax(0, 1fr); gap: 8px">
+  <sc-for list="{{players}}" as="p" hint-placeholder-count="3">
+    <div style="grid-column: {{p.span}}; position: relative; overflow: hidden; box-sizing: border-box; border-radius: 26px; border: 2px solid {{p.color}}; background: radial-gradient(circle at 50% 50%, {{p.color}}24, #0B0D11 72%); box-shadow: {{p.glow}}; opacity: {{p.opacity}}">
+      <div style="position: absolute; left: 50%; top: 50%; width: {{p.iw}}px; height: {{p.ih}}px; transform: translate(-50%, -50%) rotate({{p.rot}}deg)">
+        <button aria-label="{{p.decLabel}}" onClick="{{p.dec}}" style="position: absolute; left: 0; top: 0; width: 50%; height: 100%; border: none; background: transparent; color: #6B7480; display: flex; align-items: center; padding-left: 18px; cursor: pointer"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"></path></svg></button>
+        <button aria-label="{{p.incLabel}}" onClick="{{p.inc}}" style="position: absolute; right: 0; top: 0; width: 50%; height: 100%; border: none; background: transparent; color: #6B7480; display: flex; align-items: center; justify-content: flex-end; padding-right: 18px; cursor: pointer"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5v14"></path></svg></button>
+        <div style="position: absolute; left: 0; right: 0; top: 6px; display: flex; justify-content: center; gap: 8px; height: 32px; pointer-events: none">
+          <sc-if value="{{p.active}}" hint-placeholder-val="{{ false }}"><div style="height: 24px; margin-top: 4px; padding: 0 10px; border-radius: 12px; background: {{p.color}}; color: #0B0D11; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; display: flex; align-items: center">TURNO</div></sc-if>
+          <sc-if value="{{p.hasDelta}}" hint-placeholder-val="{{ false }}"><div style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 32px; line-height: 1; color: {{p.deltaColor}}">{{p.deltaText}}</div></sc-if>
+        </div>
+        <div style="position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-58%); display: flex; justify-content: center; pointer-events: none">
+          <div style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: {{p.fs}}px; line-height: 0.85; font-variant-numeric: tabular-nums; text-shadow: 0 0 30px {{p.color}}55">{{p.life}}</div>
+        </div>
+        <div style="position: absolute; left: 0; right: 0; bottom: 10px; display: flex; justify-content: center; align-items: center; gap: 8px; pointer-events: none">
+          <div style="display: flex; align-items: center; gap: 6px; height: 28px; padding: 0 12px; border-radius: 14px; background: #161A20; font-size: 14px; font-weight: 600"><span style="width: 10px; height: 10px; border-radius: 50%; background: {{p.color}}"></span>{{p.name}}</div>
+          <div style="display: flex; align-items: center; gap: 5px; height: 28px; padding: 0 10px; border-radius: 14px; background: #161A20"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4F8B" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6L9 21H3v-6zM5 13l6 6"></path></svg><span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 18px">{{p.cmd}}</span></div>
+          <sc-if value="{{p.monarch}}" hint-placeholder-val="{{ false }}"><div style="display: flex; align-items: center; gap: 5px; height: 28px; padding: 0 10px; border-radius: 14px; background: #FFB020; color: #1A1204; font-size: 12px; font-weight: 700"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" aria-hidden="true"><path d="M4 18h16M5 15l-1-8 5 4 3-6 3 6 5-4-1 8z"></path></svg>Monarca</div></sc-if>
+        </div>
+      </div>
+    </div>
+  </sc-for>
+  <a href="A-Menu-Partida.dc.html" aria-label="Ferramentas e menu da partida" style="box-sizing: border-box; position: absolute; left: 50%; top: 482px; transform: translate(-50%, -50%); width: 76px; height: 76px; border-radius: 50%; border: 2px solid #2C323C; background: #050608; box-shadow: 0 0 0 6px #050608, 0 0 30px rgba(255,176,32,0.35); color: #FFB020; display: flex; align-items: center; justify-content: center">
+    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M9.5 21l1-11h3l1 11M8 21h8M10.5 10V7.5L12 6l1.5 1.5V10"></path><path d="M16 7.5l4-1.5M16 9.5l4 1.5M8 7.5L4 6M8 9.5L4 11"></path></svg>
+  </a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { life: [36, 22, 40], delta: [0, 0, 0], active: 2 }; this.timers = []; }
+  componentWillUnmount() { this.timers.forEach(function (t) { clearTimeout(t); }); }
+  bump(i, n) {
+    var life = this.state.life.slice(); life[i] += n;
+    var delta = this.state.delta.slice(); delta[i] += n;
+    this.setState({ life: life, delta: delta });
+    clearTimeout(this.timers[i]);
+    var self = this;
+    this.timers[i] = setTimeout(function () { var d = self.state.delta.slice(); d[i] = 0; self.setState({ delta: d }); }, 2000);
+  }
+  renderVals() {
+    var self = this;
+    var P = [
+      { name: 'Ana', color: '#FFB020', rot: 90, iw: 466, ih: 179, fs: 120, span: 'auto', cmd: 8, monarch: false },
+      { name: 'Bruno', color: '#22C7F0', rot: -90, iw: 466, ih: 179, fs: 120, span: 'auto', cmd: 14, monarch: true },
+      { name: 'Carla', color: '#FF4F8B', rot: 0, iw: 370, ih: 346, fs: 190, span: 'span 2', cmd: 0, monarch: false }
+    ];
+    return {
+      players: P.map(function (p, i) {
+        var life = self.state.life[i], d = self.state.delta[i], active = self.state.active === i, dead = life <= 0;
+        return Object.assign({}, p, {
+          life: life, active: active && !dead,
+          hasDelta: d !== 0, deltaText: d > 0 ? '+' + d : '−' + Math.abs(d), deltaColor: d > 0 ? '#7CF0B0' : '#FF8A8A',
+          glow: active ? '0 0 0 3px ' + p.color + '55, 0 0 34px ' + p.color + '66' : '0 0 16px ' + p.color + '2E',
+          opacity: dead ? 0.45 : 1,
+          dec: function () { self.bump(i, -1); }, inc: function () { self.bump(i, 1); },
+          decLabel: p.name + ', perder 1 de vida', incLabel: p.name + ', ganhar 1 de vida'
+        });
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

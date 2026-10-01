@@ -1,0 +1,396 @@
+{
+  "@@locale": "pt",
+  "appName": "Lighthouse Life",
+  "ok": "OK",
+  "cancel": "Cancelar",
+  "close": "Fechar",
+  "back": "Voltar",
+  "continueLabel": "Continuar",
+  "skip": "Pular",
+  "save": "Salvar",
+  "clear": "Limpar",
+  "undo": "Desfazer",
+  "delete": "Apagar",
+  "yes": "Sim",
+  "no": "Não",
+  "retry": "Tentar de novo",
+  "turnBadge": "TURNO",
+  "yourTurnBadge": "SEU TURNO",
+  "eliminatedBadge": "ELIMINADO",
+  "lethalBadge": "LETAL",
+  "reviveAction": "Reviver",
+  "semLifeOf": "{name}, {life} de vida",
+  "@semLifeOf": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "life": {
+        "type": "int"
+      }
+    }
+  },
+  "semGainLife": "{name}, ganhar 1 de vida",
+  "@semGainLife": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "semLoseLife": "{name}, perder 1 de vida",
+  "@semLoseLife": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "semGainFive": "{name}, ganhar 5 de vida",
+  "@semGainFive": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "semLoseFive": "{name}, perder 5 de vida",
+  "@semLoseFive": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "semOpenDrawer": "Abrir contadores de {name}",
+  "@semOpenDrawer": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "semPassTurn": "Passar o turno",
+  "semEnterLife": "Digitar vida exata",
+  "cmdShort": "CMD",
+  "winnerPrompt": "{names} venceu?",
+  "@winnerPrompt": {
+    "placeholders": {
+      "names": {
+        "type": "String"
+      }
+    }
+  },
+  "seeResult": "Ver resultado",
+  "turnOf": "Turno de {name}",
+  "@turnOf": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "matchMenu": "Menu da partida",
+  "pass": "Passar",
+  "pauseTimer": "Pausar timer",
+  "tools": "Ferramentas",
+  "roundN": "Rodada {n}",
+  "@roundN": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "roundShort": "R{n}",
+  "@roundShort": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "flipDialog": "Girar para o outro lado",
+  "quickSettings": "Ajustes",
+  "holdRestart": "Segure para reiniciar",
+  "holdEnd": "Segure para encerrar",
+  "holdLeave": "Segure para sair",
+  "resume": "Voltar à partida",
+  "tabCounters": "Contadores",
+  "tabCommander": "Comandante",
+  "tabHistory": "Histórico",
+  "counterPoison": "Veneno",
+  "counterEnergy": "Energia",
+  "counterExperience": "Experiência",
+  "counterRadiation": "Radiação",
+  "counterMonarch": "Monarca",
+  "counterInitiative": "Iniciativa",
+  "counterDayNight": "Dia/Noite",
+  "counterRing": "Anel",
+  "noCountersEnabled": "Nenhum contador ligado. Ligue em Configurar partida.",
+  "day": "Dia",
+  "night": "Noite",
+  "cmdFrom": "Dano de {name}",
+  "@cmdFrom": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "partnerOf": "Parceiro de {name}",
+  "@partnerOf": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "addPartner": "+ parceiro",
+  "commanderTax": "Taxa de comandante (+{n})",
+  "@commanderTax": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "historyEmpty": "Nada registrado ainda.",
+  "life": "Vida",
+  "toolDice": "Dados",
+  "toolCoin": "Moeda",
+  "toolPlanar": "Planar",
+  "toolPicker": "Sorteio",
+  "toolTimer": "Timer",
+  "diceCount": "dado(s)",
+  "roll": "Rolar",
+  "heads": "CARA",
+  "tails": "COROA",
+  "flip": "Jogar a moeda",
+  "planarChaos": "CAOS",
+  "planarWalk": "PLANAR",
+  "planarBlank": "VAZIO",
+  "pickPlayer": "Sortear jogador",
+  "start": "Iniciar",
+  "newMatch": "Nova partida",
+  "playersLabel": "Jogadores",
+  "playersCount": "{n, plural, =1{1 jogador} other{{n} jogadores}}",
+  "@playersCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "formatLabel": "Formato",
+  "formatCustom": "Livre",
+  "startingLife": "Vida inicial",
+  "tapToType": "Toque no número para digitar",
+  "lifeTotal": "{n} de vida",
+  "@lifeTotal": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "whoPlays": "Quem joga",
+  "playTeams": "Jogar em times",
+  "countersLabel": "Contadores na partida",
+  "turnTimer": "Timer de turno",
+  "noTimer": "Sem",
+  "layoutLabel": "Disposição",
+  "layoutSides": "Colunas laterais",
+  "layoutTopFlipped": "Fileira de cima virada",
+  "whoStarts": "Quem começa",
+  "starterRandom": "Sortear",
+  "starterChoose": "Escolher",
+  "startMatch": "Começar",
+  "playerDefault": "Jogador {n}",
+  "@playerDefault": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "editPlayer": "Editar jogador",
+  "nameLabel": "Nome",
+  "deckLabel": "Deck (opcional)",
+  "noDeck": "Sem deck",
+  "deckIs": "Deck: {deck}",
+  "@deckIs": {
+    "placeholders": {
+      "deck": {
+        "type": "String"
+      }
+    }
+  },
+  "settings": "Ajustes",
+  "lastConfig": "Última configuração",
+  "configureOther": "Configurar outra partida",
+  "continueMatch": "Continuar partida",
+  "toolsSub": "dados, moeda, timer",
+  "cards": "Cartas",
+  "cardsSub": "busca e legalidade",
+  "manaBase": "Base de mana",
+  "manaSub": "terrenos por cor",
+  "history": "Histórico",
+  "historySub": "{n, plural, =1{1 partida} other{{n} partidas}}",
+  "@historySub": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "removeAds": "Remover",
+  "wins": "venceu",
+  "matchOver": "Fim da partida",
+  "duration": "duração",
+  "rounds": "rodadas",
+  "rematch": "Revanche",
+  "changeConfig": "Mudar configuração",
+  "home": "Início",
+  "reasonLife": "Vida em zero",
+  "reasonPoison": "Veneno",
+  "reasonCommander": "Dano de comandante",
+  "onb1Title": "Contador de vida para a mesa",
+  "onb1Body": "Números enormes, toques grandes e nada no caminho. Feito para jogar em pé, com o celular no meio da mesa.",
+  "onb2Title": "De 1 a 4 jogadores",
+  "onb2Body": "Cada painel gira para quem está sentado ali. Commander, Brawl, Two-Headed Giant e mais.",
+  "onb3Title": "Tudo à mão",
+  "onb3Body": "Dados, moeda, timer de turno, dano de comandante, busca de cartas e base de mana.",
+  "next": "Próximo",
+  "getStarted": "Começar",
+  "sectionMatch": "Partida",
+  "keepAwake": "Manter a tela ligada",
+  "haptics": "Vibração",
+  "sounds": "Sons",
+  "lockOrientation": "Travar em retrato",
+  "defaultTimer": "Timer de turno padrão",
+  "sectionLook": "Aparência",
+  "colorBlind": "Modo daltônico",
+  "colorBlindSub": "Borda com traço próprio por jogador",
+  "followsSystem": "Movimento e tamanho do texto seguem o sistema.",
+  "sectionLanguage": "Idioma",
+  "langSystem": "Sistema",
+  "sectionPurchases": "Compras e privacidade",
+  "restorePurchases": "Restaurar compras",
+  "nothingToRestore": "Nenhuma compra para restaurar.",
+  "adsAndTracking": "Anúncios e rastreamento",
+  "consentUnknown": "Ainda não escolhido",
+  "consentPersonalized": "Anúncios personalizados",
+  "consentNonPersonalized": "Anúncios não personalizados",
+  "consentTitle": "Anúncios no app grátis",
+  "consentBody": "O app é grátis e mostra anúncios fora da partida. Você escolhe se eles podem ser personalizados. Dá para mudar depois em Ajustes.",
+  "attPreTitle": "Anúncios e privacidade",
+  "attPreBody": "Vamos pedir permissão para personalizar os anúncios. Se você negar, o app continua igual, com anúncios menos relevantes.",
+  "privacyPolicy": "Política de privacidade",
+  "terms": "Termos de uso",
+  "about": "Sobre",
+  "versionN": "Versão {v}",
+  "@versionN": {
+    "placeholders": {
+      "v": {
+        "type": "String"
+      }
+    }
+  },
+  "legalNotice": "App não oficial, não afiliado nem endossado pela Wizards of the Coast. Magic: The Gathering é marca registrada da Wizards of the Coast LLC.",
+  "aboutContact": "Contato e informações",
+  "sendSuggestion": "Enviar sugestão",
+  "rateApp": "Avaliar o app",
+  "licenses": "Licenças de código aberto",
+  "supportProject": "Apoiar o projeto",
+  "supportBody": "Opcional. Uma gorjeta ajuda a manter o app. Não libera nada.",
+  "credits": "Créditos",
+  "creditsBody": "Dados e imagens de cartas: Scryfall. Fontes: Big Shoulders Display e Instrument Sans (SIL OFL). Ícones: Font Awesome.",
+  "proName": "Lighthouse Pro",
+  "proTagline": "Sem anúncios e histórico completo. Compra única.",
+  "proFreeAds": "Anúncios fora da partida",
+  "proPaidNoAds": "Nenhum anúncio",
+  "proFreeHistory": "Histórico das últimas {n}",
+  "@proFreeHistory": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "proPaidHistory": "Histórico ilimitado",
+  "buyPro": "Comprar por {price}",
+  "@buyPro": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "oneTimeNote": "Compra única. Não é assinatura.",
+  "proOwned": "Você já tem o Pro. Obrigado!",
+  "storeUnavailable": "Loja indisponível agora",
+  "historyNone": "Nenhuma partida ainda",
+  "historyNoneSub": "As partidas terminadas aparecem aqui, só neste aparelho.",
+  "clearHistory": "Apagar histórico",
+  "clearHistoryAsk": "Apagar todas as partidas registradas?",
+  "statMatches": "partidas",
+  "statAvg": "duração média",
+  "statTopFormat": "formato mais jogado",
+  "byFormat": "Por formato",
+  "byPlayer": "Vitórias por jogador",
+  "recentMatches": "Últimas partidas",
+  "historyFreeLimit": "A versão grátis guarda as últimas {n} partidas.",
+  "@historyFreeLimit": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "manaTotalLands": "Total de terrenos",
+  "manaHint60": "60 cartas: 24",
+  "manaHintCommander": "Commander: 37",
+  "manaSymbols": "Símbolos de mana no deck",
+  "manaResult": "Terrenos por cor",
+  "manaEmpty": "Conte os símbolos de mana de todas as cartas do deck e informe acima. O resultado aparece aqui.",
+  "searchCardHint": "Buscar carta pelo nome",
+  "typeCreature": "Criatura",
+  "typeInstant": "Mágica instantânea",
+  "typeSorcery": "Feitiço",
+  "typeArtifact": "Artefato",
+  "typeEnchantment": "Encantamento",
+  "typeLand": "Terreno",
+  "typePlaneswalker": "Planeswalker",
+  "manaValueAny": "Custo: qualquer",
+  "manaValueMax": "Custo ≤ {n}",
+  "@manaValueMax": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "scryfallCredit": "Dados e imagens: Scryfall",
+  "cardsIdleTitle": "Consulte uma carta",
+  "cardsIdleSub": "Digite pelo menos 2 letras ou use os filtros de cor, tipo e custo.",
+  "networkErrorTitle": "Sem conexão",
+  "networkErrorSub": "A busca precisa de internet. O resto do app funciona offline.",
+  "noResults": "Nenhuma carta encontrada",
+  "noResultsSub": "Confira a grafia ou tente uma sugestão.",
+  "resultsCount": "{n, plural, =1{1 carta} other{{n} cartas}}",
+  "@resultsCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "flipCard": "Virar a carta",
+  "legality": "Legalidade",
+  "legal": "legal",
+  "notLegal": "não legal",
+  "restricted": "restrita",
+  "banned": "banida",
+  "viewOnScryfall": "Ver no Scryfall"
+}

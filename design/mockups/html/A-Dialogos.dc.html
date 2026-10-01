@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Diálogos · Sinal</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&amp;family=Instrument+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#000000}
+a{color:#FFB020;text-decoration:none}a:hover{color:#FFD27A}
+</style>
+</helmet>
+<div style="width: 1250px; height: 844px; display: flex; gap: 40px; background: #000000; color: #F3F5F7; font-family: 'Instrument Sans', system-ui, sans-serif">
+  <div style="position: relative; width: 390px; height: 844px; overflow: hidden; border-radius: 40px; background: #050608">
+    <div aria-hidden="true" style="position: absolute; inset: 0; padding: 8px; box-sizing: border-box; display: flex; flex-direction: column; gap: 8px; opacity: 0.2">
+      <div style="flex-grow: 1; border-radius: 28px; border: 2px solid #22C7F0"></div>
+      <div style="flex-grow: 1; border-radius: 28px; border: 2px solid #FFB020"></div>
+    </div>
+    <div role="dialog" aria-label="Reiniciar partida" style="position: absolute; left: 0; right: 0; bottom: 0; box-sizing: border-box; padding: 12px 20px 34px; border-radius: 30px 30px 0 0; background: #0E1014; border-top: 1px solid #2C323C; display: flex; flex-direction: column; gap: 14px">
+      <div style="display: flex; justify-content: center"><div style="width: 40px; height: 5px; border-radius: 3px; background: #3A414D"></div></div>
+      <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; color: #FF8A8A">REINICIAR</div>
+      <div style="font-size: 22px; font-weight: 700">Reiniciar a partida?</div>
+      <div style="font-size: 15px; color: #B7BFCA; line-height: 1.5">Todos voltam a 20 de vida e os contadores zeram. A partida atual vai para o histórico como "não terminada".</div>
+      <button style="position: relative; overflow: hidden; height: 64px; border-radius: 32px; border: 2px solid #FF6B6B; background: #2A1012; color: #FFD0D0; font-family: inherit; font-size: 17px; font-weight: 700"><span style="position: absolute; left: 0; top: 0; bottom: 0; width: 62%; background: rgba(255,107,107,0.3)"></span><span style="position: relative">Segure para reiniciar</span></button>
+      <button style="height: 56px; border-radius: 28px; border: 1px solid #2C323C; background: #161A20; color: #F3F5F7; font-family: inherit; font-size: 16px; font-weight: 600">Cancelar</button>
+    </div>
+  </div>
+
+  <div style="position: relative; width: 390px; height: 844px; overflow: hidden; border-radius: 40px; background: #050608; box-sizing: border-box; padding: 60px 24px 34px; display: flex; flex-direction: column; gap: 18px">
+    <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; color: #FFB020">PRÉ-PROMPT ATT · SÓ iOS</div>
+    <div style="flex-grow: 1; display: flex; flex-direction: column; justify-content: center; gap: 16px">
+      <div style="width: 72px; height: 72px; border-radius: 22px; background: #0E1014; border: 1px solid #2C323C; display: flex; align-items: center; justify-content: center"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#FFB020" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"></path><path d="M9 12l2 2 4-4"></path></svg></div>
+      <h2 style="margin: 0; font-size: 28px; font-weight: 700; line-height: 1.15">O app é grátis graças a um anúncio pequeno na tela inicial</h2>
+      <p style="margin: 0; font-size: 16px; color: #B7BFCA; line-height: 1.55">Em seguida o iPhone vai perguntar se a Unity pode usar um identificador para mostrar anúncios mais relevantes. Você escolhe. Recusando, os anúncios continuam iguais em quantidade, só menos relevantes.</p>
+      <ul style="margin: 0; padding: 0 0 0 18px; font-size: 15px; color: #B7BFCA; line-height: 1.7">
+        <li>Nunca há anúncio durante a partida</li>
+        <li>Suas partidas ficam só neste aparelho</li>
+        <li>Lighthouse Pro remove todos os anúncios</li>
+      </ul>
+    </div>
+    <button style="height: 64px; border-radius: 32px; border: none; background: #FFB020; color: #1A1204; font-family: inherit; font-size: 17px; font-weight: 700">Continuar</button>
+    <div style="font-size: 12px; color: #7C8593; text-align: center">Um único botão: a escolha acontece no aviso do sistema (exigência da Apple).</div>
+  </div>
+
+  <div style="position: relative; width: 390px; height: 844px; overflow: hidden; border-radius: 40px; background: #050608">
+    <div aria-hidden="true" style="position: absolute; inset: 0; padding: 64px 20px; box-sizing: border-box; display: flex; flex-direction: column; gap: 14px; opacity: 0.2">
+      <div style="height: 48px; border-radius: 24px; background: #161A20"></div>
+      <div style="height: 220px; border-radius: 28px; background: #FFB020"></div>
+      <div style="height: 76px; border-radius: 22px; background: #161A20"></div>
+    </div>
+    <div role="dialog" aria-label="Continuar partida" style="position: absolute; left: 20px; right: 20px; top: 50%; transform: translateY(-50%); box-sizing: border-box; padding: 22px; border-radius: 30px; background: #0E1014; border: 1px solid #2C323C; display: flex; flex-direction: column; gap: 14px">
+      <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; color: #FFB020">PARTIDA SALVA</div>
+      <div style="font-size: 22px; font-weight: 700">Continuar de onde parou?</div>
+      <div style="display: flex; align-items: center; gap: 10px; padding: 12px; border-radius: 18px; background: #161A20">
+        <div style="display: flex; gap: 3px"><div style="width: 6px; height: 32px; border-radius: 3px; background: #22C7F0"></div><div style="width: 6px; height: 32px; border-radius: 3px; background: #FFB020"></div></div>
+        <div style="display: flex; flex-direction: column"><span style="font-size: 15px; font-weight: 600">Bruno 17 × Ana 14</span><span style="font-size: 12px; color: #9AA3AF">Standard · rodada 4 · há 12 min</span></div>
+      </div>
+      <a href="A-Partida-2J.dc.html" style="height: 60px; border-radius: 30px; background: #FFB020; color: #1A1204; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 700">Continuar</a>
+      <button style="height: 52px; border-radius: 26px; border: 1px solid #2C323C; background: #161A20; color: #F3F5F7; font-family: inherit; font-size: 15px; font-weight: 600">Descartar e ir ao início</button>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1250,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

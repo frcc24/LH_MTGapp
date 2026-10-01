@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Base de mana · Sinal</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&amp;family=Instrument+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#050608}
+a{color:#FFB020;text-decoration:none}a:hover{color:#FFD27A}
+</style>
+</helmet>
+<div style="width: 390px; height: 1000px; box-sizing: border-box; padding: 60px 20px 34px; background: #050608; color: #F3F5F7; font-family: 'Instrument Sans', system-ui, sans-serif; display: flex; flex-direction: column; gap: 20px">
+  <div style="display: flex; align-items: center; gap: 12px; height: 56px">
+    <a href="A-Home.dc.html" aria-label="Voltar" style="width: 48px; height: 48px; box-sizing: border-box; border-radius: 50%; background: #0E1014; border: 1px solid #232832; display: flex; align-items: center; justify-content: center; color: #F3F5F7"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></a>
+    <h1 style="margin: 0; font-size: 22px; font-weight: 700; flex-grow: 1">Base de mana</h1>
+    <button onClick="{{reset}}" style="height: 44px; padding: 0 12px; border: none; background: transparent; color: #FFB020; font-family: inherit; font-size: 15px; font-weight: 600; cursor: pointer">Limpar</button>
+  </div>
+
+  <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; border-radius: 22px; background: #0E1014; border: 1px solid #232832">
+    <div style="display: flex; flex-direction: column"><span style="font-size: 16px; font-weight: 600">Total de terrenos</span><span style="font-size: 13px; color: #9AA3AF">60 cartas: 24 · Commander: 37</span></div>
+    <div style="display: flex; align-items: center; height: 56px; border-radius: 28px; background: #161A20; border: 1px solid #232832">
+      <button aria-label="Menos terrenos" onClick="{{tDown}}" style="width: 52px; height: 56px; border: none; background: transparent; color: #F3F5F7; font-size: 24px; cursor: pointer">−</button>
+      <span style="width: 44px; text-align: center; font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 30px">{{total}}</span>
+      <button aria-label="Mais terrenos" onClick="{{tUp}}" style="width: 52px; height: 56px; border: none; background: transparent; color: #F3F5F7; font-size: 24px; cursor: pointer">+</button>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 8px">
+    <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.12em; color: #9AA3AF">SÍMBOLOS DE MANA NO DECK</div>
+    <sc-for list="{{colors}}" as="c" hint-placeholder-count="6">
+      <div style="display: flex; align-items: center; gap: 12px; height: 60px; padding: 0 6px 0 10px; border-radius: 18px; background: #0E1014; border: 1px solid #232832">
+        <div style="width: 36px; height: 36px; box-sizing: border-box; border-radius: 50%; background: {{c.bg}}; color: {{c.fg}}; border: {{c.ring}}; display: flex; align-items: center; justify-content: center; font-weight: 700">{{c.k}}</div>
+        <span style="flex-grow: 1; font-size: 15px; font-weight: 600">{{c.name}}</span>
+        <button aria-label="{{c.decLabel}}" onClick="{{c.dec}}" style="width: 48px; height: 48px; border-radius: 50%; border: none; background: #161A20; color: #F3F5F7; font-size: 22px; cursor: pointer">−</button>
+        <span style="width: 36px; text-align: center; font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 26px">{{c.n}}</span>
+        <button aria-label="{{c.incLabel}}" onClick="{{c.inc}}" style="width: 48px; height: 48px; border-radius: 50%; border: none; background: #161A20; color: #F3F5F7; font-size: 22px; cursor: pointer">+</button>
+      </div>
+    </sc-for>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 12px; padding: 18px 16px; border-radius: 24px; background: #0E1014; border: 2px solid #FFB020; box-shadow: 0 0 24px rgba(255,176,32,0.18)">
+    <div style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-size: 13px; font-weight: 600; letter-spacing: 0.12em; color: #FFB020">RESULTADO</span><span style="font-size: 13px; color: #9AA3AF">{{symTotal}} símbolos</span></div>
+    <div style="display: flex; height: 18px; border-radius: 9px; overflow: hidden; background: #161A20">
+      <sc-for list="{{result}}" as="r" hint-placeholder-count="2"><div style="width: {{r.pct}}; background: {{r.bg}}"></div></sc-for>
+    </div>
+    <sc-if value="{{hasResult}}" hint-placeholder-val="{{ true }}">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <sc-for list="{{result}}" as="r" hint-placeholder-count="2">
+          <div style="display: flex; align-items: center; gap: 10px; height: 40px">
+            <div style="width: 24px; height: 24px; box-sizing: border-box; border-radius: 50%; background: {{r.bg}}; color: {{r.fg}}; border: {{r.ring}}; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">{{r.k}}</div>
+            <span style="flex-grow: 1; font-size: 15px">{{r.name}}</span>
+            <span style="font-size: 13px; color: #9AA3AF">{{r.pctLabel}}</span>
+            <span style="width: 48px; text-align: right; font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 30px">{{r.lands}}</span>
+          </div>
+        </sc-for>
+      </div>
+    </sc-if>
+    <sc-if value="{{empty}}" hint-placeholder-val="{{ false }}">
+      <div style="font-size: 15px; color: #9AA3AF; padding: 8px 0">Adicione os símbolos de mana das cartas do deck para ver quantos terrenos de cada cor usar.</div>
+    </sc-if>
+  </div>
+  <div style="font-size: 12px; color: #7C8593; line-height: 1.5">Cálculo proporcional aos símbolos, com arredondamento que sempre fecha o total. Símbolos via fonte Mana (SIL OFL); letras aqui são placeholder.</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1000}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { total: 24, n: { W: 12, U: 8, B: 0, R: 0, G: 20, C: 0 } }; }
+  renderVals() {
+    var self = this, st = this.state;
+    var M = [['W', 'Branco', '#F6E7BE', '#2A2416', 'none'], ['U', 'Azul', '#5AA9E6', '#08182A', 'none'], ['B', 'Preto', '#4A4240', '#F3EDEA', '1px solid #6B625F'], ['R', 'Vermelho', '#EE6A4D', '#2A0D06', 'none'], ['G', 'Verde', '#3FB273', '#062014', 'none'], ['C', 'Incolor', '#BEB6AE', '#1E1A16', 'none']];
+    var sum = 0; M.forEach(function (m) { sum += st.n[m[0]]; });
+    var raw = M.map(function (m) { var e = sum ? st.total * st.n[m[0]] / sum : 0; return { m: m, e: e, f: Math.floor(e) }; });
+    var left = st.total - raw.reduce(function (a, x) { return a + x.f; }, 0);
+    raw.slice().sort(function (a, b) { return (b.e - b.f) - (a.e - a.f); }).forEach(function (x) { if (left > 0 && x.e > 0) { x.f += 1; left -= 1; } });
+    function setN(k, d) { var o = Object.assign({}, st.n); o[k] = Math.max(0, o[k] + d); self.setState({ n: o }); }
+    var result = raw.filter(function (x) { return x.e > 0; }).map(function (x) {
+      return { k: x.m[0], name: x.m[1], bg: x.m[2], fg: x.m[3], ring: x.m[4], lands: x.f, pct: Math.round(100 * st.n[x.m[0]] / sum) + '%', pctLabel: Math.round(100 * st.n[x.m[0]] / sum) + '%' };
+    });
+    return {
+      total: st.total, symTotal: sum, result: result, hasResult: sum > 0, empty: sum === 0,
+      tDown: function () { self.setState({ total: Math.max(1, st.total - 1) }); },
+      tUp: function () { self.setState({ total: st.total + 1 }); },
+      reset: function () { self.setState({ n: { W: 0, U: 0, B: 0, R: 0, G: 0, C: 0 } }); },
+      colors: M.map(function (m) {
+        return { k: m[0], name: m[1], bg: m[2], fg: m[3], ring: m[4], n: st.n[m[0]],
+          dec: function () { setN(m[0], -1); }, inc: function () { setN(m[0], 1); },
+          decLabel: m[1] + ', menos 1 símbolo', incLabel: m[1] + ', mais 1 símbolo' };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

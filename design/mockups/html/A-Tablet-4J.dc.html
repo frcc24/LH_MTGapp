@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Partida · 4 jogadores · tablet · Sinal</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&amp;family=Instrument+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#050608}
+a{color:#FFB020;text-decoration:none}a:hover{color:#FFD27A}
+</style>
+</helmet>
+<div style="position: relative; width: 1180px; height: 820px; box-sizing: border-box; padding: 16px; background: #050608; color: #F3F5F7; font-family: 'Instrument Sans', system-ui, sans-serif; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 12px">
+  <sc-for list="{{players}}" as="p" hint-placeholder-count="4">
+    <div style="position: relative; overflow: hidden; box-sizing: border-box; border-radius: 32px; border: 2px solid {{p.color}}; background: radial-gradient(circle at 50% 50%, {{p.color}}22, #0B0D11 70%); box-shadow: {{p.glow}}">
+      <div style="position: absolute; inset: 0; transform: rotate({{p.rot}}deg); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px">
+        <div style="position: absolute; left: 28px; top: 50%; transform: translateY(-50%); color: #6B7480"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"></path></svg></div>
+        <div style="position: absolute; right: 28px; top: 50%; transform: translateY(-50%); color: #6B7480"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5v14"></path></svg></div>
+        <div style="height: 28px; display: flex; align-items: center"><sc-if value="{{p.active}}" hint-placeholder-val="{{ false }}"><div style="height: 28px; padding: 0 14px; border-radius: 14px; background: {{p.color}}; color: #0B0D11; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; display: flex; align-items: center">SEU TURNO · 0:47</div></sc-if></div>
+        <div style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 200px; line-height: 0.82; text-shadow: 0 0 40px {{p.color}}55">{{p.life}}</div>
+        <div style="display: flex; gap: 8px; align-items: center">
+          <div style="height: 40px; padding: 0 16px; border-radius: 20px; background: #161A20; font-size: 17px; font-weight: 600; display: flex; align-items: center; gap: 8px"><span style="width: 12px; height: 12px; border-radius: 50%; background: {{p.color}}"></span>{{p.name}}</div>
+          <div style="height: 40px; padding: 0 14px; border-radius: 20px; background: #161A20; display: flex; align-items: center; gap: 6px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9BE15D" stroke-width="2.2" aria-hidden="true"><path d="M12 3a7 7 0 0 0-7 7c0 2.5 1.3 4 3 5v3h8v-3c1.7-1 3-2.5 3-5a7 7 0 0 0-7-7z"></path></svg><span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 22px">{{p.poison}}</span></div>
+          <div style="height: 40px; padding: 0 12px; border-radius: 20px; background: #161A20; display: flex; align-items: center; gap: 10px">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF4F8B" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6L9 21H3v-6zM5 13l6 6"></path></svg>
+            <sc-for list="{{p.cmd}}" as="c" hint-placeholder-count="3"><span style="display: flex; align-items: center; gap: 4px"><span style="width: 8px; height: 8px; border-radius: 50%; background: {{c.color}}"></span><span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 20px">{{c.v}}</span></span></sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+  </sc-for>
+  <button aria-label="Ferramentas e menu da partida" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 88px; height: 88px; border-radius: 50%; border: 2px solid #2C323C; background: #050608; box-shadow: 0 0 0 8px #050608, 0 0 34px rgba(255,176,32,0.35); color: #FFB020; display: flex; align-items: center; justify-content: center">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M9.5 21l1-11h3l1 11M8 21h8M10.5 10V7.5L12 6l1.5 1.5V10"></path><path d="M16 7.5l4-1.5M16 9.5l4 1.5M8 7.5L4 6M8 9.5L4 11"></path></svg>
+  </button>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1180,"height":820}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var C = { Ana: '#FFB020', Bruno: '#22C7F0', Carla: '#FF4F8B', Davi: '#9BE15D' };
+    var P = [
+      { name: 'Carla', rot: 180, life: 18, poison: 0, active: false },
+      { name: 'Davi', rot: 180, life: 27, poison: 2, active: false },
+      { name: 'Ana', rot: 0, life: 31, poison: 0, active: true },
+      { name: 'Bruno', rot: 0, life: 40, poison: 3, active: false }
+    ];
+    var dmg = { Ana: [0, 6, 12, 0], Bruno: [4, 0, 0, 0], Carla: [19, 0, 0, 2], Davi: [0, 0, 5, 0] };
+    var order = ['Ana', 'Bruno', 'Carla', 'Davi'];
+    return {
+      players: P.map(function (p) {
+        var c = C[p.name];
+        return Object.assign({}, p, {
+          color: c,
+          glow: p.active ? '0 0 0 3px ' + c + '55, 0 0 40px ' + c + '66' : '0 0 18px ' + c + '2E',
+          cmd: order.filter(function (o) { return o !== p.name; }).map(function (o) { return { color: C[o], v: dmg[p.name][order.indexOf(o)] }; })
+        });
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

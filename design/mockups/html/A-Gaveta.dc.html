@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Gaveta do jogador · Sinal</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&amp;family=Instrument+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#050608}
+a{color:#FFB020;text-decoration:none}a:hover{color:#FFD27A}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; padding: 8px 8px 0; background: #050608; color: #F3F5F7; font-family: 'Instrument Sans', system-ui, sans-serif; display: flex; flex-direction: column; gap: 8px">
+  <div style="position: relative; height: 362px; flex-shrink: 0; box-sizing: border-box; border-radius: 28px; border: 2px solid #22C7F0; background: radial-gradient(circle at 50% 50%, #22C7F022, #0B0D11 70%); box-shadow: 0 0 16px #22C7F02E">
+    <div style="position: absolute; inset: 0; transform: rotate(180deg); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px">
+      <div style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 190px; line-height: 0.85; text-shadow: 0 0 40px #22C7F055">17</div>
+      <div style="height: 34px; padding: 0 14px; border-radius: 17px; background: #161A20; font-size: 16px; font-weight: 600; display: flex; align-items: center">Bruno</div>
+    </div>
+  </div>
+
+  <div style="flex-grow: 1; box-sizing: border-box; border-radius: 28px 28px 0 0; background: #0E1014; border: 2px solid #FFB020; border-bottom: none; box-shadow: 0 -10px 40px rgba(255,176,32,0.18); padding: 10px 14px 24px; display: flex; flex-direction: column; gap: 10px">
+    <div style="display: flex; justify-content: center"><div style="width: 40px; height: 5px; border-radius: 3px; background: #3A414D"></div></div>
+    <div style="display: flex; align-items: center; gap: 10px; height: 60px">
+      <div style="display: flex; flex-direction: column; flex-grow: 1"><span style="font-size: 13px; color: #FFB020; font-weight: 600">Ana · Commander</span><span style="font-size: 12px; color: #9AA3AF">deck: Atraxa</span></div>
+      <button aria-label="Ana, perder 1 de vida" onClick="{{lifeDown}}" style="width: 52px; height: 52px; border-radius: 50%; border: 1px solid #2C323C; background: #161A20; color: #F3F5F7; font-size: 24px; cursor: pointer">−</button>
+      <span style="min-width: 64px; text-align: center; font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 60px; line-height: 0.9">{{life}}</span>
+      <button aria-label="Ana, ganhar 1 de vida" onClick="{{lifeUp}}" style="width: 52px; height: 52px; border-radius: 50%; border: 1px solid #2C323C; background: #161A20; color: #F3F5F7; font-size: 24px; cursor: pointer">+</button>
+    </div>
+    <div role="tablist" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; padding: 4px; border-radius: 16px; background: #050608">
+      <sc-for list="{{tabs}}" as="t" hint-placeholder-count="3">
+        <button role="tab" aria-selected="{{t.sel}}" onClick="{{t.pick}}" style="height: 44px; border-radius: 12px; border: none; background: {{t.bg}}; color: {{t.fg}}; font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer">{{t.label}}</button>
+      </sc-for>
+    </div>
+
+    <sc-if value="{{tab0}}" hint-placeholder-val="{{ true }}">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <sc-for list="{{counters}}" as="c" hint-placeholder-count="4">
+          <div style="display: flex; align-items: center; gap: 10px; height: 58px; padding: 0 4px 0 12px; border-radius: 16px; background: {{c.bg}}; border: {{c.border}}">
+            <span style="width: 10px; height: 10px; border-radius: 50%; background: {{c.color}}"></span>
+            <span style="flex-grow: 1; font-size: 15px; font-weight: 600">{{c.label}}</span>
+            <span style="font-size: 12px; color: {{c.noteColor}}; font-weight: 600">{{c.note}}</span>
+            <button aria-label="{{c.decLabel}}" onClick="{{c.dec}}" style="width: 48px; height: 48px; border-radius: 50%; border: none; background: #161A20; color: #F3F5F7; font-size: 22px; cursor: pointer">−</button>
+            <span style="width: 40px; text-align: center; font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 30px">{{c.v}}</span>
+            <button aria-label="{{c.incLabel}}" onClick="{{c.inc}}" style="width: 48px; height: 48px; border-radius: 50%; border: none; background: #161A20; color: #F3F5F7; font-size: 22px; cursor: pointer">+</button>
+          </div>
+        </sc-for>
+        <div style="display: flex; gap: 8px; padding-top: 4px">
+          <button style="height: 44px; padding: 0 14px; border-radius: 22px; border: none; background: #FFB020; color: #1A1204; font-family: inherit; font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 6px; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" aria-hidden="true"><path d="M4 18h16M5 15l-1-8 5 4 3-6 3 6 5-4-1 8z"></path></svg>Monarca</button>
+          <button style="height: 44px; padding: 0 14px; border-radius: 22px; border: 1px solid #2C323C; background: #161A20; color: #F3F5F7; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Iniciativa</button>
+          <button style="height: 44px; padding: 0 14px; border-radius: 22px; border: 1px solid #2C323C; background: #161A20; color: #F3F5F7; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Anel 0/4</button>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{tab1}}" hint-placeholder-val="{{ false }}">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <div style="font-size: 12px; color: #9AA3AF; font-weight: 600; letter-spacing: 0.1em">DANO RECEBIDO DE CADA COMANDANTE</div>
+        <sc-for list="{{cmd}}" as="c" hint-placeholder-count="3">
+          <div style="display: flex; align-items: center; gap: 10px; height: 58px; padding: 0 4px 0 12px; border-radius: 16px; background: {{c.bg}}; border: {{c.border}}">
+            <span style="width: 10px; height: 10px; border-radius: 50%; background: {{c.color}}"></span>
+            <div style="display: flex; flex-direction: column; flex-grow: 1"><span style="font-size: 15px; font-weight: 600">{{c.label}}</span><span style="font-size: 12px; color: {{c.noteColor}}">{{c.note}}</span></div>
+            <button aria-label="{{c.decLabel}}" onClick="{{c.dec}}" style="width: 48px; height: 48px; border-radius: 50%; border: none; background: #161A20; color: #F3F5F7; font-size: 22px; cursor: pointer">−</button>
+            <span style="width: 40px; text-align: center; font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 30px">{{c.v}}</span>
+            <button aria-label="{{c.incLabel}}" onClick="{{c.inc}}" style="width: 48px; height: 48px; border-radius: 50%; border: none; background: #161A20; color: #F3F5F7; font-size: 22px; cursor: pointer">+</button>
+          </div>
+        </sc-for>
+        <div style="display: flex; align-items: center; justify-content: space-between; height: 52px; padding: 0 12px; border-radius: 16px; background: #161A20">
+          <span style="font-size: 14px; font-weight: 600">Taxa do seu comandante</span>
+          <span style="font-size: 14px; color: #FFD27A; font-weight: 700">2 conjurações · +4</span>
+        </div>
+        <div style="font-size: 12px; color: #9AA3AF; line-height: 1.4">Dano de comandante também desconta da vida. 21 de um mesmo comandante elimina.</div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{tab2}}" hint-placeholder-val="{{ false }}">
+      <div style="display: flex; flex-direction: column; gap: 2px">
+        <sc-for list="{{log}}" as="l" hint-placeholder-count="5">
+          <div style="display: flex; align-items: center; gap: 12px; height: 46px; padding: 0 10px; border-bottom: 1px solid #1A1E25">
+            <span style="width: 34px; font-size: 12px; color: #9AA3AF; font-weight: 600">{{l.t}}</span>
+            <span style="width: 44px; font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 22px; color: {{l.c}}">{{l.d}}</span>
+            <span style="flex-grow: 1; font-size: 14px; color: #B7BFCA">{{l.what}}</span>
+            <span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 20px">{{l.after}}</span>
+          </div>
+        </sc-for>
+        <button style="margin-top: 8px; height: 48px; border-radius: 24px; border: 1px solid #2C323C; background: #161A20; color: #F3F5F7; font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Desfazer última (−2)</button>
+      </div>
+    </sc-if>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { tab: 0, life: 14, v: { poison: 3, energy: 0, exp: 1, rad: 0 }, cmd: { bruno: 7, carla: 19, carlaP: 0 } }; }
+  renderVals() {
+    var self = this, st = this.state;
+    function setV(key, n, obj) { var o = Object.assign({}, st[obj]); o[key] = Math.max(0, o[key] + n); var u = {}; u[obj] = o; self.setState(u); }
+    var K = [['poison', 'Veneno', '#9BE15D'], ['energy', 'Energia', '#22C7F0'], ['exp', 'Experiência', '#A78BFA'], ['rad', 'Radiação', '#FFB020']];
+    var CM = [['bruno', 'Bruno', '#22C7F0', 'Krenko'], ['carla', 'Carla', '#FF4F8B', 'comandante 1'], ['carlaP', 'Carla', '#FF4F8B', 'parceiro']];
+    return {
+      life: st.life,
+      lifeDown: function () { self.setState({ life: st.life - 1 }); },
+      lifeUp: function () { self.setState({ life: st.life + 1 }); },
+      tab0: st.tab === 0, tab1: st.tab === 1, tab2: st.tab === 2,
+      tabs: ['Contadores', 'Comandante', 'Histórico'].map(function (l, i) {
+        var sel = st.tab === i;
+        return { label: l, sel: sel, bg: sel ? '#232832' : 'transparent', fg: sel ? '#F3F5F7' : '#9AA3AF', pick: function () { self.setState({ tab: i }); } };
+      }),
+      counters: K.map(function (k) {
+        var v = st.v[k[0]], lethal = k[0] === 'poison' && v >= 10, warn = k[0] === 'poison' && v >= 8 && v < 10;
+        return { label: k[1], color: k[2], v: v,
+          note: lethal ? 'LETAL' : (warn ? 'perto do limite' : ''), noteColor: lethal ? '#C9F2A4' : '#9AA3AF',
+          bg: lethal ? '#1E2A0F' : '#0B0D11', border: lethal ? '2px solid #9BE15D' : '1px solid #1A1E25',
+          dec: function () { setV(k[0], -1, 'v'); }, inc: function () { setV(k[0], 1, 'v'); },
+          decLabel: k[1] + ' menos 1', incLabel: k[1] + ' mais 1' };
+      }),
+      cmd: CM.map(function (k) {
+        var v = st.cmd[k[0]], lethal = v >= 21, warn = v >= 15 && v < 21;
+        return { label: k[1], color: k[2], v: v,
+          note: lethal ? 'LETAL · eliminada' : (warn ? k[3] + ' · faltam ' + (21 - v) : k[3]), noteColor: lethal || warn ? '#FFB3CB' : '#9AA3AF',
+          bg: lethal || warn ? '#2A0F18' : '#0B0D11', border: lethal || warn ? '2px solid #FF4F8B' : '1px solid #1A1E25',
+          dec: function () { setV(k[0], -1, 'cmd'); }, inc: function () { setV(k[0], 1, 'cmd'); },
+          decLabel: 'Dano de ' + k[1] + ' menos 1', incLabel: 'Dano de ' + k[1] + ' mais 1' };
+      }),
+      log: [
+        { t: 'T7', d: '−2', c: '#FF8A8A', what: 'ataque', after: 14 },
+        { t: 'T6', d: '−7', c: '#FF8A8A', what: 'comandante de Bruno', after: 16 },
+        { t: 'T6', d: '+3', c: '#7CF0B0', what: 'ganho de vida', after: 23 },
+        { t: 'T5', d: '−12', c: '#FF8A8A', what: 'ataque em grupo', after: 20 },
+        { t: 'T4', d: '−8', c: '#FF8A8A', what: 'ataque', after: 32 }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

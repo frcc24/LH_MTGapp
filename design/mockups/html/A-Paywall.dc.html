@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Lighthouse Pro · Sinal</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&amp;family=Instrument+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#050608}
+a{color:#FFB020;text-decoration:none}a:hover{color:#FFD27A}
+</style>
+</helmet>
+<div style="position: relative; width: 390px; height: 844px; overflow: hidden; box-sizing: border-box; padding: 60px 20px 34px; background: #050608; color: #F3F5F7; font-family: 'Instrument Sans', system-ui, sans-serif; display: flex; flex-direction: column; gap: 18px">
+  <svg viewBox="0 0 390 300" width="390" height="300" style="position: absolute; left: 0; top: 0" aria-hidden="true"><path d="M195 150 L390 40 L390 260 Z" fill="#FFB020" opacity="0.12"></path><path d="M195 150 L0 40 L0 260 Z" fill="#FFB020" opacity="0.06"></path></svg>
+  <div style="position: relative; display: flex; justify-content: flex-end; height: 48px">
+    <a href="A-Ajustes.dc.html" aria-label="Fechar" style="width: 48px; height: 48px; box-sizing: border-box; border-radius: 50%; background: #161A20; border: 1px solid #2C323C; display: flex; align-items: center; justify-content: center; color: #F3F5F7"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></a>
+  </div>
+  <div style="position: relative; display: flex; flex-direction: column; align-items: center; gap: 8px; padding-top: 8px">
+    <svg viewBox="0 0 100 100" width="88" height="88" aria-hidden="true">
+      <rect width="100" height="100" rx="22" fill="#0E1014"></rect>
+      <rect x="0.75" y="0.75" width="98.5" height="98.5" rx="21.5" fill="none" stroke="#FFB020" stroke-opacity="0.5" stroke-width="1.5"></rect>
+      <path d="M50 30 L100 12 L100 48 Z" fill="#FFB020" opacity="0.35"></path>
+      <path d="M43 40 L57 40 L61 82 L39 82 Z" fill="#F3F5F7"></path>
+      <rect x="44" y="24" width="12" height="12" rx="2" fill="#FFB020"></rect>
+      <path d="M42 24 L50 16 L58 24 Z" fill="#F3F5F7"></path>
+      <rect x="30" y="82" width="40" height="5" rx="2" fill="#F3F5F7"></rect>
+    </svg>
+    <h1 style="margin: 0; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 52px; line-height: 0.95">LIGHTHOUSE PRO</h1>
+    <p style="margin: 0; font-size: 16px; color: #B7BFCA; text-align: center">Pague uma vez, use para sempre.</p>
+  </div>
+  <div style="position: relative; display: flex; flex-direction: column; gap: 4px; padding: 8px 16px; border-radius: 22px; background: #0E1014; border: 1px solid #232832">
+    <sc-for list="{{perks}}" as="p" hint-placeholder-count="6">
+      <div style="display: flex; align-items: center; gap: 12px; height: 46px">
+        <div style="width: 26px; height: 26px; border-radius: 50%; background: #1F1806; color: #FFB020; display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></div>
+        <span style="font-size: 15px; flex-grow: 1">{{p.t}}</span>
+        <span style="font-size: 12px; color: #7C8593">{{p.free}}</span>
+      </div>
+    </sc-for>
+  </div>
+  <div style="flex-grow: 1"></div>
+  <div style="position: relative; display: flex; flex-direction: column; gap: 10px">
+    <button style="height: 64px; border-radius: 32px; border: none; background: #FFB020; color: #1A1204; font-family: inherit; font-size: 18px; font-weight: 700; cursor: pointer">Comprar por [PREÇO DA LOJA]</button>
+    <div style="display: flex; justify-content: center; gap: 4px">
+      <button style="height: 44px; padding: 0 14px; border: none; background: transparent; color: #FFB020; font-family: inherit; font-size: 15px; font-weight: 600; cursor: pointer">Restaurar compras</button>
+    </div>
+    <p style="margin: 0; font-size: 12px; line-height: 1.5; color: #9AA3AF; text-align: center">Compra única pela App Store ou Google Play. Não é assinatura. Nada muda nas funções gratuitas de partida.</p>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      perks: [
+        { t: 'Sem anúncios em lugar nenhum', free: 'grátis: banner' },
+        { t: 'Temas extras de cor', free: 'grátis: 1' },
+        { t: 'Jogadores salvos ilimitados', free: 'grátis: 6' },
+        { t: 'Histórico ilimitado', free: 'grátis: 20' },
+        { t: 'Contadores personalizados ilimitados', free: 'grátis: 2' },
+        { t: 'Pacote de sons extras', free: '' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

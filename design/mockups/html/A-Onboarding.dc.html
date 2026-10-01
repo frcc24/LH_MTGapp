@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Onboarding · Sinal</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&amp;family=Instrument+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#050608}
+a{color:#FFB020;text-decoration:none}a:hover{color:#FFD27A}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; padding: 60px 24px 40px; background: #050608; color: #F3F5F7; font-family: 'Instrument Sans', system-ui, sans-serif; display: flex; flex-direction: column; gap: 24px">
+  <div style="display: flex; justify-content: space-between; align-items: center; height: 48px">
+    <span style="font-size: 14px; color: #9AA3AF">{{stepLabel}}</span>
+    <a href="A-Home.dc.html" style="height: 48px; padding: 0 12px; display: flex; align-items: center; font-size: 16px; font-weight: 600">Pular</a>
+  </div>
+
+  <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center">
+    <sc-if value="{{s0}}" hint-placeholder-val="{{ true }}">
+      <div style="position: relative; width: 260px; height: 340px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
+        <div style="border-radius: 22px; border: 2px solid #FFB020; box-shadow: 0 0 24px #FFB02040; display: flex; align-items: center; justify-content: center"><span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 64px; transform: rotate(90deg)">40</span></div>
+        <div style="border-radius: 22px; border: 2px solid #22C7F0; box-shadow: 0 0 24px #22C7F040; display: flex; align-items: center; justify-content: center"><span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 64px; transform: rotate(-90deg)">40</span></div>
+        <div style="border-radius: 22px; border: 2px solid #FF4F8B; box-shadow: 0 0 24px #FF4F8B40; display: flex; align-items: center; justify-content: center"><span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 64px; transform: rotate(90deg)">40</span></div>
+        <div style="border-radius: 22px; border: 2px solid #9BE15D; box-shadow: 0 0 24px #9BE15D40; display: flex; align-items: center; justify-content: center"><span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 64px; transform: rotate(-90deg)">40</span></div>
+      </div>
+    </sc-if>
+    <sc-if value="{{s1}}" hint-placeholder-val="{{ false }}">
+      <div style="display: flex; flex-direction: column; gap: 10px; width: 280px">
+        <div style="height: 64px; border-radius: 18px; background: #0E1014; border: 1px solid #232832; display: flex; align-items: center; justify-content: space-between; padding: 0 18px"><span style="font-weight: 600">Standard</span><span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 30px">20</span></div>
+        <div style="height: 64px; border-radius: 18px; background: #1F1806; border: 2px solid #FFB020; display: flex; align-items: center; justify-content: space-between; padding: 0 18px"><span style="font-weight: 600; color: #FFD27A">Commander</span><span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 30px">40</span></div>
+        <div style="height: 64px; border-radius: 18px; background: #0E1014; border: 1px solid #232832; display: flex; align-items: center; justify-content: space-between; padding: 0 18px"><span style="font-weight: 600">Two-Headed Giant</span><span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 30px">30</span></div>
+        <div style="height: 64px; border-radius: 18px; background: #0E1014; border: 1px solid #232832; display: flex; align-items: center; justify-content: space-between; padding: 0 18px"><span style="font-weight: 600">Brawl</span><span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 30px">25</span></div>
+      </div>
+    </sc-if>
+    <sc-if value="{{s2}}" hint-placeholder-val="{{ false }}">
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; width: 290px">
+        <div style="height: 88px; border-radius: 20px; background: #0E1014; border: 1px solid #232832; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px"><span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 36px; color: #22C7F0">17</span><span style="font-size: 12px; color: #9AA3AF">d20</span></div>
+        <div style="height: 88px; border-radius: 20px; background: #0E1014; border: 1px solid #232832; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px"><span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 28px; color: #FFB020">CARA</span><span style="font-size: 12px; color: #9AA3AF">moeda</span></div>
+        <div style="height: 88px; border-radius: 20px; background: #0E1014; border: 1px solid #232832; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px"><span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 36px; color: #9BE15D">1:24</span><span style="font-size: 12px; color: #9AA3AF">timer</span></div>
+        <div style="grid-column: span 3; height: 88px; border-radius: 20px; background: #0E1014; border: 1px solid #232832; display: flex; align-items: center; gap: 8px; padding: 0 16px">
+          <div style="flex-grow: 3; height: 14px; border-radius: 7px; background: #3FB273"></div><div style="flex-grow: 2; height: 14px; border-radius: 7px; background: #5AA9E6"></div><div style="flex-grow: 1; height: 14px; border-radius: 7px; background: #F6E7BE"></div>
+        </div>
+      </div>
+    </sc-if>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 10px">
+    <h1 style="margin: 0; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 44px; line-height: 0.95">{{title}}</h1>
+    <p style="margin: 0; font-size: 17px; line-height: 1.5; color: #B7BFCA">{{body}}</p>
+  </div>
+
+  <div style="display: flex; align-items: center; justify-content: space-between">
+    <div style="display: flex; gap: 6px" aria-hidden="true">
+      <sc-for list="{{dots}}" as="d" hint-placeholder-count="3"><div style="height: 8px; width: {{d.w}}; border-radius: 4px; background: {{d.c}}"></div></sc-for>
+    </div>
+    <button onClick="{{next}}" style="height: 56px; padding: 0 28px; border-radius: 28px; border: none; background: #FFB020; color: #1A1204; font-family: inherit; font-size: 17px; font-weight: 700; cursor: pointer">{{cta}}</button>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { step: 0 }; }
+  renderVals() {
+    var self = this, s = this.state.step;
+    var T = [
+      ['Cada um no seu lado da mesa', 'De 1 a 4 jogadores. Cada painel gira para quem está sentado ali. Toque à direita para ganhar vida, à esquerda para perder.'],
+      ['Todos os formatos, um app só', 'Standard, Commander, Brawl, Two-Headed Giant e mais. O preset ajusta vida e contadores; você muda o que quiser.'],
+      ['Ferramentas sem sair da partida', 'Dados, moeda, timer de turno, consulta de cartas e calculadora de base de mana a um toque do centro da mesa.']
+    ];
+    return {
+      s0: s === 0, s1: s === 1, s2: s === 2,
+      stepLabel: (s + 1) + ' de 3', title: T[s][0], body: T[s][1],
+      cta: s === 2 ? 'Começar' : 'Próximo',
+      dots: [0, 1, 2].map(function (i) { return { w: i === s ? '24px' : '8px', c: i === s ? '#FFB020' : '#2C323C' }; }),
+      next: function () { self.setState({ step: s === 2 ? 0 : s + 1 }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

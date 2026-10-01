@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Partida · 4 jogadores · Sinal</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&amp;family=Instrument+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#050608}
+a{color:#FFB020}a:hover{color:#FFD27A}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; position: relative; box-sizing: border-box; padding: 8px; background: #050608; color: #F3F5F7; font-family: 'Instrument Sans', system-ui, sans-serif; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 8px">
+  <sc-for list="{{players}}" as="p" hint-placeholder-count="4">
+    <div style="position: relative; overflow: hidden; box-sizing: border-box; border-radius: 24px; border: 2px solid {{p.color}}; background: radial-gradient(circle at 50% 50%, {{p.color}}24, #0B0D11 72%); box-shadow: {{p.glow}}; opacity: {{p.opacity}}">
+      <div style="position: absolute; left: 50%; top: 50%; width: 406px; height: 179px; transform: translate(-50%, -50%) rotate({{p.rot}}deg)">
+        <button aria-label="{{p.decLabel}}" onClick="{{p.dec}}" style="position: absolute; left: 0; top: 0; width: 50%; height: 100%; border: none; background: transparent; color: #6B7480; display: flex; align-items: center; justify-content: flex-start; padding: 0 0 0 18px; cursor: pointer">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"></path></svg>
+        </button>
+        <button aria-label="{{p.incLabel}}" onClick="{{p.inc}}" style="position: absolute; right: 0; top: 0; width: 50%; height: 100%; border: none; background: transparent; color: #6B7480; display: flex; align-items: center; justify-content: flex-end; padding: 0 18px 0 0; cursor: pointer">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5v14"></path></svg>
+        </button>
+        <div style="position: absolute; left: 0; right: 0; top: 4px; display: flex; justify-content: center; pointer-events: none; height: 30px">
+          <sc-if value="{{p.hasDelta}}" hint-placeholder-val="{{ false }}">
+            <div style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 30px; line-height: 1; color: {{p.deltaColor}}">{{p.deltaText}}</div>
+          </sc-if>
+          <sc-if value="{{p.active}}" hint-placeholder-val="{{ false }}">
+            <div style="height: 22px; margin-top: 4px; padding: 0 10px; border-radius: 11px; background: {{p.color}}; color: #0B0D11; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; display: flex; align-items: center">TURNO</div>
+          </sc-if>
+        </div>
+        <div style="position: absolute; left: 0; right: 0; top: 30px; display: flex; justify-content: center; pointer-events: none">
+          <div style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 112px; line-height: 0.88; font-variant-numeric: tabular-nums; text-shadow: 0 0 28px {{p.color}}55">{{p.life}}</div>
+        </div>
+        <div style="position: absolute; left: 0; right: 0; bottom: 10px; display: flex; justify-content: center; align-items: center; gap: 8px; pointer-events: none">
+          <div style="display: flex; align-items: center; gap: 6px; height: 28px; padding: 0 10px; border-radius: 14px; background: #161A20">
+            <sc-if value="{{p.isFlame}}" hint-placeholder-val="{{ true }}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="{{p.color}}" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c1 3 5 5 5 10a5 5 0 0 1-10 0c0-2 1-3.5 2-4.5 0 2 1 3 2 3 0-3-1-5 1-8.5z"></path></svg></sc-if>
+            <sc-if value="{{p.isDrop}}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="{{p.color}}" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"></path></svg></sc-if>
+            <sc-if value="{{p.isGem}}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="{{p.color}}" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 9-8 9-8-9z"></path></svg></sc-if>
+            <sc-if value="{{p.isLeaf}}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="{{p.color}}" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c0-8 5-14 15-14 0 10-6 15-14 15M5 19l7-7"></path></svg></sc-if>
+            <span style="font-size: 14px; font-weight: 600">{{p.name}}</span>
+          </div>
+          <sc-if value="{{p.dead}}" hint-placeholder-val="{{ false }}">
+            <div style="height: 28px; padding: 0 10px; border-radius: 14px; background: #2A0F18; color: #FFB3CB; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; display: flex; align-items: center">ELIMINADO</div>
+          </sc-if>
+          <div style="display: flex; align-items: center; gap: 5px; height: 28px; padding: 0 10px; border-radius: 14px; background: {{p.cmdBg}}; border: 1px solid {{p.cmdBorder}}; box-sizing: border-box">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4F8B" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6L9 21H3v-6zM5 13l6 6"></path></svg>
+            <span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 18px">{{p.cmd}}</span>
+          </div>
+          <sc-if value="{{p.hasPoison}}" hint-placeholder-val="{{ false }}">
+            <div style="display: flex; align-items: center; gap: 5px; height: 28px; padding: 0 10px; border-radius: 14px; background: #161A20">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9BE15D" stroke-width="2.2" aria-hidden="true"><path d="M12 3a7 7 0 0 0-7 7c0 2.5 1.3 4 3 5v3h8v-3c1.7-1 3-2.5 3-5a7 7 0 0 0-7-7z"></path></svg>
+              <span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 18px">{{p.poison}}</span>
+            </div>
+          </sc-if>
+        </div>
+      </div>
+    </div>
+  </sc-for>
+  <a href="A-Menu-Partida.dc.html" aria-label="Ferramentas e menu da partida" style="box-sizing: border-box; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 76px; height: 76px; border-radius: 50%; border: 2px solid #2C323C; background: #050608; box-shadow: 0 0 0 6px #050608, 0 0 30px rgba(255,176,32,0.35); color: #FFB020; display: flex; align-items: center; justify-content: center">
+    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M9.5 21l1-11h3l1 11M8 21h8M10.5 10V7.5L12 6l1.5 1.5V10"></path><path d="M16 7.5l4-1.5M16 9.5l4 1.5M8 7.5L4 6M8 9.5L4 11"></path></svg>
+  </a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { life: [31, 40, 18, 27], delta: [0, 0, 0, 0], active: 0 };
+    this.timers = [];
+  }
+  componentWillUnmount() { this.timers.forEach(function (t) { clearTimeout(t); }); }
+  bump(i, n) {
+    var life = this.state.life.slice(); life[i] += n;
+    var delta = this.state.delta.slice(); delta[i] += n;
+    this.setState({ life: life, delta: delta });
+    clearTimeout(this.timers[i]);
+    var self = this;
+    this.timers[i] = setTimeout(function () {
+      var d = self.state.delta.slice(); d[i] = 0; self.setState({ delta: d });
+    }, 2000);
+  }
+  renderVals() {
+    var self = this;
+    var P = [
+      { name: 'Ana', color: '#FFB020', icon: 'flame', rot: 90, poison: 0, cmd: 12 },
+      { name: 'Bruno', color: '#22C7F0', icon: 'drop', rot: -90, poison: 3, cmd: 0 },
+      { name: 'Carla', color: '#FF4F8B', icon: 'gem', rot: 90, poison: 0, cmd: 19 },
+      { name: 'Davi', color: '#9BE15D', icon: 'leaf', rot: -90, poison: 0, cmd: 6 }
+    ];
+    var players = P.map(function (p, i) {
+      var life = self.state.life[i], d = self.state.delta[i];
+      var active = self.state.active === i, dead = life <= 0;
+      var alert = p.cmd >= 15;
+      return {
+        name: p.name, color: p.color, rot: p.rot, life: life, cmd: p.cmd, poison: p.poison,
+        hasPoison: p.poison > 0, dead: dead, active: active && !dead,
+        isFlame: p.icon === 'flame', isDrop: p.icon === 'drop', isGem: p.icon === 'gem', isLeaf: p.icon === 'leaf',
+        hasDelta: d !== 0, deltaText: d > 0 ? '+' + d : '−' + Math.abs(d), deltaColor: d > 0 ? '#7CF0B0' : '#FF8A8A',
+        glow: active ? '0 0 0 3px ' + p.color + '55, 0 0 34px ' + p.color + '66' : '0 0 16px ' + p.color + '2E',
+        opacity: dead ? 0.45 : 1,
+        cmdBg: alert ? '#2A0F18' : '#161A20', cmdBorder: alert ? '#FF4F8B' : 'transparent',
+        dec: function () { self.bump(i, -1); }, inc: function () { self.bump(i, 1); },
+        decLabel: p.name + ', perder 1 de vida', incLabel: p.name + ', ganhar 1 de vida'
+      };
+    });
+    return { players: players };
+  }
+}
+</script>
+</body>
+</html>
