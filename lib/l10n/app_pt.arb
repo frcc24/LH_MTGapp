@@ -82,14 +82,6 @@
     }
   },
   "seeResult": "Ver resultado",
-  "turnOf": "Turno de {name}",
-  "@turnOf": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
   "matchMenu": "Menu da partida",
   "pass": "Passar",
   "pauseTimer": "Pausar timer",
@@ -302,8 +294,6 @@
   "sendSuggestion": "Enviar sugestão",
   "rateApp": "Avaliar o app",
   "licenses": "Licenças de código aberto",
-  "supportProject": "Apoiar o projeto",
-  "supportBody": "Opcional. Uma gorjeta ajuda a manter o app. Não libera nada.",
   "credits": "Créditos",
   "creditsBody": "Dados e imagens de cartas: Scryfall. Fontes: Big Shoulders Display e Instrument Sans (SIL OFL). Ícones: Font Awesome.",
   "proName": "Lighthouse Pro",

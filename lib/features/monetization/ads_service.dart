@@ -8,9 +8,11 @@ import '../settings/settings_state.dart';
 import 'ads_config.dart';
 import 'pro_state.dart';
 
-/// Regras de frequência do intersticial (handoff, seção 12), puras para poder testar:
-/// no máximo 1 a cada 2 partidas terminadas, 4 min entre exibições, nunca na primeira sessão,
-/// nunca se a partida durou menos de 3 min e nunca para Pro.
+/// Regras do intersticial de fim de partida, puras para poder testar: nunca para Pro, nunca na primeira sessão,
+/// nunca se a partida durou menos de [minMatchMinutes] e nunca antes de [minGap] desde o último anúncio.
+const minMatchMinutes = 3;
+const minGap = Duration(minutes: 4);
+
 bool shouldShowInterstitial({
   required AppSettings settings,
   required bool pro,
@@ -19,10 +21,9 @@ bool shouldShowInterstitial({
 }) {
   if (pro) return false;
   if (settings.sessions <= 1) return false;
-  if (minutesPlayed < 3) return false;
-  if (settings.matchesSinceInterstitial < 2) return false;
+  if (minutesPlayed < minMatchMinutes) return false;
   final last = settings.lastInterstitialAt;
-  if (last != null && now.difference(last) < const Duration(minutes: 4)) return false;
+  if (last != null && now.difference(last) < minGap) return false;
   return true;
 }
 
@@ -30,16 +31,24 @@ bool shouldShowInterstitial({
 class AdsNotifier extends Notifier<bool> {
   bool _loaded = false;
 
+  /// A inicialização em andamento, para dois chamadores dividirem uma só: `UnityAds.init` chamado duas vezes ao mesmo tempo
+  /// responde `internalError` e deixa o SDK inutilizável até o app fechar.
+  Future<void>? _initializing;
+
   @override
   bool build() => false;
 
   bool get _supported => Platform.isAndroid || Platform.isIOS;
 
-  Future<void> init() async {
-    if (state || !_supported || ref.read(isProProvider)) return;
-    final consent = ref.read(settingsProvider).adsConsent;
-    if (consent == AdsConsent.unknown) return;
-    final personalized = consent == AdsConsent.personalized;
+  Future<void> init() {
+    if (state || !_supported || ref.read(isProProvider)) return Future<void>.value();
+    if (ref.read(settingsProvider).adsConsent == AdsConsent.unknown) return Future<void>.value();
+    return _initializing ??= _initOnce().whenComplete(() => _initializing = null);
+  }
+
+  Future<void> _initOnce() async {
+    final personalized = ref.read(settingsProvider).adsConsent == AdsConsent.personalized;
+    final done = Completer<void>();
     try {
       await UnityAds.setPrivacyConsent(PrivacyConsentType.gdpr, personalized);
       await UnityAds.setPrivacyConsent(PrivacyConsentType.ccpa, personalized);
@@ -48,35 +57,52 @@ class AdsNotifier extends Notifier<bool> {
         testMode: AdsConfig.testMode,
         onComplete: () {
           state = true;
-          _preload();
+          if (!done.isCompleted) done.complete();
         },
-        onFailed: (_, _) {},
+        // sem Unity (rede, projeto sem preenchimento): o app segue sem anúncios
+        onFailed: (_, _) {
+          if (!done.isCompleted) done.complete();
+        },
       );
-    } catch (_) {
-      // sem Unity (plataforma ou rede): o app segue sem anúncios
-    }
+      await done.future.timeout(const Duration(seconds: 20), onTimeout: () {});
+    } catch (_) {}
+    if (state) await _load();
   }
 
-  void _preload() {
+  /// Carrega o intersticial. Falta de preenchimento é o estado normal de um projeto novo, não um erro.
+  Future<void> _load() {
+    final done = Completer<void>();
     _loaded = false;
     UnityAds.load(
       placementId: AdsConfig.interstitialPlacement,
-      onComplete: (_) => _loaded = true,
-      onFailed: (_, _, _) => _loaded = false,
+      onComplete: (_) {
+        _loaded = true;
+        if (!done.isCompleted) done.complete();
+      },
+      onFailed: (_, _, _) {
+        _loaded = false;
+        if (!done.isCompleted) done.complete();
+      },
     );
+    return done.future.timeout(const Duration(seconds: 10), onTimeout: () {});
   }
 
-  /// Chamado só depois de tocar em "Início" na tela de fim de partida.
+  /// Chamado quando a tela de fim de partida abre (a partida já foi encerrada e gravada).
+  /// Nunca durante a partida: o fim só vale depois de confirmado, e a partida em si não tem anúncio.
   Future<void> maybeShowInterstitial({required int minutesPlayed}) async {
     final now = DateTime.now();
-    if (!state || !_loaded) return;
+    if (!state) return;
     if (!shouldShowInterstitial(
       settings: ref.read(settingsProvider),
       pro: ref.read(isProProvider),
       minutesPlayed: minutesPlayed,
       now: now,
-    ))
+    )) {
       return;
+    }
+    if (!_loaded) await _load(); // uma segunda chance, como nos outros apps
+    if (!_loaded) return;
+    _loaded = false; // gasto ao exibir, aconteça o que acontecer
     final done = Completer<bool>();
     await UnityAds.showVideoAd(
       placementId: AdsConfig.interstitialPlacement,
@@ -84,10 +110,10 @@ class AdsNotifier extends Notifier<bool> {
       onSkipped: (_) => done.complete(true),
       onFailed: (_, _, _) => done.complete(false),
     );
-    if (await done.future.timeout(const Duration(seconds: 60), onTimeout: () => false)) {
+    if (await done.future.timeout(const Duration(seconds: 90), onTimeout: () => false)) {
       ref.read(settingsProvider.notifier).recordInterstitialShown(now);
     }
-    _preload();
+    unawaited(_load());
   }
 }
 

@@ -138,21 +138,10 @@ class _MatchScreenState extends ConsumerState<MatchScreen> with WidgetsBindingOb
     if (mounted) context.go('/match/result');
   }
 
+  /// Passa o turno sem aviso na tela: o desfazer fica no botão da faixa e na gaveta.
   void _pass() {
-    final c = ref.read(matchControllerProvider.notifier);
-    c.dispatch(PassTurn(DateTime.now()));
+    ref.read(matchControllerProvider.notifier).dispatch(PassTurn(DateTime.now()));
     _haptics.light();
-    final g = c.game;
-    final l = AppL10n.of(context);
-    ScaffoldMessenger.of(context)
-      ..hideCurrentSnackBar()
-      ..showSnackBar(
-        SnackBar(
-          duration: const Duration(seconds: 3),
-          content: Text(l.turnOf(g.config.playerById(g.activePlayerId).name)),
-          action: SnackBarAction(label: l.undo, onPressed: c.undo),
-        ),
-      );
   }
 
   Future<void> _openMenu() async {

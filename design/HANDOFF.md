@@ -329,7 +329,7 @@ Entrada: total de terrenos (stepper; dicas 24 para 60 cartas, 37 para Commander)
 
 Proibido: anúncio em `/match`, na gaveta, no menu da partida, em diálogos, no paywall e em Sobre.
 
-**IAP** (`in_app_purchase`): produto não consumível `lighthouse_pro`. Ouvir `purchaseStream` desde o início do app, concluir transações pendentes, guardar o direito localmente e revalidar na abertura. "Restaurar compras" em Ajustes e no paywall (exigência da Apple). Opcional: gorjetas consumíveis `tip_small`, `tip_medium` para "Apoiar o projeto"; no iOS, gorjeta por link externo (PIX, PayPal) **não** é permitida para apps comuns.
+**IAP** (`in_app_purchase`): produto não consumível `lighthouse_pro`. Ouvir `purchaseStream` desde o início do app, concluir transações pendentes, guardar o direito localmente e revalidar na abertura. "Restaurar compras" em Ajustes e no paywall (exigência da Apple). **Sem gorjetas** (decisão posterior): o `lighthouse_pro` é o único produto.
 
 Pro libera: sem anúncios, temas extras (v1.1), jogadores salvos ilimitados (grátis: 6), histórico ilimitado (grátis: 20), contadores personalizados ilimitados (grátis: 2), pacote de sons.
 

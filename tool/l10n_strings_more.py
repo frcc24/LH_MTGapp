@@ -45,8 +45,6 @@ STRINGS = {
     'sendSuggestion': ('Enviar sugestão', 'Send feedback', 'Enviar sugerencia'),
     'rateApp': ('Avaliar o app', 'Rate the app', 'Calificar la app'),
     'licenses': ('Licenças de código aberto', 'Open-source licenses', 'Licencias de código abierto'),
-    'supportProject': ('Apoiar o projeto', 'Support the project', 'Apoyar el proyecto'),
-    'supportBody': ('Opcional. Uma gorjeta ajuda a manter o app. Não libera nada.', 'Optional. A tip helps keep the app going. It unlocks nothing.', 'Opcional. Una propina ayuda a mantener la app. No desbloquea nada.'),
     'credits': ('Créditos', 'Credits', 'Créditos'),
     'creditsBody': ('Dados e imagens de cartas: Scryfall. Fontes: Big Shoulders Display e Instrument Sans (SIL OFL). Ícones: Font Awesome.', 'Card data and images: Scryfall. Fonts: Big Shoulders Display and Instrument Sans (SIL OFL). Icons: Font Awesome.', 'Datos e imágenes de cartas: Scryfall. Fuentes: Big Shoulders Display e Instrument Sans (SIL OFL). Iconos: Font Awesome.'),
 

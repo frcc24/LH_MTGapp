@@ -273,12 +273,6 @@ abstract class AppL10n {
   /// **'Ver resultado'**
   String get seeResult;
 
-  /// No description provided for @turnOf.
-  ///
-  /// In pt, this message translates to:
-  /// **'Turno de {name}'**
-  String turnOf(String name);
-
   /// No description provided for @matchMenu.
   ///
   /// In pt, this message translates to:
@@ -1088,18 +1082,6 @@ abstract class AppL10n {
   /// In pt, this message translates to:
   /// **'Licenças de código aberto'**
   String get licenses;
-
-  /// No description provided for @supportProject.
-  ///
-  /// In pt, this message translates to:
-  /// **'Apoiar o projeto'**
-  String get supportProject;
-
-  /// No description provided for @supportBody.
-  ///
-  /// In pt, this message translates to:
-  /// **'Opcional. Uma gorjeta ajuda a manter o app. Não libera nada.'**
-  String get supportBody;
 
   /// No description provided for @credits.
   ///

@@ -13,18 +13,18 @@ fazer (contas, consoles, lojas); **[eu]** dá para fazer no código; **[ambos]**
 - [ ] **[você]** Declarar anúncios ("contém anúncios"), **ID de publicidade** (a permissão `AD_ID` já está no manifesto) e atualizar a
       **Segurança dos dados** com o que a Unity Ads coleta (identificadores de dispositivo, dados de uso para publicidade).
 - [ ] **[você]** Classificação etária e público-alvo (não infantil) refeitos para a versão nova.
-- [ ] **[você]** Perfil de pagamentos ativo e produtos de compra criados: `lighthouse_pro` (única, não consumível) e, se quiser gorjeta,
-      `tip_small` e `tip_medium` (consumíveis).
+- [ ] **[você]** Perfil de pagamentos ativo e produtos de compra criados: `lighthouse_pro` (única, não consumível). É o único produto.
 - [ ] **[você]** Textos da loja (pt-BR, en, es), ícone 512, gráfico de recursos 1024×500 e 5 capturas (ver `design/HANDOFF.md`, seção 17).
 - [ ] **[ambos]** Primeiro envio na faixa de **teste interno** com `build/app/outputs/bundle/release/app-release.aab`; conferir o
       relatório de pré-lançamento; só então produção.
 
 ## 1. Anúncios e privacidade
 
-- [ ] **[você]** Criar o projeto na Unity (Monetization) com Game IDs de Android e iOS e os placements `Banner_Android`,
-      `Interstitial_Android`, `Banner_iOS`, `Interstitial_iOS`.
-- [ ] **[eu]** Colocar os IDs em `lib/features/monetization/ads_config.dart` e desligar `testMode` (hoje: `0000000` e teste ligado, nenhum
-      anúncio real aparece).
+- [x] Projeto criado na Unity (Android 6198412, iOS 6198413) e IDs em `lib/features/monetization/ads_config.dart`; banner e intersticial
+      testados no emulador. `testMode` segue o build (debug = teste, release = real).
+- [ ] **[você]** Em Unity > Monetization > Ad Units, conferir que existem `Banner_Android`, `Interstitial_Android`, `Banner_iOS` e
+      `Interstitial_iOS` (são os nomes que o app usa) e que o app aparece como publicado na Play/Apple, senão o preenchimento real demora.
+- [x] Intersticial no fim da partida (tela de resultado).
 - [ ] **[você]** Publicar a **política de privacidade** e os **termos** (a Play e a Apple exigem a URL). **[eu]** troco as URLs em
       `lib/core/links.dart`.
 - [ ] **[eu]** Consentimento para a **Europa/Reino Unido** (GDPR): hoje é um diálogo simples. Integrar uma plataforma de consentimento
@@ -35,7 +35,7 @@ fazer (contas, consoles, lojas); **[eu]** dá para fazer no código; **[ambos]**
 
 - [ ] **[você]** Conta Apple Developer, App ID `com.francocorrea.magiccounter`, registro do app no App Store Connect.
 - [ ] **[ambos]** Abrir `ios/` no Xcode: adicionar `Runner/PrivacyInfo.xcprivacy` ao target, configurar assinatura, rodar em iPhone e iPad.
-- [ ] **[ambos]** Acrescentar a lista completa de `SKAdNetworkItems` da Unity no `Info.plist` (hoje só há um ID).
+- [ ] **[ambos]** Conferir a lista de `SKAdNetworkItems` do `Info.plist` (76 IDs copiados do cardkingdoms) com a lista atual da Unity.
 - [ ] **[você]** Produto `lighthouse_pro` no App Store Connect; rótulos de privacidade; classificação etária; capturas iPhone 6,9" e iPad 13".
 - [ ] **[você]** Notas para a revisão: app não oficial (aviso em Sobre), sem preços de cartas, imagens só da Scryfall.
 - [ ] **[ambos]** TestFlight antes de enviar. Risco conhecido: guideline 5.2 (propriedade intelectual) por causa dos símbolos de mana

@@ -13,11 +13,29 @@ import '../domain/game_controller.dart';
 import '../domain/models.dart';
 import '../domain/reducer.dart';
 
-class ResultScreen extends ConsumerWidget {
+class ResultScreen extends ConsumerStatefulWidget {
   const ResultScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<ResultScreen> createState() => _ResultScreenState();
+}
+
+class _ResultScreenState extends ConsumerState<ResultScreen> {
+  @override
+  void initState() {
+    super.initState();
+    // Fim de partida = pausa natural: o intersticial entra aqui, nunca na partida. As regras de frequência ficam em
+    // `shouldShowInterstitial` (não Pro, não na 1ª sessão, partida de 3 min ou mais, 4 min desde o último).
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final g = ref.read(matchControllerProvider).game;
+      if (!mounted || g == null) return;
+      final end = g.endedAt ?? DateTime.now();
+      ref.read(adsProvider.notifier).maybeShowInterstitial(minutesPlayed: end.difference(g.startedAt).inMinutes);
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final l = AppL10n.of(context);
     final game = ref.watch(matchControllerProvider.select((s) => s.game));
     if (game == null) {
@@ -135,10 +153,9 @@ class ResultScreen extends ConsumerWidget {
                 ),
                 const SizedBox(height: 10),
                 TextButton(
-                  onPressed: () async {
+                  onPressed: () {
                     c.clear();
                     context.go('/');
-                    await ref.read(adsProvider.notifier).maybeShowInterstitial(minutesPlayed: mins);
                   },
                   child: Text(l.home),
                 ),

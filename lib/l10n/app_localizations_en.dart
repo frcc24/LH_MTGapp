@@ -113,11 +113,6 @@ class AppL10nEn extends AppL10n {
   String get seeResult => 'See result';
 
   @override
-  String turnOf(String name) {
-    return '$name\'s turn';
-  }
-
-  @override
   String get matchMenu => 'Match menu';
 
   @override
@@ -549,12 +544,6 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get licenses => 'Open-source licenses';
-
-  @override
-  String get supportProject => 'Support the project';
-
-  @override
-  String get supportBody => 'Optional. A tip helps keep the app going. It unlocks nothing.';
 
   @override
   String get credits => 'Credits';

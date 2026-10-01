@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -9,18 +8,16 @@ import '../../core/theme/app_tokens.dart';
 import '../../l10n/app_localizations.dart';
 import '../../shared/widgets/lighthouse_icon.dart';
 import '../../shared/widgets/section_header.dart';
-import '../monetization/iap_service.dart';
 
 /// Sobre: sem anúncios aqui, nunca.
-class AboutScreen extends ConsumerWidget {
+class AboutScreen extends StatelessWidget {
   const AboutScreen({super.key});
 
   Future<void> _open(String url) => launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     final l = AppL10n.of(context);
-    final iap = ref.watch(iapProvider);
 
     Widget link(String label, VoidCallback f, {FaIconData icon = FontAwesomeIcons.arrowUpRightFromSquare}) => ListTile(
       contentPadding: EdgeInsets.zero,
@@ -75,23 +72,6 @@ class AboutScreen extends ConsumerWidget {
                   () => showLicensePage(context: context, applicationName: l.appName),
                   icon: FontAwesomeIcons.chevronRight,
                 ),
-                if (iap.available &&
-                    (iap.products.containsKey('tip_small') || iap.products.containsKey('tip_medium'))) ...[
-                  SectionHeader(l.supportProject),
-                  Text(l.supportBody, style: AppType.body.copyWith(color: AppColors.textMuted)),
-                  const SizedBox(height: 10),
-                  Wrap(
-                    spacing: 10,
-                    children: [
-                      for (final id in tipProductIds)
-                        if (iap.products[id] != null)
-                          OutlinedButton(
-                            onPressed: iap.busy ? null : () => ref.read(iapProvider.notifier).tip(id),
-                            child: Text(iap.products[id]!.price),
-                          ),
-                    ],
-                  ),
-                ],
                 SectionHeader(l.credits),
                 Text(l.creditsBody, style: AppType.body.copyWith(color: AppColors.textMuted)),
                 const SizedBox(height: 6),

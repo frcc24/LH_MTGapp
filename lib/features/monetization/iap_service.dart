@@ -6,7 +6,6 @@ import 'package:in_app_purchase/in_app_purchase.dart';
 import 'pro_state.dart';
 
 const proProductId = 'lighthouse_pro';
-const tipProductIds = {'tip_small', 'tip_medium'};
 
 class IapState {
   const IapState({this.available = false, this.products = const {}, this.busy = false, this.error});
@@ -31,7 +30,7 @@ class IapState {
   );
 }
 
-/// Compra única do Lighthouse Pro (não consumível) e gorjetas (consumíveis).
+/// Compra única do Lighthouse Pro (não consumível). Não há outros produtos.
 /// Ouve `purchaseStream` desde o início do app, conclui pendências e grava o direito localmente.
 class IapNotifier extends Notifier<IapState> {
   StreamSubscription<List<PurchaseDetails>>? _sub;
@@ -50,7 +49,7 @@ class IapNotifier extends Notifier<IapState> {
       _sub = _iap!.purchaseStream.listen(_onPurchases, onError: (_) {});
       final ok = await _iap!.isAvailable();
       if (!ok) return;
-      final resp = await _iap!.queryProductDetails({proProductId, ...tipProductIds});
+      final resp = await _iap!.queryProductDetails({proProductId});
       state = state.copyWith(available: true, products: {for (final p in resp.productDetails) p.id: p});
       // revalida o direito na abertura
       await _iap!.restorePurchases();
@@ -77,20 +76,12 @@ class IapNotifier extends Notifier<IapState> {
     }
   }
 
-  Future<void> buyPro() => _buy(proProductId, consumable: false);
-  Future<void> tip(String id) => _buy(id, consumable: true);
-
-  Future<void> _buy(String id, {required bool consumable}) async {
-    final product = state.products[id];
+  Future<void> buyPro() async {
+    final product = state.pro;
     if (product == null || _iap == null) return;
     state = state.copyWith(busy: true, clearError: true);
-    final param = PurchaseParam(productDetails: product);
     try {
-      if (consumable) {
-        await _iap!.buyConsumable(purchaseParam: param);
-      } else {
-        await _iap!.buyNonConsumable(purchaseParam: param);
-      }
+      await _iap!.buyNonConsumable(purchaseParam: PurchaseParam(productDetails: product));
     } catch (e) {
       state = state.copyWith(busy: false, error: '$e');
     }

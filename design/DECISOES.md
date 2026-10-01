@@ -21,7 +21,7 @@ Registro de onde a implementação saiu do `HANDOFF.md` e por quê.
   **não** foram implementados e por isso não são prometidos no paywall.
 - **Jogadores salvos / contadores personalizados / agitar para desfazer / relógio de xadrez / alternância PT-EN de texto de carta:** fora da v1.
 - **Passar o turno:** botão "Passar" na faixa (1–2J), toque no selo TURNO (3–4J) ou item do menu. Toque duplo no painel não é usado.
-- **Gorjeta:** produtos consumíveis `tip_small` e `tip_medium` aparecem em Sobre só se a loja os devolver. Nada de PIX/PayPal no iOS.
+- **Sem gorjeta:** o único produto de loja é o `lighthouse_pro`. Sem produtos consumíveis e sem PIX/PayPal.
 - **Segurar para sair da partida** foi acrescentado ao menu (além de reiniciar e encerrar), porque não havia outro jeito de descartar a partida sem registrar.
 - **Preços de cartas:** o modelo `ScryCard` não lê `prices` nem `purchase_uris`; há teste cobrindo.
 
@@ -30,11 +30,19 @@ O `RotatedBox` não gira o `MediaQuery`. Por isso `rotateInsets` (match_layout.d
 e `screenInsetsFor` só aplica nas bordas que realmente encostam na tela. Testado em `test/layout/match_layout_test.dart`.
 
 ## Anúncios e privacidade
-- **Unity Ads:** `AdsConfig` tem Game IDs de exemplo (`0000000`) e `testMode = true`. Troque pelos IDs do painel da Unity antes de publicar.
+- **Unity Ads:** Game IDs reais em `AdsConfig` (Android 6198412, iOS 6198413, projeto criado em 01/10/2026). `testMode` segue o build
+  (`kDebugMode`): debug pede anúncio de teste, release pede o real. Placements `Banner_*` e `Interstitial_*` (as Ad Units criadas pela Unity).
+  Conferido no emulador em debug: SDK inicializa, banner e intersticial carregam e exibem.
+- **Intersticial no fim da partida:** entra quando a tela de resultado abre (depois de a partida ser confirmada como terminada), nunca durante a
+  partida. Regras (`shouldShowInterstitial`, testadas): não Pro, não na 1ª sessão, partida de 3 min ou mais, 4 min desde o último anúncio.
+  Mudou em relação ao handoff: sai a regra "1 a cada 2 partidas" e o anúncio não espera mais o toque em "Início".
+- **Padrões copiados dos apps que já funcionam (destinydice, cardkingdoms):** regras do R8 para Unity/androidx (`proguard-rules.pro`),
+  lista completa de 76 `SKAdNetworkItems` no iOS, inicialização única da Unity com guarda de concorrência e `testMode` pelo build.
+- **Passar o turno não mostra snackbar** (removido a pedido): o desfazer fica na faixa e na gaveta.
 - **Consentimento:** Android mostra um diálogo simples (personalizados / não personalizados); iOS mostra o pré-prompt e então o ATT.
   **Não há** plataforma de consentimento (UMP/CMP) para GDPR na UE: para publicar na Europa vale integrar uma antes.
 - **iOS:** `PrivacyInfo.xcprivacy` está em `ios/Runner/`, mas **precisa ser adicionado ao target Runner no Xcode** (não dá para fazer no Windows).
-  `SKAdNetworkItems` tem só o ID da Unity: copie a lista completa do painel da Unity.
+  `SKAdNetworkItems` já tem a lista de 76 IDs copiada do cardkingdoms; reconfira com a lista atual da Unity antes de publicar.
 - **Links:** `lib/core/links.dart` aponta para páginas de privacidade e termos que ainda não existem. Publique e troque.
 
 ## Android

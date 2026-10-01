@@ -38,7 +38,6 @@ STRINGS = {
     # ── partida ───────────────────────────────────────────────────────────
     'winnerPrompt': ('{names} venceu?', '{names} won?', '¿Ganó {names}?', {'names': 'String'}),
     'seeResult': ('Ver resultado', 'See result', 'Ver resultado'),
-    'turnOf': ('Turno de {name}', "{name}'s turn", 'Turno de {name}', {'name': 'String'}),
     'matchMenu': ('Menu da partida', 'Match menu', 'Menú de la partida'),
     'pass': ('Passar', 'Pass', 'Pasar'),
     'pauseTimer': ('Pausar timer', 'Pause timer', 'Pausar temporizador'),

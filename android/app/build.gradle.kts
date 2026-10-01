@@ -66,6 +66,9 @@ android {
     buildTypes {
         getByName("release") {
             signingConfig = if (hasKeystoreProperties) signingConfigs.getByName("release") else null
+
+            // Regras próprias do R8 (Unity Ads e androidx): ver proguard-rules.pro.
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
 }
